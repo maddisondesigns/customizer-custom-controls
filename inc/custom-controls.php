@@ -1,16 +1,12 @@
 <?php
 /**
- * Ephemeris Customizer Custom Controls
+ * Skyrocket Customizer Custom Controls
  *
- * @package Ephemeris
- * @since Ephemeris 1.0
  */
 
 if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Image Check Box Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,8 +50,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Text Radio Button Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -101,8 +95,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Image Radio Button Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
@@ -144,8 +136,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Single Accordion Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -193,8 +183,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Simple Notice Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
@@ -223,8 +211,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Slider Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -257,8 +243,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Toggle Switch Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -299,8 +283,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Sortable Repeater Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -344,8 +326,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Googe Font Select Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -502,8 +482,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
  	 * Alpha Color Picker Custom Control
  	 *
- 	 * @since Ephemeris 1.0
- 	 *
  	 * @author Braad Martin <http://braadmartin.com>
  	 * @license http://www.gnu.org/licenses/gpl-3.0.html
  	 * @link https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker
@@ -564,8 +542,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * URL sanitization function for Customizer Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @param  string or array	Input to be sanitized
 	 * @return string or array	Sanitized input
 	 */
@@ -586,8 +562,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Switch sanitization function for Customizer Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @param  string		Switch value
 	 * @return integer	Sanitized value
 	 */
@@ -604,8 +578,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Integer sanitization function for Customizer Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @param  string		Input value to check
 	 * @return integer	Returned integer value
 	 */
@@ -621,8 +593,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Text sanitization function for Customizer Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @param  string or array	Input to be sanitized
 	 * @return string or array	Sanitized input

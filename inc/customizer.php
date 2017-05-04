@@ -2,8 +2,6 @@
 /**
  * Ephemeris Customizer Setup and Custom Controls
  *
- * @package Ephemeris
- * @since Ephemeris 1.0
  */
 
 /**
