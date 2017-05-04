@@ -33,5 +33,5 @@ Google Font Select
 
 More documentation coming soon!
 In the meantime, checkout:
-https://maddisondesigns.com/wordpress-customizer-part-1-adding-default-controls (coming soon)
-https://maddisondesigns.com/wordpress-customizer-part-2-creating-custom-controls (coming soon)
+https://maddisondesigns.com/wordpress-customizer-part-1-adding-default-controls (coming even sooner)
+https://maddisondesigns.com/wordpress-customizer-part-2-creating-custom-controls (coming even sooner)
