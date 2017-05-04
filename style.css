@@ -1,0 +1,48 @@
+/* These styles are only needed for the sample social icons */
+
+.social-icons {
+	margin: 4px 0;
+	margin: .25rem 0;
+	padding: 0;
+}
+
+.social-icons li {
+	display: inline-block;
+	margin: 0;
+}
+
+.social-icons.alignleft li {
+	margin-right: 8px;
+	margin-right: .5rem;
+}
+
+.social-icons.alignright li {
+	margin-left: 8px;
+	margin-left: .5rem;
+}
+
+.social-icons li a {
+	display: inline-block;
+	padding: 4px;
+	padding: .25rem;
+}
+
+.social-icons i,
+.social-icons .phone {
+	font-size: 20px;
+	font-size: 1.25rem;
+}
+
+.social-icons .phone i {
+	margin-right: 4px;
+	margin-right: .25rem;
+}
+
+.social-icons a:visited {
+	color: #3a3a3a;
+}
+
+.social-icons a:hover,
+.social-icons a:active {
+	color: #339bcb;
+}
