@@ -193,6 +193,9 @@ if ( ! function_exists( 'ephemeris_generate_defaults' ) ) {
 			'sample_default_dropdownpages' => '1548',
 			'sample_default_textarea' => '',
 			'sample_default_color' => '#333',
+			'sample_default_media' => '',
+			'sample_default_image' => '',
+			'sample_default_cropped_image' => '',
 		);
 
 		return apply_filters( 'ephemeris_customizer_defaults', $customizer_defaults );

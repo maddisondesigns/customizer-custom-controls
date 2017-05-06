@@ -837,6 +837,73 @@ class ephemeris_initialise_customizer_settings {
 			)
 		);
 
+		// Test of Media Control
+		$wp_customize->add_setting( 'sample_default_media',
+			array(
+				'default' => $this->defaults['sample_default_media'],
+				'transport' => 'refresh'
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'sample_default_media',
+			array(
+				'label' => 'Default Media Control',
+				'description' => 'This is the description for the Media Control',
+				'section' => 'default_controls_section',
+				'mime_type' => 'image',
+				'button_labels' => array(
+					'select'       => __( 'Select File' ),
+					'change'       => __( 'Change File' ),
+					'default'      => __( 'Default' ),
+					'remove'       => __( 'Remove' ),
+					'placeholder'  => __( 'No file selected' ),
+					'frame_title'  => __( 'Select File' ),
+					'frame_button' => __( 'Choose File' ),
+				)
+			)
+		) );
+
+		// Test of Image Control
+		$wp_customize->add_setting( 'sample_default_image',
+			array(
+				'default' => $this->defaults['sample_default_image'],
+				'transport' => 'refresh'
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'sample_default_image',
+			array(
+				'label' => 'Default Image Control',
+				'description' => 'This is the description for the Image Control',
+				'section' => 'default_controls_section',
+				'button_labels' => array(
+					'select'       => __( 'Select Image' ),
+					'change'       => __( 'Change Image' ),
+					'remove'       => __( 'Remove' ),
+					'default'      => __( 'Default' ),
+					'placeholder'  => __( 'No image selected' ),
+					'frame_title'  => __( 'Select Image' ),
+					'frame_button' => __( 'Choose Image' ),
+				)
+			)
+		) );
+
+		// Test of Cropped Image Control
+		$wp_customize->add_setting( 'sample_default_cropped_image',
+			array(
+				'default' => $this->defaults['sample_default_cropped_image'],
+				'transport' => 'refresh'
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'sample_default_cropped_image',
+			array(
+				'label' => 'Default Cropped Image Control',
+				'description' => 'This is the description for the Cropped Image Control',
+				'section' => 'default_controls_section',
+				'flex_width' => false,
+				'flex_height' => false,
+				'width' => 800,
+				'height' => 400
+			)
+		) );
 	}
 }
 
