@@ -1,9 +1,9 @@
 # Customizer Custom Controls #
 
-**Author:** Anthony Hortin
-**Author URI:** https://maddisondesigns.com
-**License:** GNU General Public License v2 or later
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+**Author:** Anthony Hortin  
+**Author URI:** https://maddisondesigns.com  
+**License:** GNU General Public License v2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 
 ## Description ##
@@ -33,6 +33,6 @@ Google Font Select
 
 More documentation coming soon!
 
-In the meantime, checkout:
+In the meantime, checkout:  
 [The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2) (coming even sooner)
