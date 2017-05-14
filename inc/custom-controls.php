@@ -294,6 +294,22 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public $type = 'sortable_repeater';
 		/**
+ 		 * Button labels
+ 		 */
+		public $button_labels = array();
+		/**
+		 * Constructor
+		 */
+		public function __construct( $manager, $id, $args = array(), $options = array() ) {
+			parent::__construct( $manager, $id, $args );
+			// Merge the passed button labels with our default labels
+			$this->button_labels = wp_parse_args( $this->button_labels,
+				array(
+					'add' => __( 'Add' ),
+				)
+			);
+		}
+		/**
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
@@ -318,7 +334,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 						<input type="text" value="" class="repeater-input" placeholder="http://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
 					</div>
 				</div>
-				<button class="button customize-control-sortable-repeater-add" type="button"><?php esc_html_e( 'Add icon', 'ephemeris' ) ?></button>
+				<button class="button customize-control-sortable-repeater-add" type="button"><?php echo $this->button_labels['add']; ?></button>
 			</div>
 		<?php
 		}
