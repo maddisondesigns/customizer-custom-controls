@@ -1,6 +1,6 @@
 <?php
 /**
- * Ephemeris Customizer Setup and Custom Controls
+ * Customizer Setup and Custom Controls
  *
  */
 
@@ -104,7 +104,7 @@ class ephemeris_initialise_customizer_settings {
 				'description' => esc_html__( 'Adjust the layout of your WooCommerce shop.' ),
 				'active_callback' => 'ephemeris_is_woocommerce_active'
 			)
- 		);
+		);
 
 		$wp_customize->add_section( 'sample_custom_controls_section',
 			array(
@@ -137,8 +137,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'social_newtab',
 			array(
-				'label' => esc_html__( 'Open in new browser tab', 'ephemeris' ),
-				'type' => 'checkbox',
+				'label' => esc_html__( 'Open in new browser tab' ),
 				'section' => 'social_icons_section'
 			)
 		) );
@@ -195,7 +194,10 @@ class ephemeris_initialise_customizer_settings {
 			array(
 				'label' => __( 'Social URLs' ),
 				'description' => esc_html__( 'Add your social media links.' ),
-				'section' => 'social_icons_section'
+				'section' => 'social_icons_section',
+				'button_labels' => array(
+					'add' => __( 'Add Icon' ),
+				)
 			)
 		) );
 		$wp_customize->selective_refresh->add_partial( 'social_urls',
@@ -249,7 +251,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'social_url_icons',
 			array(
-				'label' => __( 'View list of available icons', 'ephemeris' ),
+				'label' => __( 'View list of available icons' ),
 				'description' => $socialIconsList,
 				'section' => 'social_icons_section'
 			)
@@ -265,8 +267,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'social_rss',
 			array(
-				'label' => esc_html__( 'Display RSS icon', 'ephemeris' ),
-				'type' => 'checkbox',
+				'label' => __( 'Display RSS icon' ),
 				'section' => 'social_icons_section'
 			)
 		) );
@@ -297,7 +298,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( 'contact_phone',
 			array(
-				'label' => esc_html__( 'Display phone number', 'ephemeris' ),
+				'label' => __( 'Display phone number' ),
 				'type' => 'text',
 				'section' => 'contact_section'
 			)
@@ -329,8 +330,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'search_menu_icon',
 			array(
-				'label' => esc_html__( 'Display Search Icon', 'ephemeris' ),
-				'type' => 'checkbox',
+				'label' => __( 'Display Search Icon' ),
 				'section' => 'search_section'
 			)
 		) );
@@ -358,8 +358,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'woocommerce_shop_sidebar',
 			array(
-				'label' => esc_html__( 'Shop page sidebar', 'ephemeris' ),
-				'type' => 'checkbox',
+				'label' => __( 'Shop page sidebar' ),
 				'section' => 'woocommerce_layout_section'
 			)
 		) );
@@ -374,8 +373,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'woocommerce_product_sidebar',
 			array(
-				'label' => esc_html__( 'Single Product page sidebar', 'ephemeris' ),
-				'type' => 'checkbox',
+				'label' => esc_html__( 'Single Product page sidebar' ),
 				'section' => 'woocommerce_layout_section'
 			)
 		) );
@@ -389,8 +387,8 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'woocommerce_other_sidebar',
 			array(
-				'label' => __( 'Cart, Checkout & My Account sidebars', 'ephemeris' ),
-				'description' 	=> esc_html__( 'The Cart, Checkout and My Account pages are displayed using shortcodes. To remove the sidebar from these Pages, simply edit each Page and change the Template (in the Page Attributes Panel) to Full-width Page.' ),
+				'label' => __( 'Cart, Checkout & My Account sidebars' ),
+				'description' => esc_html__( 'The Cart, Checkout and My Account pages are displayed using shortcodes. To remove the sidebar from these Pages, simply edit each Page and change the Template (in the Page Attributes Panel) to Full-width Page.' ),
 				'section' => 'woocommerce_layout_section'
 			)
 		) );
@@ -402,18 +400,17 @@ class ephemeris_initialise_customizer_settings {
 	 */
 	public function ephemeris_register_sample_custom_controls( $wp_customize ) {
 
-		// Test of Checkbox Switch Custom Control
-		$wp_customize->add_setting( 'sample_checkbox_switch',
+		// Test of Toggle Switch Custom Control
+		$wp_customize->add_setting( 'sample_toggle_switch',
 			array(
-				'default' => $this->defaults['sample_checkbox_switch'],
+				'default' => $this->defaults['sample_toggle_switch'],
 				'transport' => 'refresh',
 				'sanitize_callback' => 'ephemeris_switch_sanitization'
 			)
 		);
-		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'sample_checkbox_switch',
+		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'sample_toggle_switch',
 			array(
-				'label' => esc_html__( 'Checkbox switch', 'ephemeris' ),
-				'type' => 'checkbox',
+				'label' => __( 'Toggle switch' ),
 				'section' => 'sample_custom_controls_section'
 			)
 		) );
@@ -428,7 +425,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control',
 			array(
-				'label' => esc_html__( 'Slider Control (px)', 'ephemeris' ),
+				'label' => __( 'Slider Control (px)' ),
 				'section' => 'sample_custom_controls_section',
 				'input_attrs' => array(
 					'min' => 10,
@@ -449,8 +446,11 @@ class ephemeris_initialise_customizer_settings {
 		$wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'sample_sortable_repeater_control',
 			array(
 				'label' => __( 'Sortable Repeater' ),
-				'description' => esc_html__( 'This is the field description, if needed' ),
-				'section' => 'sample_custom_controls_section'
+				'description' => esc_html__( 'This is the control description.' ),
+				'section' => 'sample_custom_controls_section',
+				'button_labels' => array(
+					'add' => __( 'Add Row' ),
+				)
 			)
 		) );
 
@@ -576,7 +576,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color_picker',
 			array(
-				'label' => __( 'Alpha Color Picker Control', 'ephemeris' ),
+				'label' => __( 'Alpha Color Picker Control' ),
 				'section' => 'sample_custom_controls_section',
 				'show_opacity' => true,
 				'palette' => array(
@@ -602,7 +602,7 @@ class ephemeris_initialise_customizer_settings {
 		$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
 			array(
 				'label' => __( 'Simple Notice Control' ),
-				'description' 	=> esc_html__('This Custom Control allows you to display a simple title and description to your users.' ),
+				'description' => esc_html__('This Custom Control allows you to display a simple title and description to your users.' ),
 				'section' => 'sample_custom_controls_section'
 			)
 		) );
@@ -637,10 +637,10 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( 'sample_default_text',
 			array(
- 				'label' => __( 'Default Text Control' ),
- 				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default Text Control' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
 				'section' => 'default_controls_section',
- 				'type' => 'text',
+				'type' => 'text',
 				'input_attrs' => array(
 					'class' => 'my-custom-class',
 					'style' => 'border: 1px solid rebeccapurple',
@@ -738,7 +738,7 @@ class ephemeris_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( 'sample_default_checkbox',
 			array(
-				'label' => __( 'Default Checkbox Control', 'ephemeris' ),
+				'label' => __( 'Default Checkbox Control' ),
 				'description' => esc_html__( 'Sample Checkbox description' ),
 				'section' => 'default_controls_section',
 				'type' => 'checkbox'
