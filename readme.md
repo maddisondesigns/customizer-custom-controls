@@ -10,7 +10,7 @@
 
 This is an example of incorporating Customizer functionality into your theme, including examples of how to update the Live Preview window. As well as showing the usage of the (built-in) core controls, there are also a number of Custom Controls.
 
-### Core Controls ###
+## Core Controls ##
 Input Control (Text, Email, URL, Number, Hidden, Date)
 Checkbox Control  
 Select Control  
@@ -19,8 +19,8 @@ Dropdown Pages Control
 Textarea Control  
 Color Control  
 
-### Custom Controls ###
-#### Toggle Switch ####
+## Custom Controls ##
+### Toggle Switch ###
 
 The Toggle Switch Custom Control is basically just a fancy type of checkbox. It allows for two states, either off or on.
 
@@ -49,7 +49,7 @@ $wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_cust
 ) );
 ````
 
-#### Slider ####
+### Slider ###
 
 The Slider Custom Control allows you to drag a handle across a horizontal bar to increase or decrease a numeric value. The control also has a reset button, allowing you to reset the value back to the default value. The accompanying input field shows you the value of the slider whilst also giving you the ability to manually enter a value as well.
 
@@ -89,7 +89,7 @@ $wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 
 ) );
 ````
 
-#### Sortable Repeater ####
+### Sortable Repeater ###
 
 The Sortable Repeater Custom Control allows you to collect values from one or more input fields. On top of that, the fields can be reordered by simply dragging 'n dropping each field. The control provides an icon handle for easy drag 'n drop reordering, a button for deleting a row and a button for adding a new row.
 
@@ -129,13 +129,13 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
 ) );
 ````
 
-Image Radio Button  
-Text Radio Button  
-Image Checkbox  
-Single Accordion  
-Alpha Color Picker  
-Simple Notice  
-Google Font Select  
+### Image Radio Button ###
+### Text Radio Button ###
+### Image Checkbox ###
+### Single Accordion ###
+### Alpha Color Picker ###
+### Simple Notice ###
+### Google Font Select ###
 
 More documentation coming soon!
 
