@@ -172,7 +172,7 @@ if ( ! function_exists( 'ephemeris_generate_defaults' ) ) {
 			'search_menu_icon' => 0,
 			'woocommerce_shop_sidebar' => 1,
 			'woocommerce_product_sidebar' => 0,
-			'sample_checkbox_switch' => 0,
+			'sample_toggle_switch' => 0,
 			'sample_slider_control' => 48,
 			'sample_sortable_repeater_control' => '',
 			'sample_image_radio_button' => 'sidebarright',
