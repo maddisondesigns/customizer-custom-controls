@@ -130,9 +130,212 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
 ````
 
 ### Image Radio Button ###
+
+The Image Radio Button works the same as an ordinary radio button control, in that you can only choose one item out of a number of items. The Difference is that it allows you to display images for each selection choice. This is useful where an image provides a better indicator for the user, that simple text. A common use of this type of control is where a user might select the layout of their site.
+
+When adding your control, you can specify the url for the image to display, the title text to display when hovering the cursor over the image and the value for each item.
+
+Like an ordinary radio button, the setting that gets saved to the database is the value that you specify for each radio button choice
+
+![Image Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/04/ImageRadioButton.png "Image Radio Button")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**choices** - Required. List of custom choices.  
+  **image** - Required. URL for the image to display  
+  **name** - Required. Title text to display
+
+**Example**
+
+````
+$wp_customize->add_control( new Skyrocket_Image_Radio_Button_Custom_Control( $wp_customize, 'sample_image_radio_button',
+	array(
+		'label' => __( 'Image Radio Button Control' ),
+		'description' => esc_html__( 'Sample custom control description' ),
+		'section' => 'sample_custom_controls_section',
+		'choices' => array(
+			'sidebarleft' => array(  // Required. Value for this particular radio button choice
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/sidebar-left.png', // Required. URL for the image
+				'name' => __( 'Left Sidebar' ) // Required. Title text to display
+			),
+			'sidebarnone' => array(
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/sidebar-none.png',
+				'name' => __( 'No Sidebar' )
+			),
+			'sidebarright' => array(
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/sidebar-right.png',
+				'name' => __( 'Right Sidebar' )
+			)
+		)
+	)
+) );
+````
+
 ### Text Radio Button ###
+
+The Text Radio Button is another type of radio button, and again, works the same as an ordinary radio button control. The Text Radio Button simply display the choices in a compact row of text.
+
+When adding your control, you can specify the url for the image to display, the title text to display when hovering the cursor over the image and the value for each item.
+
+Like an ordinary radio button, the setting that gets saved to the database is the value that you specify for each radio button choice
+
+![Text Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/04/TextRadioButton.png "Text Radio Button")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**choices** - Required. List of custom choices.  
+  **key** - Required. Data that will be stored for the setting  
+  **value** - Required. Data that is displayed for the radio button choice
+
+**Example**
+
+````
+$wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'sample_text_radio_button',
+	array(
+		'label' => __( 'Text Radio Button Control' ),
+		'description' => esc_html__( 'Sample custom control description' ),
+		'section' => 'sample_custom_controls_section',
+		'choices' => array(
+			'left' => __( 'Left' ), // Required. Setting for this particular radio button choice and the text to display
+			'centered' => __( 'Centered' ), // Required. Setting for this particular radio button choice and the text to display
+			'right' => __( 'Right' ) // Required. Setting for this particular radio button choice and the text to display
+		)
+	)
+) );
+````
+
 ### Image Checkbox ###
+
+The Image Checkbox works the same as an ordinary checkbox control, in that you can one or more items out of a number of items. The difference is that it allows you to display images for each selection choice. This is useful where an image provides a better indicator for the user, than simple text. A common use of this type of control is where a user might select the weight of a font (e.g. Bold, Italic etc.).
+
+When adding your control, you can specify the url for the image to display, the title text to display when hovering the cursor over the image and the value for each item.
+
+The setting that gets saved to the database is a comma-separated string of values for each of the items that are selected.
+
+![Image Checkbox](https://maddisondesigns.com/wp-content/uploads/2017/04/ImageCheckbox.jpg "Image Checkbox")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**choices** - Required. List of custom choices.  
+  **key** - Required. Data that will be stored for the setting  
+  **image** - Required. URL for the image to display  
+  **name** - Required. Title text to display
+
+**Example**
+
+````
+$wp_customize->add_control( new Skyrocket_Image_checkbox_Custom_Control( $wp_customize, 'sample_image_checkbox',
+	array(
+		'label' => __( 'Image Checkbox Control' ),
+		'description' => esc_html__( 'Sample custom control description' ),
+		'section' => 'sample_custom_controls_section',
+		'choices' => array(
+			'stylebold' => array( // Required. Setting for this particular radio button choice
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/Bold.png', // Required. URL for the image
+				'name' => __( 'Bold' ) // Required. Title text to display
+			),
+			'styleitalic' => array(
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/Italic.png',
+				'name' => __( 'Italic' )
+			),
+			'styleallcaps' => array(
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/AllCaps.png',
+				'name' => __( 'All Caps' )
+			),
+			'styleunderline' => array(
+				'image' => trailingslashit( get_template_directory_uri() ) . 'images/Underline.png',
+				'name' => __( 'Underline' )
+			)
+		)
+	)
+) );
+````
+
 ### Single Accordion ###
+
+The Single Accordion Control allows you to display a large block of text such as instructional information, whilst keeping it hidden or minimised until clicked. When the control is clicked, the content will become visible and when clicked again, the content will hide.
+
+There's no settings saved for this control, it's purely for showing/hiding a block of content.
+
+You can pass it an array of key/values pairs or plain text content (incl. basic html tags `a`, `br`, `em`, `strong`, `i`).
+
+![Single Accordion](https://maddisondesigns.com/wp-content/uploads/2017/04/SingleAccordion.jpg "Single Accordion")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Required. The text to hide under the accordion, passed as an array or string  
+**section** - Required. The Section where there control should appear
+
+**Example**
+
+````
+$sampleIconsList = array(
+	'Behance' => __( '<i class="fa fa-behance"></i>', 'ephemeris' ),
+	'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'ephemeris' ),
+	'CodePen' => __( '<i class="fa fa-codepen"></i>', 'ephemeris' ),
+	'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'ephemeris' ),
+	'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'ephemeris' ),
+	'Etsy' => __( '<i class="fa fa-etsy"></i>', 'ephemeris' ),
+	'Facebook' => __( '<i class="fa fa-facebook"></i>', 'ephemeris' ),
+	'Flickr' => __( '<i class="fa fa-flickr"></i>', 'ephemeris' ),
+	'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'ephemeris' ),
+	'GitHub' => __( '<i class="fa fa-github"></i>', 'ephemeris' ),
+);
+$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'sample_single_accordion',
+	array(
+		'label' => __( 'Single Accordion Control' ),
+		'description' => $sampleIconsList, // Required. Passing an array of key/values pairs which are displayed in a list
+		'section' => 'sample_custom_controls_section'
+	)
+) );
+
+$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'another_sample_single_accordion',
+	array(
+		'label' => __( 'Another Single Accordion Control' ),
+		'description' => 'This is some simple text with an <a href="http://google.com">html link</a> included.',  // Required. Passing some text with some basic html content
+		'section' => 'sample_custom_controls_section'
+	)
+) );
+````
+
 ### Alpha Color Picker ###
 ### Simple Notice ###
 ### Google Font Select ###
