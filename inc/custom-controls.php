@@ -158,26 +158,39 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Render the control in the customizer
 		 */
 		public function render_content() {
-		?>
-			<div class="single-accordion-custom-control">
-				<div class="single-accordion-toggle"><?php esc_html_e( $this->label, 'ephemeris' ); ?><span class="accordion-icon-toggle dashicons dashicons-plus"></span></div>
-				<div class="single-accordion customize-control-description">
-					<?php
-						if ( is_array( $this->description ) ) {
-							echo '<ul class="single-accordion-description">';
-					  		foreach ( $this->description as $key => $value ) {
-								echo '<li>' . $key . '<i class="fa ' . $value . '"></i></li>';
-							}
-							echo '</ul>';
-						}
-						else {
-							echo esc_html( $this->description );
-						}
-				  ?>
-				</div>
-			</div>
-		<?php
-		}
+ 			$allowed_html = array(
+ 				'a' => array(
+ 					'href' => array(),
+ 					'title' => array(),
+ 					'class' => array(),
+ 				),
+ 				'br' => array(),
+ 				'em' => array(),
+ 				'strong' => array(),
+ 				'i' => array(
+ 					'class' => array()
+ 				),
+ 			);
+ 		?>
+ 			<div class="single-accordion-custom-control">
+ 				<div class="single-accordion-toggle"><?php esc_html_e( $this->label, 'ephemeris' ); ?><span class="accordion-icon-toggle dashicons dashicons-plus"></span></div>
+ 				<div class="single-accordion customize-control-description">
+ 					<?php
+ 						if ( is_array( $this->description ) ) {
+ 							echo '<ul class="single-accordion-description">';
+ 					  		foreach ( $this->description as $key => $value ) {
+ 								echo '<li>' . $key . wp_kses( $value, $allowed_html ) . '</li>';
+ 							}
+ 							echo '</ul>';
+ 						}
+ 						else {
+ 							echo wp_kses( $this->description, $allowed_html );
+ 						}
+ 				  ?>
+ 				</div>
+ 			</div>
+ 		<?php
+ 		}
 	}
 
 	/**
