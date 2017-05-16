@@ -343,7 +343,7 @@ The Simple Notice Control allows you to display a block of text such as instruct
 
 The text content can incl. basic html tags such as `a`, `br`, `em`, `strong` and `i`.
 
-![Simple Notice](https://maddisondesigns.com/wp-content/uploads/2017/04/SimpleNotice.png "Simple Notice
+![Simple Notice](https://maddisondesigns.com/wp-content/uploads/2017/04/SimpleNotice.png "Simple Notice")
 
 **Usage**  
 add_control( $id, $args );
