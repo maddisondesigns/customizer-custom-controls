@@ -602,7 +602,7 @@ class ephemeris_initialise_customizer_settings {
 		$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
 			array(
 				'label' => __( 'Simple Notice Control' ),
-				'description' => esc_html__('This Custom Control allows you to display a simple title and description to your users.' ),
+				'description' => __('This Custom Control allows you to display a simple title and description to your users. You can even include <a href="http://google.com" target="_blank">basic html</a>.' ),
 				'section' => 'sample_custom_controls_section'
 			)
 		) );
