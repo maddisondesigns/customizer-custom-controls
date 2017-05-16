@@ -108,10 +108,10 @@ add_control( $id, $args );
 **$args** - (array) (required) An associative array containing arguments for the setting. Default: None
 
 **Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank
-**description** - Optional. The description to display under the label. Default: Blank.
-**section** - Required. The Section where there control should appear
-**button_labels** - Optional. Array containing a list of labels for the control
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**button_labels** - Optional. Array containing a list of labels for the control  
   **add** - Optional. Button label for add button. Default: Add
 
 **Example**
@@ -131,7 +131,7 @@ $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_
 
 ### Image Radio Button ###
 
-The Image Radio Button works the same as an ordinary radio button control, in that you can only choose one item out of a number of items. The Difference is that it allows you to display images for each selection choice. This is useful where an image provides a better indicator for the user, that simple text. A common use of this type of control is where a user might select the layout of their site.
+The Image Radio Button works the same as an ordinary radio button control, in that you can only choose one item out of a number of items. The difference is that it allows you to display images for each selection choice. This is useful where an image provides a better indicator for the user, than simple text. A common use of this type of control is where a user might select the layout of their site.
 
 When adding your control, you can specify the url for the image to display, the title text to display when hovering the cursor over the image and the value for each item.
 
@@ -152,6 +152,7 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **choices** - Required. List of custom choices.  
+  **key** - Required. Data that will be stored for the setting
   **image** - Required. URL for the image to display  
   **name** - Required. Title text to display
 
@@ -183,11 +184,11 @@ $wp_customize->add_control( new Skyrocket_Image_Radio_Button_Custom_Control( $wp
 
 ### Text Radio Button ###
 
-The Text Radio Button is another type of radio button, and again, works the same as an ordinary radio button control. The Text Radio Button simply display the choices in a compact row of text.
+The Text Radio Button is another type of radio button, and again, works the same as an ordinary radio button control. The Text Radio Button simply displays the choices in a compact row of text.
 
-When adding your control, you can specify the url for the image to display, the title text to display when hovering the cursor over the image and the value for each item.
+When adding your control, you specify the text to display for each choice and the setting for each item.
 
-Like an ordinary radio button, the setting that gets saved to the database is the value that you specify for each radio button choice
+Like an ordinary radio button, the setting that gets saved to the database is the value that you specify for each radio button choice.
 
 ![Text Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/04/TextRadioButton.png "Text Radio Button")
 
@@ -226,7 +227,7 @@ $wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_
 
 ### Image Checkbox ###
 
-The Image Checkbox works the same as an ordinary checkbox control, in that you can one or more items out of a number of items. The difference is that it allows you to display images for each selection choice. This is useful where an image provides a better indicator for the user, than simple text. A common use of this type of control is where a user might select the weight of a font (e.g. Bold, Italic etc.).
+The Image Checkbox works the same as an ordinary checkbox control, in that you can select one or more items out of a number of items. The difference is that it allows you to display images for each selection choice. This is useful where an image provides a better indicator for the user, than simple text. A common use of this type of control is where a user might select the weight of a font (e.g. Bold, Italic etc.).
 
 When adding your control, you can specify the url for the image to display, the title text to display when hovering the cursor over the image and the value for each item.
 
@@ -336,8 +337,40 @@ $wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_c
 ) );
 ````
 
-### Alpha Color Picker ###
 ### Simple Notice ###
+
+The Simple Notice Control allows you to display a block of text such as instructional information. There's no settings saved for this control, it's purely for block of content.
+
+The text content can incl. basic html tags such as <code>a</code>, <code>br</code>, <code>em</code>, <code>strong</code> and <code>i</code>.
+
+![Simple Notice](https://maddisondesigns.com/wp-content/uploads/2017/04/SimpleNotice.png "Simple Notice
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Required. The text to display  
+**section** - Required. The Section where there control should appear
+
+**Example**
+
+````
+$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
+	array(
+		'label' => __( 'Simple Notice Control' ),
+		'description' => __('This Custom Control allows you to display a simple title and description to your users. You can even include <a href="http://google.com" target="_blank">basic html</a>.' ),
+		'section' => 'sample_custom_controls_section'
+	)
+) );
+````
+
+### Alpha Color Picker ###
 ### Google Font Select ###
 
 More documentation coming soon!
