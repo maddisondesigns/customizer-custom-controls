@@ -339,9 +339,9 @@ $wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_c
 
 ### Simple Notice ###
 
-The Simple Notice Control allows you to display a block of text such as instructional information. There's no settings saved for this control, it's purely for block of content.
+The Simple Notice Control allows you to display a block of text such as instructional information. There's no settings saved for this control, it's purely for displaying a block of content.
 
-The text content can incl. basic html tags such as `a`, `br`, `em`, `strong` and `i`.
+The text content can include basic html tags such as `a`, `br`, `em`, `strong` and `i`.
 
 ![Simple Notice](https://maddisondesigns.com/wp-content/uploads/2017/04/SimpleNotice.png "Simple Notice")
 
@@ -370,8 +370,55 @@ $wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_cust
 ) );
 ````
 
-### Alpha Color Picker ###
 ### Google Font Select ###
+
+### Alpha Color ###
+
+All props for this control go to [Braad Martin](http://braadmartin.com/alpha-color-picker-control-for-the-wordpress-customizer). I've included it here (and also in my sample code) because it's so useful and I think it's a better option than the standard Color Control built into core. You can check out the original post Braad wrote about this control or check it out in his [Github repo](https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picke).
+
+The Alpha Color Control is very similar to the Color Control built into core. The benefit of this control over the default control, is that it allows you to specify the opacity of the selected colour, which allows you to specify RGBa colours rather than just a solid hex colour.
+
+The setting that gets saved to the database will be an RGBa color value (e.g. rgba(0,158,39,0.8) ) or a plain solid hex color (e.g. #009e27).
+
+![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/04/AlphaColor.jpg "Alpha Color")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Required. The text to display  
+**section** - Required. The Section where there control should appear  
+**show_opacity** - Optional. Show or hide the opacity value on the opacity slider handle. Default: true  
+**palette** - Optional. Allows you to specify the colours used in the colour palette. Can be set to false to hide the palette. Default: WP color control palette
+
+**Example**
+
+````
+$wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color_picker',
+	array(
+		'label' => __( 'Alpha Color Picker Control' ),
+		'description' => esc_html__( 'Sample custom control description' ),
+		'section' => 'sample_custom_controls_section',
+		'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+		'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+			'#000',
+			'#fff',
+			'#df312c',
+			'#df9a23',
+			'#eef000',
+			'#7ed934',
+			'#1571c1',
+			'#8309e7'
+		)
+	)
+) );
+````
 
 More documentation coming soon!
 
