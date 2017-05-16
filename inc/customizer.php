@@ -567,16 +567,17 @@ class ephemeris_initialise_customizer_settings {
 			)
 		) );
 
-		// Test of Alpha Color Picker Control
-		$wp_customize->add_setting( 'sample_alpha_color_picker',
+		// Test of Alpha Color Control
+		$wp_customize->add_setting( 'sample_alpha_color',
 			array(
-				'default' => $this->defaults['sample_alpha_color_picker'],
+				'default' => $this->defaults['sample_alpha_color'],
 				'transport' => 'postMessage'
 			)
 		);
-		$wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color_picker',
+		$wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color',
 			array(
 				'label' => __( 'Alpha Color Picker Control' ),
+				'description' => esc_html__( 'Sample custom control description' ),
 				'section' => 'sample_custom_controls_section',
 				'show_opacity' => true,
 				'palette' => array(

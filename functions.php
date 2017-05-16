@@ -179,7 +179,7 @@ if ( ! function_exists( 'ephemeris_generate_defaults' ) ) {
 			'sample_text_radio_button' => 'right',
 			'sample_image_checkbox' => 'stylebold,styleallcaps',
 			'sample_single_accordion' => '',
-			'sample_alpha_color_picker' => 'rgba(209,0,55,0.7)',
+			'sample_alpha_color' => 'rgba(209,0,55,0.7)',
 			'sample_google_font_select' => '{"font":"Open Sans","regularweight":"regular","italicweight":"italic","boldweight":"700","category":"sans-serif"}',
 			'sample_default_text' => '',
 			'sample_email_text' => '',
