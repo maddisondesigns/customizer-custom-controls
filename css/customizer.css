@@ -56,9 +56,6 @@ input[type="number"]:focus {
 /* ==========================================================================
    Text Radio Buttons
    ========================================================================== */
-.text_radio_button_control {
-	margin-bottom: 20px;
-}
 .text_radio_button_control:after {
 	content: " ";
 	display: block;
@@ -367,9 +364,6 @@ input[type="number"]:focus {
 /* ==========================================================================
    Single Accordion
    ========================================================================== */
-.single-accordion-custom-control {
-	margin-bottom: 20px;
-}
 .single-accordion-toggle {
 	font-size: 14px;
 	font-weight: 600;
