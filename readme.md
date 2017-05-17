@@ -8,7 +8,11 @@
 
 ## Description ##
 
-This is an example of incorporating Customizer functionality into your theme, including examples of how to update the Live Preview window. As well as showing the usage of the (built-in) core controls, there are also a number of Custom Controls.
+There are several different types of basic Core Controls built into the Customizer that are ready to use straight-out-of-the-box. These include text, checkbox, textarea, radio, select and dropdown-pages controls. Later versions of WordPress also introduced Color, Media, Image and Cropped Image controls. If none of the basic core controls suit your needs, you can create and add your own custom controls.
+
+This example code shows how to incorporate Customizer functionality into your theme (or plugin), including examples of how to update the Live Preview window. As well as showing the usage of the (built-in) core controls, there are also a number of Custom Controls that have been built that you're welcome to make use of.
+
+If you'd like to learn more about Customizer development, you can check out the links to my Customizer Developer's Guide, at the end of this readme.
 
 ## Core Controls ##
 Input Control (Text, Email, URL, Number, Hidden, Date)
