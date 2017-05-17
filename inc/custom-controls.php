@@ -589,8 +589,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string or array	Input to be sanitized
 	 * @return string or array	Sanitized input
 	 */
-	if ( ! function_exists( 'ephemeris_url_sanitization' ) ) {
-		function ephemeris_url_sanitization( $input ) {
+	if ( ! function_exists( 'skyrocket_url_sanitization' ) ) {
+		function skyrocket_url_sanitization( $input ) {
 			if( is_array( $input ) ) {
 				foreach ($input as $key => $value) {
 					$input[$key] = esc_url_raw( $value );
@@ -609,8 +609,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string		Switch value
 	 * @return integer	Sanitized value
 	 */
-	if ( ! function_exists( 'ephemeris_switch_sanitization' ) ) {
-		function ephemeris_switch_sanitization( $input ) {
+	if ( ! function_exists( 'skyrocket_switch_sanitization' ) ) {
+		function skyrocket_switch_sanitization( $input ) {
 			if ( true === $input ) {
 				return 1;
 			} else {
@@ -625,8 +625,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string		Input value to check
 	 * @return integer	Returned integer value
 	 */
-	if ( ! function_exists( 'ephemeris_sanitize_integer' ) ) {
-		function ephemeris_sanitize_integer( $input ) {
+	if ( ! function_exists( 'skyrocket_sanitize_integer' ) ) {
+		function skyrocket_sanitize_integer( $input ) {
 			if ( is_numeric( $input ) ) {
 				return intval( $input );
 			} else {
@@ -641,8 +641,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string or array	Input to be sanitized
 	 * @return string or array	Sanitized input
 	 */
-	if ( ! function_exists( 'ephemeris_text_sanitization' ) ) {
-		function ephemeris_text_sanitization( $input ) {
+	if ( ! function_exists( 'skyrocket_text_sanitization' ) ) {
+		function skyrocket_text_sanitization( $input ) {
 			if( is_array( $input ) ) {
 				foreach ($input as $key => $value) {
 					$input[$key] = wp_kses_post( $value );
