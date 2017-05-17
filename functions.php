@@ -6,27 +6,27 @@
  *
  * @return void
  */
-if ( ! function_exists( 'ephemeris_scripts_styles' ) ) {
-	function ephemeris_scripts_styles() {
+if ( ! function_exists( 'skyrocket_scripts_styles' ) ) {
+	function skyrocket_scripts_styles() {
 		// Register and enqueue our icon font
 		// We're using the awesome Font Awesome icon font. http://fortawesome.github.io/Font-Awesome
 		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/font-awesome.min.css' , array(), '4.7', 'all' );
 		wp_enqueue_style( 'fontawesome' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'ephemeris_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'skyrocket_scripts_styles' );
 
 /**
  * Enqueue scripts for our Customizer preview
  *
  * @return void
  */
-if ( ! function_exists( 'ephemeris_customizer_preview_scripts' ) ) {
-	function ephemeris_customizer_preview_scripts() {
+if ( ! function_exists( 'skyrocket_customizer_preview_scripts' ) ) {
+	function skyrocket_customizer_preview_scripts() {
 		wp_enqueue_script( 'ephemeris-customizer-preview', trailingslashit( get_template_directory_uri() ) . 'js/customizer-preview.js', array( 'customize-preview', 'jquery' ) );
 	}
 }
-add_action( 'customize_preview_init', 'ephemeris_customizer_preview_scripts' );
+add_action( 'customize_preview_init', 'skyrocket_customizer_preview_scripts' );
 
 /**
  * Check if WooCommerce is active
@@ -34,7 +34,7 @@ add_action( 'customize_preview_init', 'ephemeris_customizer_preview_scripts' );
  *
  * @return boolean
  */
-function ephemeris_is_woocommerce_active() {
+function skyrocket_is_woocommerce_active() {
 	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
 }
 
@@ -44,8 +44,8 @@ function ephemeris_is_woocommerce_active() {
  *
  * @return array Multidimensional array containing social media data
  */
-if ( ! function_exists( 'ephemeris_generate_social_urls' ) ) {
-	function ephemeris_generate_social_urls() {
+if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
+	function skyrocket_generate_social_urls() {
 		$social_icons = array(
 			array( 'url' => 'behance.net', 'icon' => 'fa-behance', 'title' => esc_html__( 'Follow me on Behance', 'ephemeris' ), 'class' => 'behance' ),
 			array( 'url' => 'bitbucket.org', 'icon' => 'fa-bitbucket', 'title' => esc_html__( 'Fork me on Bitbucket', 'ephemeris' ), 'class' => 'bitbucket' ),
@@ -77,7 +77,7 @@ if ( ! function_exists( 'ephemeris_generate_social_urls' ) ) {
 			array( 'url' => 'youtube.com', 'icon' => 'fa-youtube', 'title' => esc_html__( 'Subscribe to me on YouTube', 'ephemeris' ), 'class' => 'youtube' ),
 		);
 
-		return apply_filters( 'ephemeris_social_icons', $social_icons );
+		return apply_filters( 'skyrocket_social_icons', $social_icons );
 	}
 }
 
@@ -87,16 +87,16 @@ if ( ! function_exists( 'ephemeris_generate_social_urls' ) ) {
  * This sample function is also used to show how you can call a PHP function to refresh the customizer preview.
  * Add the following to header.php if you want to see the sample social icons displayed in the customizer preview and your theme.
  * <div class="social">
- *	 <?php echo ephemeris_get_social_media(); ?>
+ *	 <?php echo skyrocket_get_social_media(); ?>
  * </div>
  *
  * @return string Unordered list of linked social media icons
  */
-if ( ! function_exists( 'ephemeris_get_social_media' ) ) {
-	function ephemeris_get_social_media() {
-		$defaults = ephemeris_generate_defaults();
+if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
+	function skyrocket_get_social_media() {
+		$defaults = skyrocket_generate_defaults();
 		$output = '';
-		$social_icons = ephemeris_generate_social_urls();
+		$social_icons = skyrocket_generate_social_urls();
 		$social_urls = [];
 		$social_newtab = 0;
 		$social_alignment = '';
@@ -160,8 +160,8 @@ if ( ! function_exists( 'ephemeris_get_social_media' ) ) {
 /**
 * Set our Customizer default options
 */
-if ( ! function_exists( 'ephemeris_generate_defaults' ) ) {
-	function ephemeris_generate_defaults() {
+if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
+	function skyrocket_generate_defaults() {
 		$customizer_defaults = array(
 			'social_newtab' => 0,
 			'social_urls' => '',
@@ -180,6 +180,7 @@ if ( ! function_exists( 'ephemeris_generate_defaults' ) ) {
 			'sample_image_checkbox' => 'stylebold,styleallcaps',
 			'sample_single_accordion' => '',
 			'sample_alpha_color' => 'rgba(209,0,55,0.7)',
+			'sample_simple_notice' => '',
 			'sample_google_font_select' => '{"font":"Open Sans","regularweight":"regular","italicweight":"italic","boldweight":"700","category":"sans-serif"}',
 			'sample_default_text' => '',
 			'sample_email_text' => '',
@@ -198,7 +199,7 @@ if ( ! function_exists( 'ephemeris_generate_defaults' ) ) {
 			'sample_default_cropped_image' => '',
 		);
 
-		return apply_filters( 'ephemeris_customizer_defaults', $customizer_defaults );
+		return apply_filters( 'skyrocket_customizer_defaults', $customizer_defaults );
 	}
 }
 
