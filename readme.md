@@ -18,8 +18,12 @@ Radio Control
 Dropdown Pages Control  
 Textarea Control  
 Color Control  
+Media Control  
+Image Control  
+Cropped Image Control
 
 ## Custom Controls ##
+
 ### Toggle Switch ###
 
 The Toggle Switch Custom Control is basically just a fancy type of checkbox. It allows for two states, either off or on.
@@ -41,6 +45,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_toggle_switch',
+	array(
+		'default' => 0,
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_switch_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'sample_toggle_switch',
 	array(
 		'label' => esc_html__( 'Toggle switch' ),
@@ -76,6 +87,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_slider_control',
+	array(
+		'default' => 48,
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'skyrocket_sanitize_integer'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control',
 	array(
 		'label' => esc_html__( 'Slider Control (px)' ),
@@ -117,6 +135,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_sortable_repeater_control',
+	array(
+		'default' => '',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_url_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'sample_sortable_repeater_control',
 	array(
 		'label' => __( 'Sortable Repeater' ),
@@ -159,6 +184,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_image_radio_button',
+	array(
+		'default' => 'sidebarright',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Image_Radio_Button_Custom_Control( $wp_customize, 'sample_image_radio_button',
 	array(
 		'label' => __( 'Image Radio Button Control' ),
@@ -211,6 +243,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_text_radio_button',
+	array(
+		'default' => 'right',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'sample_text_radio_button',
 	array(
 		'label' => __( 'Text Radio Button Control' ),
@@ -255,6 +294,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_image_checkbox',
+	array(
+		'default' => 'stylebold,styleallcaps',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Image_checkbox_Custom_Control( $wp_customize, 'sample_image_checkbox',
 	array(
 		'label' => __( 'Image Checkbox Control' ),
@@ -320,6 +366,13 @@ $sampleIconsList = array(
 	'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'ephemeris' ),
 	'GitHub' => __( '<i class="fa fa-github"></i>', 'ephemeris' ),
 );
+$wp_customize->add_setting( 'sample_single_accordion',
+	array(
+		'default' => '',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'sample_single_accordion',
 	array(
 		'label' => __( 'Single Accordion Control' ),
@@ -328,6 +381,13 @@ $wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_c
 	)
 ) );
 
+$wp_customize->add_setting( 'another_sample_single_accordion',
+	array(
+		'default' => '',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'another_sample_single_accordion',
 	array(
 		'label' => __( 'Another Single Accordion Control' ),
@@ -361,6 +421,13 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_simple_notice',
+	array(
+		'default' => '',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
 	array(
 		'label' => __( 'Simple Notice Control' ),
@@ -371,6 +438,43 @@ $wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_cust
 ````
 
 ### Google Font Select ###
+One of the issues I've found with a lot of Google Font controls in numerous themes and plugins is that they don't allow for Italic and Bold weights. They'll change the regular text to the chosen font, but any text that you make bold or italic, reverts back to the original font. One of the reasons for this is because they don't specify the necessary italic and bold weights when retrieving the fonts from Google.
+
+The Google Font Control will allow you to select a Google font and also specify the weight for the regular, italic and bold weights. The list of Google Font choices are stored in a json file generated by retrieving the 30 most popular fonts. So as to avoid having to include your own Google Fonts API Key in your theme, you should generate this list of fonts before you add your theme options. You can get the complete list of Google Fonts, sorted by popularity by calling https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=YOUR-API-KEY (Don't forget to include your own Google Fonts API Key in the appropriate place).
+
+The setting is saved to the database as a json string. The easiest way to use this data in your theme is by using the <code>json_decode()</code> PHP function to convert the json string into an array. From there, it's easy enough to get the Font name, regular font weight, italic weight, bold weight, and the font category which is useful for specifying a fallback font.
+
+![Google Font Select](https://maddisondesigns.com/wp-content/uploads/2017/04/GoogleFontSelect.png "Google Font Select")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Required. The text to display  
+**section** - Required. The Section where there control should appear
+
+**Example**
+
+````
+$wp_customize->add_setting( 'sample_google_font_select',
+	array(
+	 'default' => '{"font":"Open Sans","regularweight":"regular","italicweight":"italic","boldweight":"700","category":"sans-serif"}',
+	)
+);
+$wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
+	array(
+		'label' => __( 'Google Font Control' ),
+		'description' => esc_html__( 'Sample custom control description' ),
+		'section' => 'sample_custom_controls_section',
+	)
+) );
+````
 
 ### Alpha Color ###
 
@@ -400,6 +504,12 @@ add_control( $id, $args );
 **Example**
 
 ````
+$wp_customize->add_setting( 'sample_alpha_color',
+	array(
+		'default' => 'rgba(209,0,55,0.7)',
+		'transport' => 'postMessage'
+	)
+);
 $wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color_picker',
 	array(
 		'label' => __( 'Alpha Color Picker Control' ),
@@ -420,8 +530,6 @@ $wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_cus
 ) );
 ````
 
-More documentation coming soon!
-
 For more details, check out my Customizer Developers Guide:  
 [The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)  
-[The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2) (coming even sooner)
+[The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
