@@ -35,7 +35,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
  				<?php if( !empty( $this->description ) ) { ?>
  					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
  				<?php } ?>
-				<?	$chkboxValues = explode( ',', esc_attr( $this->value() ) ); ?>
+				<?php	$chkboxValues = explode( ',', esc_attr( $this->value() ) ); ?>
 				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-multi-image-checkbox" <?php $this->link(); ?> />
  				<?php foreach ( $this->choices as $key => $value ) { ?>
  					<label class="checkbox-label">
@@ -158,40 +158,40 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Render the control in the customizer
 		 */
 		public function render_content() {
- 			$allowed_html = array(
- 				'a' => array(
- 					'href' => array(),
- 					'title' => array(),
- 					'class' => array(),
+			$allowed_html = array(
+				'a' => array(
+					'href' => array(),
+					'title' => array(),
+					'class' => array(),
 					'target' => array(),
- 				),
- 				'br' => array(),
- 				'em' => array(),
- 				'strong' => array(),
- 				'i' => array(
- 					'class' => array()
- 				),
- 			);
- 		?>
- 			<div class="single-accordion-custom-control">
- 				<div class="single-accordion-toggle"><?php esc_html_e( $this->label, 'ephemeris' ); ?><span class="accordion-icon-toggle dashicons dashicons-plus"></span></div>
- 				<div class="single-accordion customize-control-description">
- 					<?php
- 						if ( is_array( $this->description ) ) {
- 							echo '<ul class="single-accordion-description">';
- 					  		foreach ( $this->description as $key => $value ) {
- 								echo '<li>' . $key . wp_kses( $value, $allowed_html ) . '</li>';
- 							}
- 							echo '</ul>';
- 						}
- 						else {
- 							echo wp_kses( $this->description, $allowed_html );
- 						}
- 				  ?>
- 				</div>
- 			</div>
- 		<?php
- 		}
+				),
+				'br' => array(),
+				'em' => array(),
+				'strong' => array(),
+				'i' => array(
+					'class' => array()
+				),
+			);
+		?>
+			<div class="single-accordion-custom-control">
+				<div class="single-accordion-toggle"><?php echo esc_html( $this->label ); ?><span class="accordion-icon-toggle dashicons dashicons-plus"></span></div>
+				<div class="single-accordion customize-control-description">
+					<?php
+						if ( is_array( $this->description ) ) {
+							echo '<ul class="single-accordion-description">';
+					  		foreach ( $this->description as $key => $value ) {
+								echo '<li>' . $key . wp_kses( $value, $allowed_html ) . '</li>';
+							}
+							echo '</ul>';
+						}
+						else {
+							echo wp_kses( $this->description, $allowed_html );
+						}
+				  ?>
+				</div>
+			</div>
+		<?php
+		}
 	}
 
 	/**
@@ -209,32 +209,32 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		/**
 		 * Render the control in the customizer
 		 */
-		 public function render_content() {
- 			$allowed_html = array(
- 				'a' => array(
- 					'href' => array(),
- 					'title' => array(),
- 					'class' => array(),
- 					'target' => array(),
- 				),
- 				'br' => array(),
- 				'em' => array(),
- 				'strong' => array(),
- 				'i' => array(
- 					'class' => array()
- 				),
- 			);
- 		?>
- 			<div class="simple-notice-custom-control">
- 				<?php if( !empty( $this->label ) ) { ?>
- 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
- 				<?php } ?>
- 				<?php if( !empty( $this->description ) ) { ?>
- 					<span class="customize-control-description"><?php echo wp_kses( $this->description, $allowed_html ); ?></span>
- 				<?php } ?>
- 			</div>
- 		<?php
- 		}
+		public function render_content() {
+			$allowed_html = array(
+				'a' => array(
+					'href' => array(),
+					'title' => array(),
+					'class' => array(),
+					'target' => array(),
+				),
+				'br' => array(),
+				'em' => array(),
+				'strong' => array(),
+				'i' => array(
+					'class' => array()
+				),
+			);
+		?>
+			<div class="simple-notice-custom-control">
+				<?php if( !empty( $this->label ) ) { ?>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php } ?>
+				<?php if( !empty( $this->description ) ) { ?>
+					<span class="customize-control-description"><?php echo wp_kses( $this->description, $allowed_html ); ?></span>
+				<?php } ?>
+			</div>
+		<?php
+		}
 	}
 
 	/**
@@ -262,7 +262,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		public function render_content() {
 		?>
 			<div class="slider-custom-control">
-				<span class="customize-control-title"><?php esc_html_e( $this->label, 'ephemeris' ); ?></span><input type="number" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-slider-value" <?php $this->link(); ?> />
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span><input type="number" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-slider-value" <?php $this->link(); ?> />
 				<div class="slider" slider-min-value="<?php echo esc_attr( $this->input_attrs['min'] ); ?>" slider-max-value="<?php echo esc_attr( $this->input_attrs['max'] ); ?>" slider-step-value="<?php echo esc_attr( $this->input_attrs['step'] ); ?>"></div><span class="slider-reset dashicons dashicons-image-rotate" slider-reset-value="<?php echo esc_attr( $this->value() ); ?>"></span>
 			</div>
 		<?php
@@ -295,12 +295,12 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			<div class="toggle-switch-control">
 				<div class="toggle-switch">
 					<input type="checkbox" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" class="toggle-switch-checkbox" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?>>
-					<label class="toggle-switch-label" for="<?php echo esc_attr($this->id); ?>">
+					<label class="toggle-switch-label" for="<?php echo esc_attr( $this->id ); ?>">
 						<span class="toggle-switch-inner"></span>
 						<span class="toggle-switch-switch"></span>
 					</label>
 				</div>
-				<span class="customize-control-title"><?php esc_html_e( $this->label, 'ephemeris' ); ?></span>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 				<?php if( !empty( $this->description ) ) { ?>
 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 				<?php } ?>
@@ -333,7 +333,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			// Merge the passed button labels with our default labels
 			$this->button_labels = wp_parse_args( $this->button_labels,
 				array(
-					'add' => __( 'Add' ),
+					'add' => __( 'Add', 'ephemeris' ),
 				)
 			);
 		}
@@ -399,9 +399,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			parent::__construct( $manager, $id, $args );
 			//Get the list of Google fonts
 			$this->fontList = $this->getGoogleFonts();
-			// Convert the saved json font data to an array
+			// Decode the default json font value
 			$this->fontValues = json_decode( $this->value() );
-			// Find the index of our saved font within our list of Google fonts
+			// Find the index of our default font within our list of Google fonts
 			$this->fontListIndex = $this->getFontIndex( $this->fontList, $this->fontValues->font );
 		}
 		/**
@@ -507,13 +507,19 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		}
 
 		/**
-		 * Return the list of Google Fonts from our json file
+		 * Return the list of Google Fonts from our json file. Unless otherwise specfied, list will be limited to 30 fonts.
 		 */
 		public function getGoogleFonts( $count = 30 ) {
 			// Google Fonts json generated from https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=YOUR-API-KEY
-			$fontFile = trailingslashit( get_stylesheet_directory() ) . 'inc/google-fonts-popularity.json';
+			$fontFile = trailingslashit( get_stylesheet_directory_uri() ) . 'inc/google-fonts-popularity.json';
 
-			$content = json_decode( file_get_contents( $fontFile ) );
+			$request = wp_remote_get( $fontFile );
+			if( is_wp_error( $request ) ) {
+				return "";
+			}
+
+			$body = wp_remote_retrieve_body( $request );
+			$content = json_decode( $body );
 
 			if( $count == 'all' ) {
 				return $content->items;
@@ -584,17 +590,21 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
-	 * URL sanitization function for Customizer Custom Control
+	 * URL sanitization
 	 *
-	 * @param  string or array	Input to be sanitized
-	 * @return string or array	Sanitized input
+	 * @param  string	Input to be sanitized (either a string containing a single url or multiple, separated by commas)
+	 * @return string	Sanitized input
 	 */
 	if ( ! function_exists( 'skyrocket_url_sanitization' ) ) {
 		function skyrocket_url_sanitization( $input ) {
-			if( is_array( $input ) ) {
+			if ( strpos( $input, ',' ) !== false) {
+				$input = explode( ',', $input );
+			}
+			if ( is_array( $input ) ) {
 				foreach ($input as $key => $value) {
 					$input[$key] = esc_url_raw( $value );
 				}
+				$input = implode( ',', $input );
 			}
 			else {
 				$input = esc_url_raw( $input );
@@ -604,7 +614,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
-	 * Switch sanitization function for Customizer Custom Control
+	 * Switch sanitization
 	 *
 	 * @param  string		Switch value
 	 * @return integer	Sanitized value
@@ -620,39 +630,124 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
-	 * Integer sanitization function for Customizer Custom Control
+	 * Radio Button and Select sanitization
+	 *
+	 * @since Ephemeris 1.0
+	 *
+	 * @param  string		Radio Button value
+	 * @return integer	Sanitized value
+	 */
+	if ( ! function_exists( 'skyrocket_radio_sanitization' ) ) {
+		function skyrocket_radio_sanitization( $input, $setting ) {
+			//get the list of possible radio box or select options
+         $choices = $setting->manager->get_control( $setting->id )->choices;
+
+			if ( array_key_exists( $input, $choices ) ) {
+				return $input;
+			} else {
+				return $setting->default;
+			}
+		}
+	}
+
+	/**
+	 * Integer sanitization
 	 *
 	 * @param  string		Input value to check
 	 * @return integer	Returned integer value
 	 */
 	if ( ! function_exists( 'skyrocket_sanitize_integer' ) ) {
 		function skyrocket_sanitize_integer( $input ) {
-			if ( is_numeric( $input ) ) {
-				return intval( $input );
-			} else {
-				return 0;
-			}
+			return (int) $input;
 		}
 	}
 
 	/**
-	 * Text sanitization function for Customizer Custom Control
+	 * Text sanitization
 	 *
-	 * @param  string or array	Input to be sanitized
-	 * @return string or array	Sanitized input
+	 * @param  string	Input to be sanitized (either a string containing a single string or multiple, separated by commas)
+	 * @return string	Sanitized input
 	 */
 	if ( ! function_exists( 'skyrocket_text_sanitization' ) ) {
 		function skyrocket_text_sanitization( $input ) {
+			if ( strpos( $input, ',' ) !== false) {
+				$input = explode( ',', $input );
+			}
 			if( is_array( $input ) ) {
-				foreach ($input as $key => $value) {
-					$input[$key] = wp_kses_post( $value );
+				foreach ( $input as $key => $value ) {
+					$input[$key] = sanitize_text_field( $value );
 				}
+				$input = implode( ',', $input );
 			}
 			else {
-				$input = wp_kses_post( $input );
+				$input = sanitize_text_field( $input );
 			}
 			return $input;
 		}
 	}
 
+	/**
+	 * Alpha Color (Hex & RGBa) sanitization
+	 *
+	 * @param  string	Input to be sanitized
+	 * @return string	Sanitized input
+	 */
+	if ( ! function_exists( 'skyrocket_hex_rgba_sanitization' ) ) {
+		function skyrocket_hex_rgba_sanitization( $input, $setting ) {
+			if ( empty( $input ) || is_array( $input ) ) {
+				return $setting->default;
+			}
+
+			if ( false === strpos( $input, 'rgba' ) ) {
+				// If string doesn't start with 'rgba' then santize as hex color
+				$input = sanitize_hex_color( $input );
+			} else {
+				// Sanitize as RGBa color
+				$input = str_replace( ' ', '', $input );
+				sscanf( $input, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+				$input = 'rgba(' . skyrocket_in_range( $red, 0, 255 ) . ',' . skyrocket_in_range( $green, 0, 255 ) . ',' . skyrocket_in_range( $blue, 0, 255 ) . ',' . skyrocket_in_range( $alpha, 0, 1 ) . ')';
+			}
+			return $input;
+		}
+	}
+
+	/**
+	 * Only allow values between a certain minimum & maxmium range
+	 *
+	 * @param  number	Input to be sanitized
+	 * @return number	Sanitized input
+	 */
+	if ( ! function_exists( 'skyrocket_in_range' ) ) {
+		function skyrocket_in_range( $input, $min, $max ){
+			if ( $input < $min ) {
+				$input = $min;
+			}
+			if ( $input > $max ) {
+				$input = $max;
+			}
+		    return $input;
+		}
+	}
+
+	/**
+	 * Google Font sanitization
+	 *
+	 * @param  string	JSON string to be sanitized
+	 * @return string	Sanitized input
+	 */
+	if ( ! function_exists( 'skyrocket_google_font_sanitization' ) ) {
+		function skyrocket_google_font_sanitization( $input ) {
+			$val =  json_decode( $input, true );
+			if( is_array( $val ) ) {
+				foreach ( $val as $key => $value ) {
+					$val[$key] = sanitize_text_field( $value );
+				}
+				$input = json_encode( $val );
+			}
+			else {
+				$input = json_encode( sanitize_text_field( $val ) );
+			}
+			return $input;
+		}
+	}
 }
