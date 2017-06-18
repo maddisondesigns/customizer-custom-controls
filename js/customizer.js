@@ -143,6 +143,19 @@ jQuery( document ).ready(function($) {
 	// Update slider if the input field loses focus as it's most likely changed
 	$('.customize-control-slider-value').blur(function() {
 		var resetValue = $(this).val();
+		var slider = $(this).parent().find('.slider');
+		var sliderMinValue = parseInt(slider.attr('slider-min-value'));
+		var sliderMaxValue = parseInt(slider.attr('slider-max-value'));
+
+		// Make sure our manual input value doesn't exceed the minimum & maxmium values
+		if(resetValue < sliderMinValue) {
+			resetValue = sliderMinValue;
+			$(this).val(resetValue);
+		}
+		if(resetValue > sliderMaxValue) {
+			resetValue = sliderMaxValue;
+			$(this).val(resetValue);
+		}
 		$(this).parent().find('.slider').slider('value', resetValue);
 	});
 
