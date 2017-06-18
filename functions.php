@@ -158,6 +158,25 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 }
 
 /**
+ * Append a search icon to the primary menu
+ * This is a sample function to show how to append an icon to the menu based on the customizer search option
+ * The search icon wont actually do anything
+ */
+if ( ! function_exists( 'skyrocket_add_search_menu_item' ) ) {
+	function skyrocket_add_search_menu_item( $items, $args ) {
+		$defaults = skyrocket_generate_defaults();
+
+		if( get_theme_mod( 'search_menu_icon', $defaults['search_menu_icon'] ) ) {
+			if( $args->theme_location == 'primary' ) {
+				$items .= '<li class="menu-item menu-item-search"><a href="#" class="nav-search"><i class="fa fa-search"></i></a></li>';
+			}
+		}
+		return $items;
+	}
+}
+add_filter( 'wp_nav_menu_items', 'skyrocket_add_search_menu_item', 10, 2 );
+
+/**
 * Set our Customizer default options
 */
 if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
@@ -181,7 +200,15 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_single_accordion' => '',
 			'sample_alpha_color' => 'rgba(209,0,55,0.7)',
 			'sample_simple_notice' => '',
-			'sample_google_font_select' => '{"font":"Open Sans","regularweight":"regular","italicweight":"italic","boldweight":"700","category":"sans-serif"}',
+			'sample_google_font_select' => json_encode(
+				array(
+					'font' => 'Open Sans',
+					'regularweight' => 'regular',
+					'italicweight' => 'italic',
+					'boldweight' => '700',
+					'category' => 'sans-serif'
+				)
+			),
 			'sample_default_text' => '',
 			'sample_email_text' => '',
 			'sample_url_text' => '',
