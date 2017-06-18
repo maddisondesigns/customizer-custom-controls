@@ -52,8 +52,8 @@ class skyrocket_initialise_customizer_settings {
 		 */
 		 $wp_customize->add_panel( 'header_naviation_panel',
 		 	array(
-				'title' => __( 'Header & Navigation' ),
-				'description' => esc_html__( 'Adjust your Header and Navigation sections.' )
+				'title' => __( 'Header & Navigation', 'skyrocket' ),
+				'description' => esc_html__( 'Adjust your Header and Navigation sections.', 'skyrocket' )
 			)
 		);
 	}
@@ -67,8 +67,8 @@ class skyrocket_initialise_customizer_settings {
 		 */
 		$wp_customize->add_section( 'social_icons_section',
 			array(
-				'title' => __( 'Social Icons' ),
-				'description' => esc_html__( 'Add your social media links and we’ll automatically match them with the appropriate icons. Drag and drop the URLs to rearrange their order.' ),
+				'title' => __( 'Social Icons', 'skyrocket' ),
+				'description' => esc_html__( 'Add your social media links and we\'ll automatically match them with the appropriate icons. Drag and drop the URLs to rearrange their order.', 'skyrocket' ),
 				'panel' => 'header_naviation_panel'
 			)
 		);
@@ -78,8 +78,8 @@ class skyrocket_initialise_customizer_settings {
 		 */
 		$wp_customize->add_section( 'contact_section',
 			array(
-				'title' => __( 'Contact' ),
-				'description' => esc_html__( 'Add your phone number to the site header bar.' ),
+				'title' => __( 'Contact', 'skyrocket' ),
+				'description' => esc_html__( 'Add your phone number to the site header bar.', 'skyrocket' ),
 				'panel' => 'header_naviation_panel'
 			)
 		);
@@ -89,8 +89,8 @@ class skyrocket_initialise_customizer_settings {
 		 */
 		$wp_customize->add_section( 'search_section',
 			array(
-				'title' => __( 'Search' ),
-				'description' => esc_html__( 'Add a search icon to your primary naigation menu.' ),
+				'title' => __( 'Search', 'skyrocket' ),
+				'description' => esc_html__( 'Add a search icon to your primary naigation menu.', 'skyrocket' ),
 				'panel' => 'header_naviation_panel'
 			)
 		);
@@ -100,23 +100,23 @@ class skyrocket_initialise_customizer_settings {
 		 */
 		$wp_customize->add_section( 'woocommerce_layout_section',
 			array(
-				'title' => __( 'WooCommerce Layout' ),
-				'description' => esc_html__( 'Adjust the layout of your WooCommerce shop.' ),
+				'title' => __( 'WooCommerce Layout', 'skyrocket' ),
+				'description' => esc_html__( 'Adjust the layout of your WooCommerce shop.', 'skyrocket' ),
 				'active_callback' => 'skyrocket_is_woocommerce_active'
 			)
 		);
 
 		$wp_customize->add_section( 'sample_custom_controls_section',
 			array(
-				'title' => __( 'Sample Custom Controls' ),
-				'description' => esc_html__( 'These are an example of Customizer Custom Controls.' )
+				'title' => __( 'Sample Custom Controls', 'skyrocket' ),
+				'description' => esc_html__( 'These are an example of Customizer Custom Controls.', 'skyrocket'  )
 			)
 		);
 
 		$wp_customize->add_section( 'default_controls_section',
 			array(
-				'title' => __( 'Default Controls' ),
-				'description' => esc_html__( 'These are an example of the default Customizer Controls.' )
+				'title' => __( 'Default Controls', 'skyrocket' ),
+				'description' => esc_html__( 'These are an example of the default Customizer Controls.', 'skyrocket'  )
 			)
 		);
 
@@ -137,7 +137,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'social_newtab',
 			array(
-				'label' => esc_html__( 'Open in new browser tab' ),
+				'label' => __( 'Open in new browser tab', 'skyrocket' ),
 				'section' => 'social_icons_section'
 			)
 		) );
@@ -157,17 +157,17 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['social_alignment'],
 				'transport' => 'postMessage',
-				'sanitize_callback' => 'skyrocket_text_sanitization'
+				'sanitize_callback' => 'skyrocket_radio_sanitization'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'social_alignment',
 			array(
-				'label' => __( 'Alignment' ),
-				'description' => esc_html__( 'Choose the alignment for your social icons' ),
+				'label' => __( 'Alignment', 'skyrocket' ),
+				'description' => esc_html__( 'Choose the alignment for your social icons', 'skyrocket' ),
 				'section' => 'social_icons_section',
 				'choices' => array(
-					'alignleft' => __( 'Left' ),
-					'alignright' => __( 'Right' )
+					'alignleft' => __( 'Left', 'skyrocket' ),
+					'alignright' => __( 'Right', 'skyrocket'  )
 				)
 			)
 		) );
@@ -192,11 +192,11 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'social_urls',
 			array(
-				'label' => __( 'Social URLs' ),
-				'description' => esc_html__( 'Add your social media links.' ),
+				'label' => __( 'Social URLs', 'skyrocket' ),
+				'description' => esc_html__( 'Add your social media links.', 'skyrocket' ),
 				'section' => 'social_icons_section',
 				'button_labels' => array(
-					'add' => __( 'Add Icon' ),
+					'add' => __( 'Add Icon', 'skyrocket' ),
 				)
 			)
 		) );
@@ -213,34 +213,34 @@ class skyrocket_initialise_customizer_settings {
 
 		// Add our Single Accordion setting and Custom Control to list the available Social Media icons
 		$socialIconsList = array(
-			'Behance' => __( '<i class="fa fa-behance"></i>', 'ephemeris' ),
-			'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'ephemeris' ),
-			'CodePen' => __( '<i class="fa fa-codepen"></i>', 'ephemeris' ),
-			'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'ephemeris' ),
-			'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'ephemeris' ),
-			'Etsy' => __( '<i class="fa fa-etsy"></i>', 'ephemeris' ),
-			'Facebook' => __( '<i class="fa fa-facebook"></i>', 'ephemeris' ),
-			'Flickr' => __( '<i class="fa fa-flickr"></i>', 'ephemeris' ),
-			'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'ephemeris' ),
-			'GitHub' => __( '<i class="fa fa-github"></i>', 'ephemeris' ),
-			'Instagram' => __( '<i class="fa fa-instagram"></i>', 'ephemeris' ),
-			'Last.fm' => __( '<i class="fa fa-lastfm"></i>', 'ephemeris' ),
-			'LinkedIn' => __( '<i class="fa fa-linkedin"></i>', 'ephemeris' ),
-			'Medium' => __( '<i class="fa fa-medium"></i>', 'ephemeris' ),
-			'Pinterest' => __( '<i class="fa fa-pinterest"></i>', 'ephemeris' ),
-			'Google+' => __( '<i class="fa fa-google-plus"></i>', 'ephemeris' ),
-			'Reddit' => __( '<i class="fa fa-reddit"></i>', 'ephemeris' ),
-			'Slack' => __( '<i class="fa fa-slack"></i>', 'ephemeris' ),
-			'SlideShare' => __( '<i class="fa fa-slideshare"></i>', 'ephemeris' ),
-			'Snapchat' => __( '<i class="fa fa-snapchat"></i>', 'ephemeris' ),
-			'SoundCloud' => __( '<i class="fa fa-soundcloud"></i>', 'ephemeris' ),
-			'Spotify' => __( '<i class="fa fa-spotify"></i>', 'ephemeris' ),
-			'Stack Overflow' => __( '<i class="fa fa-stack-overflow"></i>', 'ephemeris' ),
-			'Tumblr' => __( '<i class="fa fa-tumblr"></i>', 'ephemeris' ),
-			'Twitch' => __( '<i class="fa fa-twitch"></i>', 'ephemeris' ),
-			'Twitter' => __( '<i class="fa fa-twitter"></i>', 'ephemeris' ),
-			'Vimeo' => __( '<i class="fa fa-vimeo"></i>', 'ephemeris' ),
-			'YouTube' => __( '<i class="fa fa-youtube"></i>', 'ephemeris' )
+			'Behance' => __( '<i class="fa fa-behance"></i>', 'skyrocket' ),
+			'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'skyrocket' ),
+			'CodePen' => __( '<i class="fa fa-codepen"></i>', 'skyrocket' ),
+			'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'skyrocket' ),
+			'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'skyrocket' ),
+			'Etsy' => __( '<i class="fa fa-etsy"></i>', 'skyrocket' ),
+			'Facebook' => __( '<i class="fa fa-facebook"></i>', 'skyrocket' ),
+			'Flickr' => __( '<i class="fa fa-flickr"></i>', 'skyrocket' ),
+			'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'skyrocket' ),
+			'GitHub' => __( '<i class="fa fa-github"></i>', 'skyrocket' ),
+			'Instagram' => __( '<i class="fa fa-instagram"></i>', 'skyrocket' ),
+			'Last.fm' => __( '<i class="fa fa-lastfm"></i>', 'skyrocket' ),
+			'LinkedIn' => __( '<i class="fa fa-linkedin"></i>', 'skyrocket' ),
+			'Medium' => __( '<i class="fa fa-medium"></i>', 'skyrocket' ),
+			'Pinterest' => __( '<i class="fa fa-pinterest"></i>', 'skyrocket' ),
+			'Google+' => __( '<i class="fa fa-google-plus"></i>', 'skyrocket' ),
+			'Reddit' => __( '<i class="fa fa-reddit"></i>', 'skyrocket' ),
+			'Slack' => __( '<i class="fa fa-slack"></i>', 'skyrocket' ),
+			'SlideShare' => __( '<i class="fa fa-slideshare"></i>', 'skyrocket' ),
+			'Snapchat' => __( '<i class="fa fa-snapchat"></i>', 'skyrocket' ),
+			'SoundCloud' => __( '<i class="fa fa-soundcloud"></i>', 'skyrocket' ),
+			'Spotify' => __( '<i class="fa fa-spotify"></i>', 'skyrocket' ),
+			'Stack Overflow' => __( '<i class="fa fa-stack-overflow"></i>', 'skyrocket' ),
+			'Tumblr' => __( '<i class="fa fa-tumblr"></i>', 'skyrocket' ),
+			'Twitch' => __( '<i class="fa fa-twitch"></i>', 'skyrocket' ),
+			'Twitter' => __( '<i class="fa fa-twitter"></i>', 'skyrocket' ),
+			'Vimeo' => __( '<i class="fa fa-vimeo"></i>', 'skyrocket' ),
+			'YouTube' => __( '<i class="fa fa-youtube"></i>', 'skyrocket'  ),
 		);
 		$wp_customize->add_setting( 'social_url_icons',
 			array(
@@ -251,7 +251,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'social_url_icons',
 			array(
-				'label' => __( 'View list of available icons' ),
+				'label' => __( 'View list of available icons', 'skyrocket' ),
 				'description' => $socialIconsList,
 				'section' => 'social_icons_section'
 			)
@@ -267,7 +267,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'social_rss',
 			array(
-				'label' => __( 'Display RSS icon' ),
+				'label' => __( 'Display RSS icon', 'skyrocket' ),
 				'section' => 'social_icons_section'
 			)
 		) );
@@ -293,12 +293,12 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['contact_phone'],
 				'transport' => 'postMessage',
-				'sanitize_callback' => 'skyrocket_text_sanitization'
+				'sanitize_callback' => 'wp_filter_nohtml_kses'
 			)
 		);
 		$wp_customize->add_control( 'contact_phone',
 			array(
-				'label' => __( 'Display phone number' ),
+				'label' => __( 'Display phone number', 'skyrocket' ),
 				'type' => 'text',
 				'section' => 'contact_section'
 			)
@@ -330,7 +330,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'search_menu_icon',
 			array(
-				'label' => __( 'Display Search Icon' ),
+				'label' => __( 'Display Search Icon', 'skyrocket' ),
 				'section' => 'search_section'
 			)
 		) );
@@ -358,7 +358,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'woocommerce_shop_sidebar',
 			array(
-				'label' => __( 'Shop page sidebar' ),
+				'label' => __( 'Shop page sidebar', 'skyrocket' ),
 				'section' => 'woocommerce_layout_section'
 			)
 		) );
@@ -373,7 +373,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'woocommerce_product_sidebar',
 			array(
-				'label' => esc_html__( 'Single Product page sidebar' ),
+				'label' => esc_html__( 'Single Product page sidebar', 'skyrocket' ),
 				'section' => 'woocommerce_layout_section'
 			)
 		) );
@@ -387,8 +387,8 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'woocommerce_other_sidebar',
 			array(
-				'label' => __( 'Cart, Checkout & My Account sidebars' ),
-				'description' => esc_html__( 'The Cart, Checkout and My Account pages are displayed using shortcodes. To remove the sidebar from these Pages, simply edit each Page and change the Template (in the Page Attributes Panel) to Full-width Page.' ),
+				'label' => __( 'Cart, Checkout & My Account sidebars', 'skyrocket' ),
+				'description' => esc_html__( 'The Cart, Checkout and My Account pages are displayed using shortcodes. To remove the sidebar from these Pages, simply edit each Page and change the Template (in the Page Attributes Panel) to Full-width Page.', 'skyrocket' ),
 				'section' => 'woocommerce_layout_section'
 			)
 		) );
@@ -410,7 +410,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'sample_toggle_switch',
 			array(
-				'label' => __( 'Toggle switch' ),
+				'label' => __( 'Toggle switch', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section'
 			)
 		) );
@@ -420,12 +420,12 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['sample_slider_control'],
 				'transport' => 'postMessage',
-				'sanitize_callback' => 'skyrocket_sanitize_integer'
+				'sanitize_callback' => 'absint'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control',
 			array(
-				'label' => __( 'Slider Control (px)' ),
+				'label' => __( 'Slider Control (px)', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'input_attrs' => array(
 					'min' => 10,
@@ -445,11 +445,11 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'sample_sortable_repeater_control',
 			array(
-				'label' => __( 'Sortable Repeater' ),
-				'description' => esc_html__( 'This is the control description.' ),
+				'label' => __( 'Sortable Repeater', 'skyrocket' ),
+				'description' => esc_html__( 'This is the control description.', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'button_labels' => array(
-					'add' => __( 'Add Row' ),
+					'add' => __( 'Add Row', 'skyrocket' ),
 				)
 			)
 		) );
@@ -459,26 +459,26 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['sample_image_radio_button'],
 				'transport' => 'refresh',
-				'sanitize_callback' => 'skyrocket_text_sanitization'
+				'sanitize_callback' => 'skyrocket_radio_sanitization'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Image_Radio_Button_Custom_Control( $wp_customize, 'sample_image_radio_button',
 			array(
-				'label' => __( 'Image Radio Button Control' ),
-				'description' => esc_html__( 'Sample custom control description' ),
+				'label' => __( 'Image Radio Button Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample custom control description', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'choices' => array(
 					'sidebarleft' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/sidebar-left.png',
-						'name' => __( 'Left Sidebar' )
+						'name' => __( 'Left Sidebar', 'skyrocket' )
 					),
 					'sidebarnone' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/sidebar-none.png',
-						'name' => __( 'No Sidebar' )
+						'name' => __( 'No Sidebar', 'skyrocket' )
 					),
 					'sidebarright' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/sidebar-right.png',
-						'name' => __( 'Right Sidebar' )
+						'name' => __( 'Right Sidebar', 'skyrocket' )
 					)
 				)
 			)
@@ -489,18 +489,18 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['sample_text_radio_button'],
 				'transport' => 'refresh',
-				'sanitize_callback' => 'skyrocket_text_sanitization'
+				'sanitize_callback' => 'skyrocket_radio_sanitization'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'sample_text_radio_button',
 			array(
-				'label' => __( 'Text Radio Button Control' ),
-				'description' => esc_html__( 'Sample custom control description' ),
+				'label' => __( 'Text Radio Button Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample custom control description', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'choices' => array(
-					'left' => __( 'Left' ),
-					'centered' => __( 'Centered' ),
-					'right' => __( 'Right' )
+					'left' => __( 'Left', 'skyrocket' ),
+					'centered' => __( 'Centered', 'skyrocket' ),
+					'right' => __( 'Right', 'skyrocket'  )
 				)
 			)
 		) );
@@ -515,25 +515,25 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Image_checkbox_Custom_Control( $wp_customize, 'sample_image_checkbox',
 			array(
-				'label' => __( 'Image Checkbox Control' ),
-				'description' => esc_html__( 'Sample custom control description' ),
+				'label' => __( 'Image Checkbox Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample custom control description', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'choices' => array(
 					'stylebold' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/Bold.png',
-						'name' => __( 'Bold' )
+						'name' => __( 'Bold', 'skyrocket' )
 					),
 					'styleitalic' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/Italic.png',
-						'name' => __( 'Italic' )
+						'name' => __( 'Italic', 'skyrocket' )
 					),
 					'styleallcaps' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/AllCaps.png',
-						'name' => __( 'All Caps' )
+						'name' => __( 'All Caps', 'skyrocket' )
 					),
 					'styleunderline' => array(
 						'image' => trailingslashit( get_template_directory_uri() ) . 'images/Underline.png',
-						'name' => __( 'Underline' )
+						'name' => __( 'Underline', 'skyrocket' )
 					)
 				)
 			)
@@ -541,16 +541,16 @@ class skyrocket_initialise_customizer_settings {
 
 		// Test of Single Accordion Control
 		$sampleIconsList = array(
-			'Behance' => __( '<i class="fa fa-behance"></i>', 'ephemeris' ),
-			'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'ephemeris' ),
-			'CodePen' => __( '<i class="fa fa-codepen"></i>', 'ephemeris' ),
-			'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'ephemeris' ),
-			'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'ephemeris' ),
-			'Etsy' => __( '<i class="fa fa-etsy"></i>', 'ephemeris' ),
-			'Facebook' => __( '<i class="fa fa-facebook"></i>', 'ephemeris' ),
-			'Flickr' => __( '<i class="fa fa-flickr"></i>', 'ephemeris' ),
-			'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'ephemeris' ),
-			'GitHub' => __( '<i class="fa fa-github"></i>', 'ephemeris' ),
+			'Behance' => __( '<i class="fa fa-behance"></i>', 'skyrocket' ),
+			'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'skyrocket' ),
+			'CodePen' => __( '<i class="fa fa-codepen"></i>', 'skyrocket' ),
+			'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'skyrocket' ),
+			'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'skyrocket' ),
+			'Etsy' => __( '<i class="fa fa-etsy"></i>', 'skyrocket' ),
+			'Facebook' => __( '<i class="fa fa-facebook"></i>', 'skyrocket' ),
+			'Flickr' => __( '<i class="fa fa-flickr"></i>', 'skyrocket' ),
+			'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'skyrocket' ),
+			'GitHub' => __( '<i class="fa fa-github"></i>', 'skyrocket' ),
 		);
 		$wp_customize->add_setting( 'sample_single_accordion',
 			array(
@@ -561,7 +561,7 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'sample_single_accordion',
 			array(
-				'label' => __( 'Single Accordion Control' ),
+				'label' => __( 'Single Accordion Control', 'skyrocket' ),
 				'description' => $sampleIconsList,
 				'section' => 'sample_custom_controls_section'
 			)
@@ -571,13 +571,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_alpha_color',
 			array(
 				'default' => $this->defaults['sample_alpha_color'],
-				'transport' => 'postMessage'
+				'transport' => 'postMessage',
+				'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color',
 			array(
-				'label' => __( 'Alpha Color Picker Control' ),
-				'description' => esc_html__( 'Sample custom control description' ),
+				'label' => __( 'Alpha Color Picker Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample custom control description', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'show_opacity' => true,
 				'palette' => array(
@@ -603,8 +604,8 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
 			array(
-				'label' => __( 'Simple Notice Control' ),
-				'description' => __('This Custom Control allows you to display a simple title and description to your users. You can even include <a href="http://google.com" target="_blank">basic html</a>.' ),
+				'label' => __( 'Simple Notice Control', 'skyrocket' ),
+				'description' => __( 'This Custom Control allows you to display a simple title and description to your users. You can even include <a href="http://google.com" target="_blank">basic html</a>.', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section'
 			)
 		) );
@@ -612,13 +613,14 @@ class skyrocket_initialise_customizer_settings {
 		// Test of Google Font Select Control
 		$wp_customize->add_setting( 'sample_google_font_select',
 			array(
-			 'default' => $this->defaults['sample_google_font_select'],
+				'default' => $this->defaults['sample_google_font_select'],
+				'sanitize_callback' => 'skyrocket_google_font_sanitization'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
 			array(
-				'label' => __( 'Google Font Control' ),
-				'description' => esc_html__( 'Sample custom control description' ),
+				'label' => __( 'Google Font Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample custom control description', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 			)
 		) );
@@ -633,19 +635,20 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_text',
 			array(
 				'default' => $this->defaults['sample_default_text'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_text_sanitization'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_text',
 			array(
-				'label' => __( 'Default Text Control' ),
-				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default Text Control', 'skyrocket' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'text',
 				'input_attrs' => array(
 					'class' => 'my-custom-class',
 					'style' => 'border: 1px solid rebeccapurple',
-					'placeholder' => __( 'Enter name...' ),
+					'placeholder' => __( 'Enter name...', 'skyrocket' ),
 				),
 			)
 		);
@@ -654,13 +657,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_email_text',
 			array(
 				'default' => $this->defaults['sample_email_text'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'sanitize_email'
 			)
 		);
 		$wp_customize->add_control( 'sample_email_text',
 			array(
-				'label' => __( 'Default Email Control' ),
-				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default Email Control', 'skyrocket' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'email'
 			)
@@ -670,13 +674,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_url_text',
 			array(
 				'default' => $this->defaults['sample_url_text'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'esc_url_raw'
 			)
 		);
 		$wp_customize->add_control( 'sample_url_text',
 			array(
-				'label' => __( 'Default URL Control' ),
-				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default URL Control', 'skyrocket' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'url'
 			)
@@ -686,13 +691,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_number_text',
 			array(
 				'default' => $this->defaults['sample_number_text'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_sanitize_integer'
 			)
 		);
 		$wp_customize->add_control( 'sample_number_text',
 			array(
-				'label' => __( 'Default Number Control' ),
-				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default Number Control', 'skyrocket' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'number'
 			)
@@ -702,13 +708,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_hidden_text',
 			array(
 				'default' => $this->defaults['sample_hidden_text'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_text_sanitization'
 			)
 		);
 		$wp_customize->add_control( 'sample_hidden_text',
 			array(
-				'label' => __( 'Default Hidden Control' ),
-				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default Hidden Control', 'skyrocket' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'hidden'
 			)
@@ -718,13 +725,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_date_text',
 			array(
 				'default' => $this->defaults['sample_date_text'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_text_sanitization'
 			)
 		);
 		$wp_customize->add_control( 'sample_date_text',
 			array(
-				'label' => __( 'Default Date Control' ),
-				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date' ),
+				'label' => __( 'Default Date Control', 'skyrocket' ),
+				'description' => esc_html__( 'Text controls Type can be either text, email, url, number, hidden, or date', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'text'
 			)
@@ -734,13 +742,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_checkbox',
 			array(
 				'default' => $this->defaults['sample_default_checkbox'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_switch_sanitization'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_checkbox',
 			array(
-				'label' => __( 'Default Checkbox Control' ),
-				'description' => esc_html__( 'Sample Checkbox description' ),
+				'label' => __( 'Default Checkbox Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample Checkbox description', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'checkbox'
 			)
@@ -750,19 +759,20 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_select',
 			array(
 				'default' => $this->defaults['sample_default_select'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_radio_sanitization'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_select',
 			array(
-				'label' => 'Standard Select Control',
+				'label' => __( 'Standard Select Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'select',
 				'choices' => array(
-					'wordpress' => 'WordPress',
-					'hamsters' => 'Hamsters',
-					'jet-fuel' => 'Jet Fuel',
-					'nuclear-energy' => 'Nuclear Energy'
+					'wordpress' => __( 'WordPress', 'skyrocket' ),
+					'hamsters' => __( 'Hamsters', 'skyrocket' ),
+					'jet-fuel' => __( 'Jet Fuel', 'skyrocket' ),
+					'nuclear-energy' => __( 'Nuclear Energy', 'skyrocket' )
 				)
 			)
 		);
@@ -771,19 +781,20 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_radio',
 			array(
 				'default' => $this->defaults['sample_default_radio'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_radio_sanitization'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_radio',
 			array(
-				'label' => 'Standard Radio Control',
+				'label' => __( 'Standard Radio Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'radio',
 				'choices' => array(
-					'captain-america' => 'Captain America',
-					'iron-man' => 'Iron Man',
-					'spider-man' => 'Spider-Man',
-					'thor' => 'Thor'
+					'captain-america' => __( 'Captain America', 'skyrocket' ),
+					'iron-man' => __( 'Iron Man', 'skyrocket' ),
+					'spider-man' => __( 'Spider-Man', 'skyrocket' ),
+					'thor' => __( 'Thor', 'skyrocket' )
 				)
 			)
 		);
@@ -792,12 +803,13 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_dropdownpages',
 			array(
 				'default' => $this->defaults['sample_default_dropdownpages'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'absint'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_dropdownpages',
 			array(
-				'label' => 'Default Dropdown Pages Control',
+				'label' => __( 'Default Dropdown Pages Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'dropdown-pages'
 			)
@@ -807,18 +819,19 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_textarea',
 			array(
 				'default' => $this->defaults['sample_default_textarea'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'wp_filter_nohtml_kses'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_textarea',
 			array(
-				'label' => 'Default Textarea Control',
+				'label' => __( 'Default Textarea Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'textarea',
 				'input_attrs' => array(
 					'class' => 'my-custom-class',
 					'style' => 'border: 1px solid #999',
-					'placeholder' => __( 'Enter message...' ),
+					'placeholder' => __( 'Enter message...', 'skyrocket' ),
 				),
 			)
 		);
@@ -827,12 +840,13 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_color',
 			array(
 				'default' => $this->defaults['sample_default_color'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'sanitize_hex_color'
 			)
 		);
 		$wp_customize->add_control( 'sample_default_color',
 			array(
-				'label' => 'Default Color Control',
+				'label' => __( 'Default Color Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'type' => 'color'
 			)
@@ -842,23 +856,24 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_media',
 			array(
 				'default' => $this->defaults['sample_default_media'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'absint'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'sample_default_media',
 			array(
-				'label' => __( 'Default Media Control' ),
-				'description' => esc_html__( 'This is the description for the Media Control' ),
+				'label' => __( 'Default Media Control', 'skyrocket' ),
+				'description' => esc_html__( 'This is the description for the Media Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'mime_type' => 'image',
 				'button_labels' => array(
-					'select' => __( 'Select File' ),
-					'change' => __( 'Change File' ),
-					'default' => __( 'Default' ),
-					'remove' => __( 'Remove' ),
-					'placeholder' => __( 'No file selected' ),
-					'frame_title' => __( 'Select File' ),
-					'frame_button' => __( 'Choose File' ),
+					'select' => __( 'Select File', 'skyrocket' ),
+					'change' => __( 'Change File', 'skyrocket' ),
+					'default' => __( 'Default', 'skyrocket' ),
+					'remove' => __( 'Remove', 'skyrocket' ),
+					'placeholder' => __( 'No file selected', 'skyrocket' ),
+					'frame_title' => __( 'Select File', 'skyrocket' ),
+					'frame_button' => __( 'Choose File', 'skyrocket' ),
 				)
 			)
 		) );
@@ -867,22 +882,23 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_image',
 			array(
 				'default' => $this->defaults['sample_default_image'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'absint'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'sample_default_image',
 			array(
-				'label' => __( 'Default Image Control' ),
-				'description' => esc_html__( 'This is the description for the Image Control' ),
+				'label' => __( 'Default Image Control', 'skyrocket' ),
+				'description' => esc_html__( 'This is the description for the Image Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'button_labels' => array(
-					'select' => __( 'Select Image' ),
-					'change' => __( 'Change Image' ),
-					'remove' => __( 'Remove' ),
-					'default' => __( 'Default' ),
-					'placeholder' => __( 'No image selected' ),
-					'frame_title' => __( 'Select Image' ),
-					'frame_button' => __( 'Choose Image' ),
+					'select' => __( 'Select Image', 'skyrocket' ),
+					'change' => __( 'Change Image', 'skyrocket' ),
+					'remove' => __( 'Remove', 'skyrocket' ),
+					'default' => __( 'Default', 'skyrocket' ),
+					'placeholder' => __( 'No image selected', 'skyrocket' ),
+					'frame_title' => __( 'Select Image', 'skyrocket' ),
+					'frame_button' => __( 'Choose Image', 'skyrocket' ),
 				)
 			)
 		) );
@@ -891,13 +907,14 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_setting( 'sample_default_cropped_image',
 			array(
 				'default' => $this->defaults['sample_default_cropped_image'],
-				'transport' => 'refresh'
+				'transport' => 'refresh',
+				'sanitize_callback' => 'absint'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'sample_default_cropped_image',
 			array(
-				'label' => __( 'Default Cropped Image Control' ),
-				'description' => esc_html__( 'This is the description for the Cropped Image Control' ),
+				'label' => __( 'Default Cropped Image Control', 'skyrocket' ),
+				'description' => esc_html__( 'This is the description for the Cropped Image Control', 'skyrocket' ),
 				'section' => 'default_controls_section',
 				'flex_width' => false,
 				'flex_height' => false,
