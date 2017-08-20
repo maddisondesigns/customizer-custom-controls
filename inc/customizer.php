@@ -610,6 +610,25 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Test of TinyMCE control
+		$wp_customize->add_setting( 'sample_tinymce_editor',
+			array(
+				'default' => $this->defaults['sample_tinymce_editor'],
+				'transport' => 'postMessage',
+				'sanitize_callback' => 'wp_kses_post'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_TinyMCE_Custom_control( $wp_customize, 'sample_tinymce_editor',
+			array(
+				'label' => __( 'TinyMCE Control', 'ephemeris' ),
+				'description' => __( 'This is a TinyMCE Editor Custom Control', 'ephemeris' ),
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+				)
+			)
+		) );
+
 		// Test of Google Font Select Control
 		$wp_customize->add_setting( 'sample_google_font_select',
 			array(

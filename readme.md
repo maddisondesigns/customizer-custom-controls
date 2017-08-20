@@ -441,6 +441,61 @@ $wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_cust
 ) );
 ````
 
+### TinyMCE Editor ###
+
+The TinyMCE editor works the same as the standard TinyMCE Editor that you use when creating a Page or Post. The only difference you'll notice is that it has a minimalist toolbar. This is mainly because you're  not likely to need the same full-featured toolbar as you would when creating a Page or Post. It's also due, in part, to the limited screen space available in the Customizer sidebar. Like the standard Page/Post TinyMCE editor, you can add text & links, along with various styles such as bold, italics and a number of other styles.
+
+When adding your control, you can also specify what toolbar icons you would like to display. You can have one toolbar row or two toolbar rows. If you don't specify any toolbars, the default is to display one toolbar with bold, italic, bullet list, number list, align left, align center, align right and link buttons.
+
+The full list of available toolbar buttons is available on the official [TinyMCE website](https://www.tinymce.com/docs/advanced/editor-control-identifiers/). Their [Examples & Demo pages](https://www.tinymce.com/docs/demo/basic-example/) also has a number of examples showing how each of the toolbar buttons would display. It's worth noting that some toolbar buttons require additional [TinyMCE plugins](https://www.tinymce.com/docs/get-started/work-with-plugins/), not all of which are available by default in the WordPress version of TinyMCE.
+
+When sanitzing your setting, you can simply use the core wp_kses_post() function, which will sanitize the content for allowed HTML tags for post content.
+
+The setting that gets saved to the database will be a string with the allowed HTML tags and attributes intact.
+
+**Please note:** The TinyMCE Editor Custom Control will only work in WordPress 4.8 and above as the JavaScript functionality required for its use was only added in WP 4.8.
+
+![Image Checkbox](https://maddisondesigns.com/wp-content/uploads/2017/05/TinyMCE-Editor.jpg "TinyMCE Editor")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**input_attrs** - Optional. List of custom choices.  
+  **toolbar1** - Optional. String containing a list of toolbar buttons to display on the first toolbar row. Default: 'bold italic bullist numlist alignleft aligncenter alignright link'  
+  **toolbar2** - Optional. String containing a list of toolbar buttons to display on the second toolbar row. Default: blank  
+
+**Example**
+
+````
+$wp_customize->add_setting( 'sample_tinymce_editor',
+	array(
+		'default' => '',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'wp_kses_post'
+	)
+);
+$wp_customize->add_control( new Skyrocket_TinyMCE_Custom_control( $wp_customize, 'sample_tinymce_editor',
+	array(
+		'label' => __( 'TinyMCE Control', 'ephemeris' ),
+		'description' => __( 'This is a TinyMCE Editor Custom Control', 'ephemeris' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+			'toolbar2' => 'formatselect outdent indent | blockquote charmap',
+		)
+	)
+) );
+````
+
 ### Google Font Select ###
 One of the issues I've found with a lot of Google Font controls in numerous themes and plugins is that they don't allow for Italic and Bold weights. They'll change the regular text to the chosen font, but any text that you make bold or italic, reverts back to the original font. One of the reasons for this is because they don't specify the necessary italic and bold weights when retrieving the fonts from Google.
 
@@ -482,7 +537,7 @@ $wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp
 
 ### Alpha Color ###
 
-All props for this control go to [Braad Martin](http://braadmartin.com/alpha-color-picker-control-for-the-wordpress-customizer). I've included it here (and also in my sample code) because it's so useful and I think it's a better option than the standard Color Control built into core. You can check out the original post Braad wrote about this control or check it out in his [Github repo](https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picke).
+All props for this control go to [Braad Martin](http://braadmartin.com/alpha-color-picker-control-for-the-wordpress-customizer). I've included it here (and also in my sample code) because it's so useful and I think it's a better option than the standard Color Control built into core. You can check out the original post Braad wrote about this control or check it out in his [Github repo](https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker).
 
 The Alpha Color Control is very similar to the Color Control built into core. The benefit of this control over the default control, is that it allows you to specify the opacity of the selected colour, which allows you to specify RGBa colours rather than just a solid hex colour.
 
