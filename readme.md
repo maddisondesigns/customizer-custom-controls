@@ -485,8 +485,8 @@ $wp_customize->add_setting( 'sample_tinymce_editor',
 );
 $wp_customize->add_control( new Skyrocket_TinyMCE_Custom_control( $wp_customize, 'sample_tinymce_editor',
 	array(
-		'label' => __( 'TinyMCE Control', 'ephemeris' ),
-		'description' => __( 'This is a TinyMCE Editor Custom Control', 'ephemeris' ),
+		'label' => __( 'TinyMCE Control' ),
+		'description' => __( 'This is a TinyMCE Editor Custom Control' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
 			'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
