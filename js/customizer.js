@@ -67,19 +67,19 @@ jQuery( document ).ready(function($) {
 		skyrocketGetAllInputs($(this).parent());
 	})
 
-	// Add http:// to the start of the URL if it doesn't have it
+	// Add https:// to the start of the URL if it doesn't have it
 	$('.sortable').on('blur', '.repeater-input', function() {
 		var url = $(this);
 		var val = url.val();
 		if(val && !val.match(/^.+:\/\/.*/)) {
 			// Important! Make sure to trigger change event so Customizer knows it has to save the field
-			url.val('http://' + val).trigger('change');
+			url.val('https://' + val).trigger('change');
 		}
 	});
 
 	// Append a new row to our list of elements
 	function skyrocketAppendRow($element, defaultValue = '') {
-		var newRow = '<div class="repeater" style="display:none"><input type="text" value="' + defaultValue + '" class="repeater-input" placeholder="http://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
+		var newRow = '<div class="repeater" style="display:none"><input type="text" value="' + defaultValue + '" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a></div>';
 
 		$element.find('.sortable').append(newRow);
 		$element.find('.sortable').find('.repeater:last').slideDown('slow', function(){
