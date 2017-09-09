@@ -359,7 +359,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-sortable-repeater" <?php $this->link(); ?> />
 				<div class="sortable">
 					<div class="repeater">
-						<input type="text" value="" class="repeater-input" placeholder="http://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
+						<input type="text" value="" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
 					</div>
 				</div>
 				<button class="button customize-control-sortable-repeater-add" type="button"><?php echo $this->button_labels['add']; ?></button>
@@ -557,7 +557,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function getGoogleFonts( $count = 30 ) {
 			// Google Fonts json generated from https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=YOUR-API-KEY
-			$fontFile = trailingslashit( get_stylesheet_directory_uri() ) . 'inc/google-fonts-popularity.json';
+			$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/google-fonts-popularity.json';
 
 			$request = wp_remote_get( $fontFile );
 			if( is_wp_error( $request ) ) {
