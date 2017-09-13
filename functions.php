@@ -35,7 +35,10 @@ add_action( 'customize_preview_init', 'skyrocket_customizer_preview_scripts' );
  * @return boolean
  */
 function skyrocket_is_woocommerce_active() {
-	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+	if ( class_exists( 'woocommerce' ) ) {
+		return true;
+	}
+	return false;
 }
 
 /**
