@@ -223,6 +223,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				'i' => array(
 					'class' => array()
 				),
+				'span' => array(
+					'class' => array(),
+				),
+				'code' => array(),
 			);
 		?>
 			<div class="simple-notice-custom-control">

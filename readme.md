@@ -405,7 +405,7 @@ $wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_c
 
 The Simple Notice Control allows you to display a block of text such as instructional information. There's no settings saved for this control, it's purely for displaying a block of content.
 
-The text content can include basic html tags such as `a`, `br`, `em`, `strong` and `i`.
+The text content can include basic html tags such as `a`, `br`, `em`, `strong`, `i`, `span` and `code`.
 
 ![Simple Notice](https://maddisondesigns.com/wp-content/uploads/2017/04/SimpleNotice.png "Simple Notice")
 
