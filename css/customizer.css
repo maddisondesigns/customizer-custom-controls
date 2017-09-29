@@ -35,7 +35,7 @@ input[type="date"] {
 	background: #fcfcff;
 	position: relative;
 	border-radius: 0;
-	border: 0;
+	border: 1px solid #eee;
 	height: 24px;
 	line-height: 24px;
 	outline: none;
