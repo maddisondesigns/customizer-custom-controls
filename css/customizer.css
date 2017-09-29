@@ -53,6 +53,19 @@ input[type="number"]:focus {
 }
 
 /* ==========================================================================
+   Simple Notice
+   ========================================================================== */
+
+.simple-notice-custom-control .customize-control-description {
+	line-height: 1.6
+}
+
+.simple-notice-custom-control code {
+	font-size: 90%;
+	padding: 2px 4px;
+}
+
+/* ==========================================================================
    Textarea/TinyMCE
    ========================================================================== */
 .tinymce-control textarea {
