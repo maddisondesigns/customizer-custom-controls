@@ -115,7 +115,7 @@ $wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 
 
 The Sortable Repeater Custom Control allows you to collect values from one or more input fields. On top of that, the fields can be reordered by simply dragging 'n dropping each field. The control provides an icon handle for easy drag 'n drop reordering, a button for deleting a row and a button for adding a new row.
 
-This particular Control has been designed for collecting one or more URL's and will validate the fields as such. It will also automatically add 'http://' to any url if it is missing. If you want to collect other type of data, such as plain text, simply duplicate this control and modify as necessary.
+This particular Control has been designed for collecting one or more URL's and will validate the fields as such. It will also automatically add 'https://' to any url if it is missing. If you want to collect other type of data, such as plain text, simply duplicate this control and modify as necessary.
 
 The setting for this control will be saved as a comma delimited string of URL's. To use this setting in your theme, I recommend using the PHP `explode()` function to convert the comma delimited string to an array of strings.
 
