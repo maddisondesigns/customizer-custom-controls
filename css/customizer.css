@@ -570,6 +570,12 @@ input[type="number"]:focus {
 	border: none;
 }
 
+.customize-control-color .wp-color-result .wp-color-result-text,
+.customize-control-alpha-color .wp-color-result .wp-color-result-text {
+	line-height: 24px;
+	border-left: none;
+}
+
 .wp-picker-holder .iris-picker .iris-palette {
 	box-shadow: none;
 }
@@ -582,10 +588,6 @@ input[type="number"]:focus {
 
 .wp-picker-container .alpha-color-picker-container {
 	width: 233px;
-}
-
-.customize-control-color .wp-picker-open + .wp-picker-input-wrap {
-	float: right;
 }
 
 /* ==========================================================================
