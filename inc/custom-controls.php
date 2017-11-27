@@ -633,8 +633,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					if ( isset( $this->description ) && '' !== $this->description ) {
 						echo '<span class="description customize-control-description">' . sanitize_text_field( $this->description ) . '</span>';
 					} ?>
-					<input class="alpha-color-control" type="text" data-show-opacity="<?php echo $show_opacity; ?>" data-palette="<?php echo esc_attr( $palette ); ?>" data-default-color="<?php echo esc_attr( $this->settings['default']->default ); ?>" <?php $this->link(); ?>  />
 				</label>
+				<input class="alpha-color-control" type="text" data-show-opacity="<?php echo $show_opacity; ?>" data-palette="<?php echo esc_attr( $palette ); ?>" data-default-color="<?php echo esc_attr( $this->settings['default']->default ); ?>" <?php $this->link(); ?>  />
 			<?php
 		}
 	}
