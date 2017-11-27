@@ -228,6 +228,9 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_default_media' => '',
 			'sample_default_image' => '',
 			'sample_default_cropped_image' => '',
+			'sample_date_only' => '2017-08-28',
+			'sample_date_time' => '2017-08-28 16:30:00',
+			'sample_date_time_no_past_date' => date( 'Y-m-d' ),
 		);
 
 		return apply_filters( 'skyrocket_customizer_defaults', $customizer_defaults );

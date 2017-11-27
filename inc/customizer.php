@@ -941,6 +941,69 @@ class skyrocket_initialise_customizer_settings {
 				'height' => 400
 			)
 		) );
+
+		// Test of Date/Time Control
+		$wp_customize->add_setting( 'sample_date_only',
+			array(
+				'default' => $this->defaults['sample_date_only'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_date_time_sanitization',
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Date_Time_Control( $wp_customize, 'sample_date_only',
+			array(
+				'label' => __( 'Default Date Control', 'skyrocket' ),
+				'description' => esc_html__( 'This is the Date Time Control but is only displaying a date field. It also has Max and Min years set.', 'skyrocket' ),
+				'section' => 'default_controls_section',
+				'include_time' => false,
+				'allow_past_date' => true,
+				'twelve_hour_format' => true,
+				'min_year' => '2016',
+				'max_year' => '2025',
+			)
+		) );
+
+		// Test of Date/Time Control
+		$wp_customize->add_setting( 'sample_date_time',
+			array(
+				'default' => $this->defaults['sample_date_time'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_date_time_sanitization',
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Date_Time_Control( $wp_customize, 'sample_date_time',
+			array(
+				'label' => __( 'Default Date Control', 'skyrocket' ),
+				'description' => esc_html__( 'This is the Date Time Control. It also has Max and Min years set.', 'skyrocket' ),
+				'section' => 'default_controls_section',
+				'include_time' => true,
+				'allow_past_date' => true,
+				'twelve_hour_format' => true,
+				'min_year' => '2010',
+				'max_year' => '2020',
+			)
+		) );
+
+		// Test of Date/Time Control
+		$wp_customize->add_setting( 'sample_date_time_no_past_date',
+			array(
+				'default' => $this->defaults['sample_date_time_no_past_date'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_date_time_sanitization',
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Date_Time_Control( $wp_customize, 'sample_date_time_no_past_date',
+			array(
+				'label' => __( 'Default Date Control', 'skyrocket' ),
+				'description' => esc_html__( "This is the Date Time Control but is only displaying a date field. Past dates are not allowed.", 'skyrocket' ),
+				'section' => 'default_controls_section',
+				'include_time' => false,
+				'allow_past_date' => false,
+				'twelve_hour_format' => true,
+				'min_year' => '2016',
+				'max_year' => '2099',
+			)
+		) );
 	}
 }
 
