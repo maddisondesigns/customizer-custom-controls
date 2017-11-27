@@ -800,4 +800,24 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			return $input;
 		}
 	}
+
+	/**
+	 * Date Time sanitization
+	 *
+	 * @param  string	Date/Time string to be sanitized
+	 * @return string	Sanitized input
+	 */
+	if ( ! function_exists( 'skyrocket_date_time_sanitization' ) ) {
+		function skyrocket_date_time_sanitization( $input, $setting ) {
+			$datetimeformat = 'Y-m-d';
+			if ( $setting->manager->get_control( $setting->id )->include_time ) {
+				$datetimeformat = 'Y-m-d H:i:s';
+			}
+			$date = DateTime::createFromFormat( $datetimeformat, $input );
+			if ( $date === false ) {
+				$date = DateTime::createFromFormat( $datetimeformat, $setting->default );
+			}
+			return $date->format( $datetimeformat );
+		}
+	}
 }
