@@ -24,7 +24,8 @@ Textarea Control
 Color Control  
 Media Control  
 Image Control  
-Cropped Image Control
+Cropped Image Control  
+Date Time Control (WP 4.9+)
 
 ## Custom Controls ##
 
