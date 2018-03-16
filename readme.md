@@ -442,6 +442,61 @@ $wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_cust
 ) );
 ````
 
+### Dropdown Posts ###
+
+The Dropdown Posts Custom Control allows you to display a dropdown list of your Posts. You can display all Posts or just a selection by using the `input_attrs` array when adding your control.
+
+This control is extremely flexible. Not only can you display a list of your typical (blog) Posts, but it can actually show any type of Post, such as WooCommerce Products, or even Pages. You can pass an array of Post ID's to include, an array of Post IDs *NOT* to include, how many posts to retrieve, the Post Type (e.g. you could use `product` for WooCommerce products) and a long list of other options. To see the complete list of values you can pass using the `input_attrs` array, see [WP_Query::parse_query()](https://developer.wordpress.org/reference/classes/wp_query/parse_query/) in the WordPress Codex.
+
+The setting that gets saved to the database is a Post ID.
+
+![Dropdown Posts](https://maddisondesigns.com/wp-content/uploads/2018/03/DropdownPostsControl.jpg "Dropdown Posts")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**input_attrs** - Optional. List of post options. The options listed below are the most common. See [WP_Query::parse_query()](https://developer.wordpress.org/reference/classes/wp_query/parse_query/) in the WordPress Codex for the complete list.  
+  **posts_per_page** - Optional. The number of posts to retrieve. Use -1 to retrieve all posts. Default: 5  
+  **orderby** - Optional. Order to sort retrieved posts by. Accepts 'none', 'name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand' and a number of others. Default: 'date'  
+  **order** - Optional.  Designates ascending or descending order of posts. Accepts 'ASC' or 'DESC'. Default: 'DESC'  
+  **cat** - Optional. Category ID or comma-separated list of IDs. Default: 0  
+  **post__in** - Optional. An array of post IDs to retrieve (sticky posts will be included)  
+  **post__not_in** - Optional. An array of post IDs not to retrieve. *Note:* a string of comma- separated IDs will NOT work  
+  **post_type** - Optional. A post type slug (string) or array of post type slugs. Default: 'post'  
+
+**Example**
+
+````
+$wp_customize->add_setting( 'sample_dropdown_posts_control',
+	array(
+		'default' => '',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'absint'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Dropdown_Posts_Custom_Control( $wp_customize, 'sample_dropdown_posts_control',
+	array(
+		'label' => __( 'Dropdown Posts Control', 'skyrocket' ),
+		'description' => esc_html__( 'Sample Dropdown Posts custom control description', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'posts_per_page' => -1,
+			'orderby' => 'name',
+			'order' => 'ASC',
+		),
+	)
+) );
+````
+
 ### TinyMCE Editor ###
 
 The TinyMCE editor works the same as the standard TinyMCE Editor that you use when creating a Page or Post. The only difference you'll notice is that it has a minimalist toolbar. This is mainly because you're  not likely to need the same full-featured toolbar as you would when creating a Page or Post. It's also due, in part, to the limited screen space available in the Customizer sidebar. Like the standard Page/Post TinyMCE editor, you can add text & links, along with various styles such as bold, italics and a number of other styles.

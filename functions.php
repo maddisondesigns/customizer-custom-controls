@@ -203,6 +203,7 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_single_accordion' => '',
 			'sample_alpha_color' => 'rgba(209,0,55,0.7)',
 			'sample_simple_notice' => '',
+			'sample_dropdown_posts_control' => '',
 			'sample_tinymce_editor' => '',
 			'sample_google_font_select' => json_encode(
 				array(

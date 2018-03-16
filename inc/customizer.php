@@ -610,6 +610,27 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Test of Dropdown Posts Control
+		$wp_customize->add_setting( 'sample_dropdown_posts_control',
+			array(
+				'default' => $this->defaults['sample_dropdown_posts_control'],
+				'transport' => 'postMessage',
+				'sanitize_callback' => 'absint'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Dropdown_Posts_Custom_Control( $wp_customize, 'sample_dropdown_posts_control',
+			array(
+				'label' => __( 'Dropdown Posts Control', 'skyrocket' ),
+				'description' => esc_html__( 'Sample Dropdown Posts custom control description', 'skyrocket' ),
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'posts_per_page' => -1,
+					'orderby' => 'name',
+					'order' => 'ASC',
+				),
+			)
+		) );
+
 		// Test of TinyMCE control
 		$wp_customize->add_setting( 'sample_tinymce_editor',
 			array(
