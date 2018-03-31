@@ -660,8 +660,12 @@ class skyrocket_initialise_customizer_settings {
 		$wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
 			array(
 				'label' => __( 'Google Font Control', 'skyrocket' ),
-				'description' => esc_html__( 'Sample custom control description', 'skyrocket' ),
+				'description' => esc_html__( 'All Google Fonts sorted alphabetically', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'font_count' => 'all',
+					'orderby' => 'alpha',
+				),
 			)
 		) );
 	}

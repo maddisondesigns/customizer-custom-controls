@@ -499,12 +499,29 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		private $fontListIndex = 0;
 		/**
+		 * The number of fonts to display from the json file. Either positive integer or 'all'. Default = 'all'
+		 */
+		private $fontCount = 'all';
+		/**
+		 * The font list sort order. Either 'alpha' or 'popular'. Default = 'alpha'
+		 */
+		private $fontOrderBy = 'alpha';
+		/**
 		 * Get our list of fonts from the json file
 		 */
 		public function __construct( $manager, $id, $args = array(), $options = array() ) {
 			parent::__construct( $manager, $id, $args );
-			//Get the list of Google fonts
-			$this->fontList = $this->getGoogleFonts();
+			// Get the font sort order
+			if ( isset( $this->input_attrs['orderby'] ) && strtolower( $this->input_attrs['orderby'] ) === 'popular' ) {
+				$this->fontOrderBy = 'popular';
+			}
+			// Get the list of Google fonts
+			if ( isset( $this->input_attrs['font_count'] ) ) {
+				if ( 'all' != strtolower( $this->input_attrs['font_count'] ) ) {
+					$this->fontCount = ( abs( (int) $this->input_attrs['font_count'] ) > 0 ? abs( (int) $this->input_attrs['font_count'] ) : 'all' );
+				}
+			}
+			$this->fontList = $this->getGoogleFonts( 'all' );
 			// Decode the default json font value
 			$this->fontValues = json_decode( $this->value() );
 			// Find the index of our default font within our list of Google fonts
@@ -528,6 +545,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Render the control in the customizer
 		 */
 		public function render_content() {
+			$fontCounter = 0;
+			$isFontInList = false;
+			$fontListStr = '';
+
 			if( !empty($this->fontList) ) {
 				?>
 				<div class="google_fonts_select_control">
@@ -542,8 +563,21 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 						<select class="google-fonts-list" control-name="<?php echo esc_attr( $this->id ); ?>">
 							<?php
 								foreach( $this->fontList as $key => $value ) {
-									echo '<option value="' . $value->family . '" ' . selected( $this->fontValues->font, $value->family, false ) . '>' . $value->family . '</option>';
+									$fontCounter++;
+									$fontListStr .= '<option value="' . $value->family . '" ' . selected( $this->fontValues->font, $value->family, false ) . '>' . $value->family . '</option>';
+									if ( $this->fontValues->font === $value->family ) {
+										$isFontInList = true;
+									}
+									if ( is_int( $this->fontCount ) && $fontCounter === $this->fontCount ) {
+										break;
+									}
 								}
+								if ( !$isFontInList && $this->fontListIndex ) {
+									// If the default or saved font value isn't in the list of displayed fonts, add it to the top of the list as the default font
+									$fontListStr = '<option value="' . $this->fontList[$this->fontListIndex]->family . '" ' . selected( $this->fontValues->font, $this->fontList[$this->fontListIndex]->family, false ) . '>' . $this->fontList[$this->fontListIndex]->family . ' (default)</option>' . $fontListStr;
+								}
+								// Display our list of font options
+								echo $fontListStr;
 							?>
 						</select>
 					</div>
@@ -569,7 +603,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 										$optionCount++;
 									}
 								}
-								if($optionCount == 0) {
+								if( $optionCount == 0 ) {
 									echo '<option value="">Not Available for this font</option>';
 								}
 							?>
@@ -588,7 +622,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 									}
 								}
 								// This should never evaluate as there'll always be at least a 'regular' weight
-								if($optionCount == 0) {
+								if( $optionCount == 0 ) {
 									echo '<option value="">Not Available for this font</option>';
 								}
 							?>
@@ -617,7 +651,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function getGoogleFonts( $count = 30 ) {
 			// Google Fonts json generated from https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=YOUR-API-KEY
-			$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/google-fonts-popularity.json';
+			$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/google-fonts-alphabetical.json';
+			if ( $this->fontOrderBy === 'popular' ) {
+				$fontFile = trailingslashit( get_template_directory_uri() ) . 'inc/google-fonts-popularity.json';
+			}
 
 			$request = wp_remote_get( $fontFile );
 			if( is_wp_error( $request ) ) {
@@ -633,7 +670,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				return array_slice( $content->items, 0, $count );
 			}
 		}
-   }
+	}
 
 	/**
  	 * Alpha Color Picker Custom Control
