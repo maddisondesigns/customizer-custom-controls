@@ -227,7 +227,7 @@ When adding your control, you specify the text to display for each choice and th
 
 Like an ordinary radio button, the setting that gets saved to the database is the value that you specify for each radio button choice.
 
-![Text Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/04/TextRadioButton.png "Text Radio Button")
+![Text Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/05/TextRadioButton.png "Text Radio Button")
 
 **Usage**  
 add_control( $id, $args );
@@ -442,6 +442,134 @@ $wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_cust
 ) );
 ````
 
+### Dropdown Select2 ###
+Select2 is a jQuery based replacement for select boxes. Select2 gives you a customizable select box with support for searching, tagging, remote data sets, infinite scrolling, and many other highly used options.
+
+The Dropdown Select2 Custom Control provides a simple way of implementing a Select2 Dropwdown in the Customizer. One of the main benefits of using this Select2 Dropdown over a regular Dropdown is that it provides a handy input field allowing you to type in and search for the item your looking for. This is really handy when your dropdown list is extremely long and scrolling through the list becomes cumbersome. An example of where you might want to use this over a regular Dropdown is when you have a list of Countries or Timezones. Basically, any Dropdown list that is more than a dozen entries would benefit from using this Select2 Custom Control over a regular Dropdown control.
+
+One of the other benefits of this control is the ability to handle Multi-Select lists. That is, it provides you with the ability to easily select multiple entries in your list, rather than just a single entry, if you so desire. This can be achieved simply by including `'multiselect' => true` in your `input_attrs`.
+
+The Dropdown Select2 Custom Control handles a straight forward list of entries by passing your entries as an array using the `'choices'` parameter. Alternatively, if you want your Dropdown list to show Option Groups (i.e. the ability to group your list into different sections), then you can also pass an array of arrays to `'choices'`.
+
+If you wish to select default values, pass a simple string when using the control to select a single entry. When using the control as a mutli-select, pass an array of strings to select multiple default values.
+
+To santize your controls data, use my `skyrocket_text_sanitization` function or any other function that sanitizes a simple string, when only selecting a single entry. When using the control as a multi-select, use `skyrocket_array_sanitization` for the settings `'sanitize_callback'` so as to ensure the complete array of strings is sanitized. If you don't sanitize your multi-select data as an array, your values most likely wont save to the database.
+
+When using the control to only select a single entry, the setting is saved to the database as a string. When using the control to select multiple entries (i.e. `'multiselect' => true`), the setting is saved to the database as an array of strings (regardless of whether you select one entry or multiple entries).
+
+![Google Font Select](https://maddisondesigns.com/wp-content/uploads/2017/05/DropdownSelect2Control.png "Google Font Select")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Required. The text to display  
+**section** - Required. The Section where there control should appear
+**input_attrs** - Optional. List of custom choices.  
+  **multiselect** - Optional. Select a single entry from the dropdown or select multiple. Either true or false. Default = false  
+**choices** - Required. List of custom choices.  
+  **key** - Required. Data that will be stored for the setting  
+  **value** - Required. Text to display in the control  
+
+**Example**
+
+````
+// Test of Dropdown Select2 Control (single select)
+$wp_customize->add_setting( 'sample_dropdown_select2_control_single',
+	array(
+		'default' => 'vic',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_single',
+	array(
+		'label' => __( 'Dropdown Select2 Control', 'skyrocket' ),
+		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Single Select)', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'multiselect' => false,
+		),
+		'choices' => array(
+			'nsw' => __( 'New South Wales', 'skyrocket' ),
+			'vic' => __( 'Victoria', 'skyrocket' ),
+			'qld' => __( 'Queensland', 'skyrocket' ),
+			'wa' => __( 'Western Australia', 'skyrocket' ),
+			'sa' => __( 'South Australia', 'skyrocket' ),
+			'tas' => __( 'Tasmania', 'skyrocket' ),
+			'act' => __( 'Australian Capital Territory', 'skyrocket' ),
+			'nt' => __( 'Northern Territory', 'skyrocket' ),
+		)
+	)
+) );
+
+// Test of Dropdown Select2 Control (Multi-Select) with Option Groups
+$wp_customize->add_setting( 'sample_dropdown_select2_control_multi',
+	array(
+		'default' => array ( 'Antarctica/McMurdo', 'Australia/Melbourne', 'Australia/Broken_Hill' ),
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_array_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_multi',
+	array(
+		'label' => __( 'Dropdown Select2 Control', 'skyrocket' ),
+		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Multi-Select)', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'multiselect' => true,
+		),
+		'choices' => array(
+			__( 'Antarctica', 'skyrocket' ) => array(
+				'Antarctica/Casey' => __( 'Casey', 'skyrocket' ),
+				'Antarctica/Davis' => __( 'Davis', 'skyrocket' ),
+				'Antarctica/DumontDurville' => __( 'DumontDUrville', 'skyrocket' ),
+				'Antarctica/Macquarie' => __( 'Macquarie', 'skyrocket' ),
+				'Antarctica/Mawson' => __( 'Mawson', 'skyrocket' ),
+				'Antarctica/McMurdo' => __( 'McMurdo', 'skyrocket' ),
+				'Antarctica/Palmer' => __( 'Palmer', 'skyrocket' ),
+				'Antarctica/Rothera' => __( 'Rothera', 'skyrocket' ),
+				'Antarctica/Syowa' => __( 'Syowa', 'skyrocket' ),
+				'Antarctica/Troll' => __( 'Troll', 'skyrocket' ),
+				'Antarctica/Vostok' => __( 'Vostok', 'skyrocket' ),
+			),
+			__( 'Atlantic', 'skyrocket' ) => array(
+				'Atlantic/Azores' => __( 'Azores', 'skyrocket' ),
+				'Atlantic/Bermuda' => __( 'Bermuda', 'skyrocket' ),
+				'Atlantic/Canary' => __( 'Canary', 'skyrocket' ),
+				'Atlantic/Cape_Verde' => __( 'Cape Verde', 'skyrocket' ),
+				'Atlantic/Faroe' => __( 'Faroe', 'skyrocket' ),
+				'Atlantic/Madeira' => __( 'Madeira', 'skyrocket' ),
+				'Atlantic/Reykjavik' => __( 'Reykjavik', 'skyrocket' ),
+				'Atlantic/South_Georgia' => __( 'South Georgia', 'skyrocket' ),
+				'Atlantic/Stanley' => __( 'Stanley', 'skyrocket' ),
+				'Atlantic/St_Helena' => __( 'St Helena', 'skyrocket' ),
+			),
+			__( 'Australia', 'skyrocket' ) => array(
+				'Australia/Adelaide' => __( 'Adelaide', 'skyrocket' ),
+				'Australia/Brisbane' => __( 'Brisbane', 'skyrocket' ),
+				'Australia/Broken_Hill' => __( 'Broken Hill', 'skyrocket' ),
+				'Australia/Currie' => __( 'Currie', 'skyrocket' ),
+				'Australia/Darwin' => __( 'Darwin', 'skyrocket' ),
+				'Australia/Eucla' => __( 'Eucla', 'skyrocket' ),
+				'Australia/Hobart' => __( 'Hobart', 'skyrocket' ),
+				'Australia/Lindeman' => __( 'Lindeman', 'skyrocket' ),
+				'Australia/Lord_Howe' => __( 'Lord Howe', 'skyrocket' ),
+				'Australia/Melbourne' => __( 'Melbourne', 'skyrocket' ),
+				'Australia/Perth' => __( 'Perth', 'skyrocket' ),
+				'Australia/Sydney' => __( 'Sydney', 'skyrocket' ),
+			)
+		)
+	)
+) );
+````
+
 ### Dropdown Posts ###
 
 The Dropdown Posts Custom Control allows you to display a dropdown list of your Posts. You can display all Posts or just a selection by using the `input_attrs` array when adding your control.
@@ -559,9 +687,11 @@ The Google Font Control will allow you to select a Google font and also specify 
 
 When defining your control, you can specify the number of fonts to display and the order in which they should be displayed (either alphabetically or by popularity). If your default font, or the currently saved font, is not included in the list of fonts you're displaying, it will automatically be prepended to the start of the list as the default font. As an example, if you specify specify 'Open Sans' as your default font, but only elect to show only the first 10 fonts, sorted alphabetically, then 'Open Sans' will be automatically prepended to the list of fonts shown in the control.
 
+The Font Family dropdown also implements a Select2 control, which adds an input field allowing you to type in and search for the desired font. This makes finding your font easier than having to scroll through the long list of Google Font names.
+
 The setting is saved to the database as a json string. The easiest way to use this data in your theme is by using the <code>json_decode()</code> PHP function to convert the json string into an array. From there, it's easy enough to get the Font name, regular font weight, italic weight, bold weight, and the font category which is useful for specifying a fallback font.
 
-![Google Font Select](https://maddisondesigns.com/wp-content/uploads/2017/04/GoogleFontSelect.png "Google Font Select")
+![Google Font Select](https://maddisondesigns.com/wp-content/uploads/2017/05/GoogleFontSelect.png "Google Font Select")
 
 **Usage**  
 add_control( $id, $args );
@@ -585,7 +715,8 @@ add_control( $id, $args );
 $wp_customize->add_setting( 'sample_google_font_select',
 	array(
 	 'default' => '{"font":"Open Sans","regularweight":"regular","italicweight":"italic","boldweight":"700","category":"sans-serif"}',
-	)
+	),
+	'sanitize_callback' => 'skyrocket_google_font_sanitization'
 );
 $wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
 	array(

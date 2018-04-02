@@ -5,13 +5,24 @@
 /* ==========================================================================
    Standard Selection
    ========================================================================== */
-.customize-control select{
+.customize-control select,
+.select2-container--default .selection .select2-selection--single {
 	border: none;
 	background: #fcfcff;
 	position: relative;
 	border-radius: 0;
 	height: 27px;
 	line-height: 27px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.select2-container--default .selection .select2-selection--multiple {
+	border: none;
+	background: #fcfcff;
+	border-radius: 0;
+	height: 32px;
 	outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -106,12 +117,12 @@ input[type="number"]:focus {
 	color: #2885bb;
 }
 .text_radio_button_control .radio-button-label > input:checked + span {
-	background-color: #f9f9fe;
+	background-color: #2084bd;
+	color: #fff;
 }
 .text_radio_button_control .radio-button-label > input:checked + span:hover {
-	color: #555d66;
+	color: #fff;
 }
-
 
 /* ==========================================================================
    Image Radio Buttons

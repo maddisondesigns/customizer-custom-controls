@@ -4,8 +4,6 @@ jQuery( document ).ready(function($) {
 	/**
 	 * Sortable Repeater Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
@@ -101,8 +99,6 @@ jQuery( document ).ready(function($) {
 	/**
 	 * Slider Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
@@ -162,8 +158,6 @@ jQuery( document ).ready(function($) {
 	/**
 	 * Single Accordion Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
@@ -178,8 +172,6 @@ jQuery( document ).ready(function($) {
 
 	/**
 	 * Image Check Box Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -204,14 +196,24 @@ jQuery( document ).ready(function($) {
 	}
 
 	/**
-	 * Googe Font Select Custom Control
-	 *
-	 * @since Ephemeris 1.0
+	 * Dropdown Select2 Custom Control
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
+
+	$('.dropdown_select2_select').select2();
+
+	/**
+	 * Googe Font Select Custom Control
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 */
+
+	$('.google-fonts-list').select2();
 
 	$('.google-fonts-list').on('change', function() {
 		var elementRegularWeight = $(this).parent().parent().find('.google-fonts-regularweight-style');
@@ -298,8 +300,6 @@ jQuery( document ).ready(function($) {
 	/**
 	 * TinyMCE Custom Control
 	 *
-	 * @since Ephemeris 1.0
-	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
@@ -328,8 +328,6 @@ jQuery( document ).ready(function($) {
 
 	/**
  	 * Alpha Color Picker Custom Control
- 	 *
- 	 * @since Ephemeris 1.0
  	 *
  	 * @author Braad Martin <http://braadmartin.com>
  	 * @license http://www.gnu.org/licenses/gpl-3.0.html

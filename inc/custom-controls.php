@@ -373,6 +373,76 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
+	 * Dropdown Select2 Custom Control
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 */
+	class Skyrocket_Dropdown_Select2_Custom_Control extends WP_Customize_Control {
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'dropdown_select2';
+		/**
+		 * The type of Select2 Dropwdown to display. Can be either a single select dropdown or a multi-select dropdown. Either false for true. Default = false
+		 */
+		private $multiselect = false;
+		/**
+		 * Constructor
+		 */
+		public function __construct( $manager, $id, $args = array(), $options = array() ) {
+			parent::__construct( $manager, $id, $args );
+			// Get the font sort order
+			if ( isset( $this->input_attrs['multiselect'] ) && $this->input_attrs['multiselect'] ) {
+				$this->multiselect = true;
+			}
+		}
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue() {
+			wp_enqueue_script( 'skyrocket_select2_js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
+			wp_enqueue_script( 'skyrocket_custom_controls_js', trailingslashit( get_template_directory_uri() ) . 'js/customizer.js', array( 'skyrocket_select2_js' ), '1.0', true );
+			wp_enqueue_style( 'skyrocket_custom_controls_css', trailingslashit( get_template_directory_uri() ) . 'css/customizer.css', array(), '1.1', 'all' );
+			wp_enqueue_style( 'skyrocket_select2_css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content() {
+		?>
+			<div class="dropdown_select2_control">
+				<?php if( !empty( $this->label ) ) { ?>
+					<label for="<?php echo esc_attr( $this->id ); ?>" class="customize-control-title">
+						<?php echo esc_html( $this->label ); ?>
+					</label>
+				<?php } ?>
+				<?php if( !empty( $this->description ) ) { ?>
+					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php } ?>
+				<select name="<?php echo $this->id; echo ( $this->multiselect ? '[]' : '' ); ?>" id="<?php echo $this->id; ?>" class="dropdown_select2_select" <?php echo ( $this->multiselect ? 'multiple="multiple" ' : '' ); ?><?php $this->link(); ?>>
+					<?php
+						foreach ( $this->choices as $key => $value ) {
+							if ( is_array( $value ) ) {
+								echo '<optgroup label="' . esc_attr( $key ) . '">';
+								foreach ( $value as $optgroupkey => $optgroupvalue ) {
+									echo '<option value="' . esc_attr( $optgroupkey ) . '" ' . ( in_array( esc_attr( $optgroupkey ), $this->value() ) ? 'selected="selected"' : '' ) . '>' . esc_attr( $optgroupvalue ) . '</option>';
+								}
+								echo '</optgroup>';
+							}
+							else {
+								echo '<option value="' . esc_attr( $key ) . '" ' . selected( esc_attr( $key ), $this->value(), false )  . '>' . esc_attr( $value ) . '</option>';
+							}
+	 					}
+	 				?>
+				</select>
+			</div>
+		<?php
+		}
+	}
+
+	/**
 	 * Dropdown Posts Custom Control
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
@@ -531,8 +601,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket_custom_controls_js', trailingslashit( get_template_directory_uri() ) . 'js/customizer.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket_custom_controls_css', trailingslashit( get_template_directory_uri() ) . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'skyrocket_select2_js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
+			wp_enqueue_script( 'skyrocket_custom_controls_js', trailingslashit( get_template_directory_uri() ) . 'js/customizer.js', array( 'skyrocket_select2_js' ), '1.0', true );
+			wp_enqueue_style( 'skyrocket_custom_controls_css', trailingslashit( get_template_directory_uri() ) . 'css/customizer.css', array(), '1.1', 'all' );
+			wp_enqueue_style( 'skyrocket_select2_css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
 		}
 		/**
 		 * Export our List of Google Fonts to JavaScript
@@ -824,6 +896,26 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			}
 			else {
 				$input = sanitize_text_field( $input );
+			}
+			return $input;
+		}
+	}
+
+	/**
+	 * Array sanitization
+	 *
+	 * @param  array	Input to be sanitized
+	 * @return array	Sanitized input
+	 */
+	if ( ! function_exists( 'skyrocket_array_sanitization' ) ) {
+		function skyrocket_array_sanitization( $input ) {
+			if( is_array( $input ) ) {
+				foreach ( $input as $key => $value ) {
+					$input[$key] = sanitize_text_field( $value );
+				}
+			}
+			else {
+				$input = '';
 			}
 			return $input;
 		}
