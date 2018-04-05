@@ -15,7 +15,7 @@ This example code shows how to incorporate Customizer functionality into your th
 If you'd like to learn more about Customizer development, you can check out the links to my Customizer Developer's Guide, at the end of this readme.
 
 ## Core Controls ##
-Input Control (Text, Email, URL, Number, Hidden, Date)
+Input Control (Text, Email, URL, Number, Hidden, Date)  
 Checkbox Control  
 Select Control  
 Radio Control  
