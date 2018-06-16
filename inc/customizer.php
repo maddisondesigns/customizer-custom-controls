@@ -730,8 +730,8 @@ class skyrocket_initialise_customizer_settings {
 		);
 		$wp_customize->add_control( new Skyrocket_TinyMCE_Custom_control( $wp_customize, 'sample_tinymce_editor',
 			array(
-				'label' => __( 'TinyMCE Control', 'ephemeris' ),
-				'description' => __( 'This is a TinyMCE Editor Custom Control', 'ephemeris' ),
+				'label' => __( 'TinyMCE Control', 'skyrocket' ),
+				'description' => __( 'This is a TinyMCE Editor Custom Control', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'input_attrs' => array(
 					'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',

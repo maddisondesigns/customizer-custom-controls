@@ -337,7 +337,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			// Merge the passed button labels with our default labels
 			$this->button_labels = wp_parse_args( $this->button_labels,
 				array(
-					'add' => __( 'Add', 'ephemeris' ),
+					'add' => __( 'Add', 'skyrocket' ),
 				)
 			);
 		}
@@ -500,8 +500,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * TinyMCE Custom Control
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -846,8 +844,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Radio Button and Select sanitization
-	 *
-	 * @since Ephemeris 1.0
 	 *
 	 * @param  string		Radio Button value
 	 * @return integer	Sanitized value
