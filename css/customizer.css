@@ -22,14 +22,18 @@
 	border: none;
 	background: #fcfcff;
 	border-radius: 0;
-	height: 32px;
+	height: auto;
 	outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
+.select2-container .select2-dropdown {
+	z-index: 900000;
+}
+
 .customize-control select:active,
-.customize-control select:focus{
+.customize-control select:focus {
 	outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
