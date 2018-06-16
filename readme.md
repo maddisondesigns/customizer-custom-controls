@@ -360,16 +360,16 @@ add_control( $id, $args );
 
 ````
 $sampleIconsList = array(
-	'Behance' => __( '<i class="fa fa-behance"></i>', 'ephemeris' ),
-	'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'ephemeris' ),
-	'CodePen' => __( '<i class="fa fa-codepen"></i>', 'ephemeris' ),
-	'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'ephemeris' ),
-	'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'ephemeris' ),
-	'Etsy' => __( '<i class="fa fa-etsy"></i>', 'ephemeris' ),
-	'Facebook' => __( '<i class="fa fa-facebook"></i>', 'ephemeris' ),
-	'Flickr' => __( '<i class="fa fa-flickr"></i>', 'ephemeris' ),
-	'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'ephemeris' ),
-	'GitHub' => __( '<i class="fa fa-github"></i>', 'ephemeris' ),
+	'Behance' => __( '<i class="fa fa-behance"></i>', 'skyrocket' ),
+	'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'skyrocket' ),
+	'CodePen' => __( '<i class="fa fa-codepen"></i>', 'skyrocket' ),
+	'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'skyrocket' ),
+	'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'skyrocket' ),
+	'Etsy' => __( '<i class="fa fa-etsy"></i>', 'skyrocket' ),
+	'Facebook' => __( '<i class="fa fa-facebook"></i>', 'skyrocket' ),
+	'Flickr' => __( '<i class="fa fa-flickr"></i>', 'skyrocket' ),
+	'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'skyrocket' ),
+	'GitHub' => __( '<i class="fa fa-github"></i>', 'skyrocket' ),
 );
 $wp_customize->add_setting( 'sample_single_accordion',
 	array(
