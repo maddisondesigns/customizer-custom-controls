@@ -89,6 +89,7 @@ if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
  * This is a sample function to display some social icons on your site.
  * This sample function is also used to show how you can call a PHP function to refresh the customizer preview.
  * Add the following to header.php if you want to see the sample social icons displayed in the customizer preview and your theme.
+ * Before any social icons display, you'll also need to add the relevent URL's to the Header Navigation > Social Icons section in the Customizer.
  * <div class="social">
  *	 <?php echo skyrocket_get_social_media(); ?>
  * </div>
