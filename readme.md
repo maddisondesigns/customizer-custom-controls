@@ -30,6 +30,20 @@ Cropped Image Control
 Date Time Control (WP 4.9+)
 
 ## Custom Controls ##
+This code includes the following Custom Controls:  
+Toggle Switch  
+Slider  
+Sortable Repeater  
+Image Radio Button  
+Text Radio Button  
+Image Checkbox  
+Single Accordion  
+Simple Notice  
+Dropdown Select2  
+Dropdown Posts  
+TinyMCE Editor  
+Google Font Select  
+Alpha Color  
 
 ### Toggle Switch ###
 
@@ -455,11 +469,11 @@ The Dropdown Select2 Custom Control handles a straight forward list of entries b
 
 If you wish to select default values, pass a simple string when using the control to select a single entry. When using the control as a mutli-select, pass an array of strings to select multiple default values.
 
-To santize your controls data, use my `skyrocket_text_sanitization` function or any other function that sanitizes a simple string, when only selecting a single entry. When using the control as a multi-select, use `skyrocket_array_sanitization` for the settings `'sanitize_callback'` so as to ensure the complete array of strings is sanitized. If you don't sanitize your multi-select data as an array, your values most likely wont save to the database.
+To santize your controls data, use my `skyrocket_text_sanitization` function or any other function that can sanitize a simple string and also a series of comma delimited strings. It's worth noting that the multiselect dropdown will either save a single string or a series of comma delimited strings, depending on the number of entries selected in the dropdown.
 
-When using the control to only select a single entry, the setting is saved to the database as a string. When using the control to select multiple entries (i.e. `'multiselect' => true`), the setting is saved to the database as an array of strings (regardless of whether you select one entry or multiple entries).
+When only a single entry is selected, even when using the multiselect dropdown, then the setting will be saved to the database as a single string. If you are using the multiselect dropdown (i.e. `'multiselect' => true`) and you've selected multiple entries, they will be saved to the database as a series of comma delimited strings.
 
-![Google Font Select](https://maddisondesigns.com/wp-content/uploads/2017/05/DropdownSelect2Control.png "Google Font Select")
+![Dropdown Select2](https://maddisondesigns.com/wp-content/uploads/2017/05/DropdownSelect2Control.png "Dropdown Select2")
 
 **Usage**  
 add_control( $id, $args );
@@ -474,6 +488,7 @@ add_control( $id, $args );
 **description** - Required. The text to display  
 **section** - Required. The Section where there control should appear
 **input_attrs** - Optional. List of custom choices.  
+  **placeholder** - Optional. The Placeholder value to display. Select2 requires a Placeholder value to be set when using the clearall option. Default = 'Please select...'  
   **multiselect** - Optional. Select a single entry from the dropdown or select multiple. Either true or false. Default = false  
 **choices** - Required. List of custom choices.  
   **key** - Required. Data that will be stored for the setting  
@@ -496,6 +511,7 @@ $wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_c
 		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Single Select)', 'skyrocket' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
+			'placeholder' => __( 'Please select a state...', 'skyrocket' ),
 			'multiselect' => false,
 		),
 		'choices' => array(
@@ -516,7 +532,7 @@ $wp_customize->add_setting( 'sample_dropdown_select2_control_multi',
 	array(
 		'default' => array ( 'Antarctica/McMurdo', 'Australia/Melbourne', 'Australia/Broken_Hill' ),
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_array_sanitization'
+		'sanitize_callback' => 'skyrocket_text_sanitization'
 	)
 );
 $wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_multi',
