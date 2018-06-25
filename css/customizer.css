@@ -18,7 +18,7 @@
 	box-shadow: none;
 }
 
-.select2-container--default .selection .select2-selection--multiple {
+.wp-customizer .select2-container--default .selection .select2-selection--multiple {
 	border: none;
 	background: #fcfcff;
 	border-radius: 0;
@@ -28,7 +28,16 @@
 	box-shadow: none;
 }
 
-.select2-container .select2-dropdown {
+.wp-customizer .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	width: 95%;
+}
+
+.wp-customizer .select2-container--default .select2-selection--multiple .select2-selection__clear {
+	position: absolute;
+	right: 0;
+}
+
+.wp-customizer .select2-container .select2-dropdown {
 	z-index: 900000;
 }
 
