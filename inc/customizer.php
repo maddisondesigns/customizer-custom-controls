@@ -624,6 +624,7 @@ class skyrocket_initialise_customizer_settings {
 				'description' => esc_html__( 'Sample Dropdown Select2 custom control (Single Select)', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
 				'input_attrs' => array(
+					'placeholder' => __( 'Please select a state...', 'skyrocket' ),
 					'multiselect' => false,
 				),
 				'choices' => array(
@@ -644,7 +645,7 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['sample_dropdown_select2_control_multi'],
 				'transport' => 'refresh',
-				'sanitize_callback' => 'skyrocket_array_sanitization'
+				'sanitize_callback' => 'skyrocket_text_sanitization'
 			)
 		);
 		$wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_multi',
