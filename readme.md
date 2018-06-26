@@ -803,6 +803,132 @@ $wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_cus
 ) );
 ````
 
+## Further Reading ##
+
 For more details, check out my Customizer Developers Guide:  
 [The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)  
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
+
+## Changelog ##
+
+= 1.0 =
+- Let's add a changelog and a version number to make it easier to see what's changed. We'll call this v1.0 shall we
+
+= 25 Jun 2018 =
+- Update example code and readme documentation
+- Setting for multiselect control should be santized the same way as the single select
+- Fix issue with Select2 Dropdown not allowing control to be saved when entries are cleared
+- Add new clear all option Select2 Dropdown
+- Add ability to specify placeholder on Select2 Dropdown
+
+= 17 Jun 2018 =
+- Updated text to explain example in more detail
+- Add some more readme text to explain which section in the Customizer this example code is relevant to
+- Add some more inline comments to explain what the example code includes
+
+= 16 Jun 2018 =
+- Fix the textdomain on the sample code
+- Increase z-index for select2 controls so dropdown appears correctly
+- Fix height on select2 multi-select control
+- Fix incorrect textdomains & comments in code
+
+= 5 Apr 2018 =
+- Tweaked Readme. Stupid Github requiring two spaces at the end of a line just to get a carriage return. Uugh!
+
+= 2 Apr 2018 =
+- Implement a Select2 control for the Font Family dropdown in the Google Font Custom Control
+- Added new Dropdown Select2 Custom Control
+- Tweaked styles for Select2 Fields
+- Changed colour of Text Radio Button Control field when selected to better match other controls and to improve visibility
+
+= 31 Mar 2018 =
+- Update Google Font Control to allow ordering by popularity or alphabetically
+- Update Google Control to allow showing all fonts or specify just a certain number of fonts
+
+= 16 Mar 2018 =
+- Add new Dropdown Posts Custom Control
+
+= 27 Nov 2017 =
+- Update readme to include new core Date Time control
+- Add new example code for core Date Time control
+- Add a new sanitizer for the new Date Time Customizer control
+- Let's make input fields the same height as select fields
+- Fix position of label and alpha colour customizer control input field
+
+= 21 Nov 2017 =
+- Fix weird borders on color controls
+- Fix alignment of color input on default control
+
+= 4 Oct 2017 =
+- Updated readme
+
+= 29 Sep 2017 =
+- Tweak the border style on Customizer input fields to make them more noticeable
+- Tweak styles for Simple Notice Control so text isn't as cramped when code tag is used
+- Update the Simple Notice Control to allow span and code tags
+
+= 13 Sep 2017 =
+- Lets check if the woocommerce class exists instead of checking active_plugins for the plugin folder & file as it will still work if the plugin folder was renamed for some reason
+
+= 9 Sep 2017 =
+- Use get_template_directory_uri() when reading Google Fonts JSON file so it doesn't break when using child themes
+- Change placeholder text on Repeater control input field to https://
+- Automatically add https instead of http since all social networks use ssl
+
+= 21 Aug 2017 =
+- Update the example code for the TinyMCE Editor control
+
+= 20 Aug 2017 =
+- Added TinyMCE Editor Custom Control
+
+= 18 Jun 2017 =
+- Ensure manual slider input values don’t exceed minimum & maximum values
+- Fix readme formatting
+- Ensure strings are translatable
+- Add missing sanitisation callback functions
+- Ensure correct sanitisation functions are called
+- Add new functions for sanitising integers, RGBa values and the Google Font JSON string
+- Add sample code to add search icon to menu
+- Update customizer defaults
+
+= 17 May 2017 =
+- Updated readme description
+- Updated readme with more doco
+- Changed the name prefix on all the functions
+- Added a default for the Simple Notice Control, for consistency
+- Updated readme
+- Remove margin from bottom of Radio Button and Single Accordion Controls
+- Update Alpha Color Control
+
+= 16 May 2017 =
+- Fixed broken markdown for image in readme
+- Updated readme documentation
+- Update Simple Notice control example to include HTML tags
+- Tweak Simple Notice and Single Accordion to only display limited HTML tags
+- Update accordion to allow displaying of basic html.
+- Don’t force accordion array content to be icons.
+- Allow the icon tag to be passed to the control
+- Change FA version when enqueing
+- Update Font Awesome to v4.7
+- Updated readme
+
+= 14 May 2017 =
+- Add more content to readme
+- Add the ability to override the button labels on the Sortable repeater
+- Tweak translation functions on labels & descriptions
+- Override button label on Sortable Repeaters
+- Change name of default value
+
+= 11 May 2017 =
+- Fix readme. Github markdown eh! Talk about crap! Github Markdown really sucks
+
+= 8 May 2017 =
+- Added missing sanitisation on strings
+- Fixed existing string sanitisation for consistency
+- Tidied code
+
+= 6 May 2017 =
+- Added core Media, Image and Cropped Image Controls and their associated default settings
+
+= 5 May 2017 =
+- Initial commit
