@@ -245,6 +245,14 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 	}
 }
 
+add_action(
+  'customize_controls_enqueue_scripts',
+  function () {
+    wp_enqueue_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', [], '4.0.6-rc.0', true);
+    wp_enqueue_style('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', [], '4.0.6-rc.0');
+  }
+);
+
 /**
 * Load all our Customizer options
 */
