@@ -222,7 +222,11 @@ jQuery( document ).ready(function($) {
 	 * @link https://github.com/maddisondesigns
 	 */
 
-	$('.google-fonts-list').select2();
+	$('.google-fonts-list').each(function (i, obj) {
+		if (!$(obj).hasClass('select2-hidden-accessible')) {
+			$(obj).select2();
+		}
+	});
 
 	$('.google-fonts-list').on('change', function() {
 		var elementRegularWeight = $(this).parent().parent().find('.google-fonts-regularweight-style');

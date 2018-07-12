@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-
+**Version:** 1.0.1
 
 ## Description ##
 
@@ -810,6 +810,9 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.1 =
+- Check if there are any Google Font Controls being used before trying to call Select2
 
 = 1.0 =
 - Let's add a changelog and a version number to make it easier to see what's changed. We'll call this v1.0 shall we
