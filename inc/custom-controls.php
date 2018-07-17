@@ -617,7 +617,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function enqueue() {
 			wp_enqueue_script( 'skyrocket-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
-			wp_enqueue_script( 'skyrocket-custom-controls-js', trailingslashit( get_template_directory_uri() ) . 'js/customizer.js', array( 'skyrocket_select2_js' ), '1.0', true );
+			wp_enqueue_script( 'skyrocket-custom-controls-js', trailingslashit( get_template_directory_uri() ) . 'js/customizer.js', array( 'skyrocket-select2-js' ), '1.0', true );
 			wp_enqueue_style( 'skyrocket-custom-controls-css', trailingslashit( get_template_directory_uri() ) . 'css/customizer.css', array(), '1.1', 'all' );
 			wp_enqueue_style( 'skyrocket-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
 		}
