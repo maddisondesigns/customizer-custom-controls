@@ -197,6 +197,7 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'woocommerce_product_sidebar' => 0,
 			'sample_toggle_switch' => 0,
 			'sample_slider_control' => 48,
+			'sample_slider_control_small_step' => 2,
 			'sample_sortable_repeater_control' => '',
 			'sample_image_radio_button' => 'sidebarright',
 			'sample_text_radio_button' => 'right',

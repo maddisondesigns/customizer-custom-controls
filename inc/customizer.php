@@ -435,6 +435,26 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Another Test of Slider Custom Control
+		$wp_customize->add_setting( 'sample_slider_control_small_step',
+			array(
+				'default' => $this->defaults['sample_slider_control_small_step'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_range_sanitization'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control_small_step',
+			array(
+				'label' => __( 'Slider Control With a Small Step', 'skyrocket' ),
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'min' => 0,
+					'max' => 4,
+					'step' => .5,
+				),
+			)
+		) );
+
 		// Add our Sortable Repeater setting and Custom Control for Social media URLs
 		$wp_customize->add_setting( 'sample_sortable_repeater_control',
 			array(
