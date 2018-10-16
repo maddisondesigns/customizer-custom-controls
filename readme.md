@@ -811,6 +811,10 @@ For more details, check out my Customizer Developers Guide:
 
 ## Changelog ##
 
+= 1.0.3 =
+- Fix issue with specifying slider step less than one (e.g. 0.5)
+- Add new sanitisation function for sanitising slider ranges
+
 = 1.0.2 =
 - Update handles when enqueing scripts/styles to use dashes instead of underscores
 - Add prefixes to a couple of function names that didn't have a prefix
