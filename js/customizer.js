@@ -108,9 +108,9 @@ jQuery( document ).ready(function($) {
 	$('.slider-custom-control').each(function(){
 		var sliderValue = $(this).find('.customize-control-slider-value').val();
 		var newSlider = $(this).find('.slider');
-		var sliderMinValue = parseInt(newSlider.attr('slider-min-value'));
-		var sliderMaxValue = parseInt(newSlider.attr('slider-max-value'));
-		var sliderStepValue = parseInt(newSlider.attr('slider-step-value'));
+		var sliderMinValue = parseFloat(newSlider.attr('slider-min-value'));
+		var sliderMaxValue = parseFloat(newSlider.attr('slider-max-value'));
+		var sliderStepValue = parseFloat(newSlider.attr('slider-step-value'));
 
 		newSlider.slider({
 			value: sliderValue,
