@@ -1018,4 +1018,25 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			return $date->format( $datetimeformat );
 		}
 	}
+
+	/**
+	 * Slider sanitization
+	 *
+	 * @param  string	Slider value to be sanitized
+	 * @return string	Sanitized input
+	 */
+	if ( ! function_exists( 'skyrocket_range_sanitization' ) ) {
+		function skyrocket_range_sanitization( $input, $setting ) {
+			$attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+
+			$min = ( isset( $attrs['min'] ) ? $attrs['min'] : $input );
+			$max = ( isset( $attrs['max'] ) ? $attrs['max'] : $input );
+			$step = ( isset( $attrs['step'] ) ? $attrs['step'] : 1 );
+
+			$number = floor( $input / $attrs['step'] ) * $attrs['step'];
+
+			return skyrocket_in_range( $number, $min, $max );
+		}
+	}
+
 }
