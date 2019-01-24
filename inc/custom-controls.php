@@ -284,7 +284,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		/**
 		 * The type of control being rendered
 		 */
-		public $type = 'toogle_switch';
+		public $type = 'toggle_switch';
 		/**
 		 * Enqueue our scripts and styles
 		 */
@@ -560,7 +560,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
-	 * Googe Font Select Custom Control
+	 * Google Font Select Custom Control
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
