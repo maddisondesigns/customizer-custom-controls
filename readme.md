@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.4
+**Version:** 1.0.5
 
 ## Description ##
 
@@ -810,6 +810,9 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.5 =
+- Added support for including this library in a plugin (as well as a theme). Props @mmcev106
 
 = 1.0.4 =
 - Fix typos. Props @lushkant
