@@ -651,7 +651,9 @@ When adding your control, you can also specify what toolbar icons you would like
 
 The full list of available toolbar buttons is available on the official [TinyMCE website](https://www.tinymce.com/docs/advanced/editor-control-identifiers/). Their [Examples & Demo pages](https://www.tinymce.com/docs/demo/basic-example/) also has a number of examples showing how each of the toolbar buttons would display. It's worth noting that some toolbar buttons require additional [TinyMCE plugins](https://www.tinymce.com/docs/get-started/work-with-plugins/), not all of which are available by default in the WordPress version of TinyMCE.
 
-When sanitzing your setting, you can simply use the core wp_kses_post() function, which will sanitize the content for allowed HTML tags for post content.
+You can also choose to display or hide the Add Media button, enabling you to easily add images into your TinyMCE Control. The Add Media button will be hidden by default.
+
+When sanitizing your setting, you can simply use the core wp_kses_post() function, which will sanitize the content for allowed HTML tags for post content.
 
 The setting that gets saved to the database will be a string with the allowed HTML tags and attributes intact.
 
