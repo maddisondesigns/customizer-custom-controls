@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.5
+**Version:** 1.0.6
 
 ## Description ##
 
@@ -674,6 +674,7 @@ add_control( $id, $args );
 **input_attrs** - Optional. List of custom choices.  
   **toolbar1** - Optional. String containing a list of toolbar buttons to display on the first toolbar row. Default: 'bold italic bullist numlist alignleft aligncenter alignright link'  
   **toolbar2** - Optional. String containing a list of toolbar buttons to display on the second toolbar row. Default: blank  
+  **mediaButtons** - Optional. Display or hide the Add Media button. Either true or false. Default: false  
 
 **Example**
 
@@ -693,6 +694,7 @@ $wp_customize->add_control( new Skyrocket_TinyMCE_Custom_control( $wp_customize,
 		'input_attrs' => array(
 			'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
 			'toolbar2' => 'formatselect outdent indent | blockquote charmap',
+			'mediaButtons' => true,
 		)
 	)
 ) );
@@ -810,6 +812,9 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.6 =
+- Add the ability to show the Add Media button on the TinyMCE Control
 
 = 1.0.5 =
 - Added support for including this library in a plugin (as well as a theme). Props @mmcev106

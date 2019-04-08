@@ -756,9 +756,18 @@ class skyrocket_initialise_customizer_settings {
 				'section' => 'sample_custom_controls_section',
 				'input_attrs' => array(
 					'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+					'mediaButtons' => true,
 				)
 			)
 		) );
+		$wp_customize->selective_refresh->add_partial( 'sample_tinymce_editor',
+			array(
+				'selector' => '.footer-credits',
+				'container_inclusive' => false,
+				'render_callback' => 'skyrocket_get_credits_render_callback',
+				'fallback_refresh' => false,
+			)
+		);
 
 		// Test of Google Font Select Control
 		$wp_customize->add_setting( 'sample_google_font_select',
@@ -1140,6 +1149,13 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 	}
+}
+
+/**
+ * Render Callback for displaying the footer credits
+ */
+function skyrocket_get_credits_render_callback() {
+	echo skyrocket_get_credits();
 }
 
 /**

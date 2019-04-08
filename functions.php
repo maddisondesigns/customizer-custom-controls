@@ -181,6 +181,23 @@ if ( ! function_exists( 'skyrocket_add_search_menu_item' ) ) {
 add_filter( 'wp_nav_menu_items', 'skyrocket_add_search_menu_item', 10, 2 );
 
 /**
+ * Return a string containing the sample TinyMCE Control
+ * This is a sample function to show how you can use the TinyMCE Control for footer credits in your Theme
+ * Add the following three lines of code to your footer.php file to display the content of your sample TinyMCE Control
+ * <div class="footer-credits">
+ *		<?php echo skyrocket_get_credits(); ?>
+ *	</div>
+ */
+if ( ! function_exists( 'skyrocket_get_credits' ) ) {
+	function skyrocket_get_credits() {
+		$defaults = skyrocket_generate_defaults();
+
+		// wpautop this so that it acts like the new visual text widget, since we're using the same TinyMCE control
+		return wpautop( get_theme_mod( 'sample_tinymce_editor', $defaults['sample_tinymce_editor'] ) );
+	}
+}
+
+/**
 * Set our Customizer default options
 */
 if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
