@@ -148,12 +148,12 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 		}
 
 		if( get_theme_mod( 'social_rss', $defaults['social_rss'] ) ) {
-			$output .= sprintf( '<li class="%1$s"><a href="%2$s" title="%3$s"%4$s><i class="fa %5$s"></i></a></li>',
+			$output .= sprintf( '<li class="%1$s"><a href="%2$s" title="%3$s"%4$s><i class="%5$s"></i></a></li>',
 				'rss',
 				home_url( '/feed' ),
 				'Subscribe to my RSS feed',
 				( !$social_newtab ? '' : ' target="_blank"' ),
-				'fa-rss'
+				'fas fa-rss'
 			);
 		}
 
