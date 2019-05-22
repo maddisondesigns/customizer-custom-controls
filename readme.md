@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.6
+**Version:** 1.0.7
 
 ## Description ##
 
@@ -814,6 +814,12 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.7 =
+- Update skyrocket_get_social_media() to store output as array rather than string to make it easier for filtering
+- Added new filter (skyrocket_social_icons_list) for filtering social media icons list array
+- Added new social icons to Customizer Control (Discord, Kickstarter, Patreon, Weibo)
+- Updated FontAwesome to v5.8.2
 
 = 1.0.6 =
 - Add the ability to show the Add Media button on the TinyMCE Control
