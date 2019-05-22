@@ -103,22 +103,17 @@ if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
 if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 	function skyrocket_get_social_media() {
 		$defaults = skyrocket_generate_defaults();
-		$output = '';
+		$output = array();
 		$social_icons = skyrocket_generate_social_urls();
-		$social_urls = [];
-		$social_newtab = 0;
-		$social_alignment = '';
-		$contact_phone = '';
-
 		$social_urls = explode( ',', get_theme_mod( 'social_urls', $defaults['social_urls'] ) );
 		$social_newtab = get_theme_mod( 'social_newtab', $defaults['social_newtab'] );
 		$social_alignment = get_theme_mod( 'social_alignment', $defaults['social_alignment'] );
 		$contact_phone = get_theme_mod( 'contact_phone', $defaults['contact_phone'] );
 
 		if( !empty( $contact_phone ) ) {
-			$output .= sprintf( '<li class="%1$s"><i class="fa %2$s"></i>%3$s</li>',
+			$output[] = sprintf( '<li class="%1$s"><i class="%2$s"></i>%3$s</li>',
 				'phone',
-				'fa-phone',
+				'fas fa-phone fa-flip-horizontal',
 				$contact_phone
 			);
 		}
@@ -126,9 +121,9 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 		foreach( $social_urls as $key => $value ) {
 			if ( !empty( $value ) ) {
 				$domain = str_ireplace( 'www.', '', parse_url( $value, PHP_URL_HOST ) );
-				$index = array_search( $domain, array_column( $social_icons, 'url' ) );
+				$index = array_search( strtolower( $domain ), array_column( $social_icons, 'url' ) );
 				if( false !== $index ) {
-					$output .= sprintf( '<li class="%1$s"><a href="%2$s" title="%3$s"%4$s><i class="%5$s"></i></a></li>',
+					$output[] = sprintf( '<li class="%1$s"><a href="%2$s" title="%3$s"%4$s><i class="%5$s"></i></a></li>',
 						$social_icons[$index]['class'],
 						esc_url( $value ),
 						$social_icons[$index]['title'],
@@ -137,7 +132,7 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 					);
 				}
 				else {
-					$output .= sprintf( '<li class="nosocial"><a href="%2$s"%3$s><i class="%4$s"></i></a></li>',
+					$output[] = sprintf( '<li class="nosocial"><a href="%2$s"%3$s><i class="%4$s"></i></a></li>',
 						$social_icons[$index]['class'],
 						esc_url( $value ),
 						( !$social_newtab ? '' : ' target="_blank"' ),
@@ -148,7 +143,7 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 		}
 
 		if( get_theme_mod( 'social_rss', $defaults['social_rss'] ) ) {
-			$output .= sprintf( '<li class="%1$s"><a href="%2$s" title="%3$s"%4$s><i class="%5$s"></i></a></li>',
+			$output[] = sprintf( '<li class="%1$s"><a href="%2$s" title="%3$s"%4$s><i class="%5$s"></i></a></li>',
 				'rss',
 				home_url( '/feed' ),
 				'Subscribe to my RSS feed',
@@ -158,10 +153,12 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 		}
 
 		if ( !empty( $output ) ) {
-			$output = '<ul class="social-icons ' . $social_alignment . '">' . $output . '</ul>';
+			$output = apply_filters( 'skyrocket_social_icons_list', $output );
+			array_unshift( $output, '<ul class="social-icons ' . $social_alignment . '">' );
+			$output[] = '</ul>';
 		}
 
-		return $output;
+		return implode( '', $output );
 	}
 }
 
