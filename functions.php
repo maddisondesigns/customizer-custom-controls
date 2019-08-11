@@ -10,7 +10,7 @@ if ( ! function_exists( 'skyrocket_scripts_styles' ) ) {
 	function skyrocket_scripts_styles() {
 		// Register and enqueue our icon font
 		// We're using the awesome Font Awesome icon font. http://fortawesome.github.io/Font-Awesome
-		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/font-awesome.min.css' , array(), '5.8.2', 'all' );
+		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/fontawesome-all.min.css' , array(), '5.8.2', 'all' );
 		wp_enqueue_style( 'fontawesome' );
 	}
 }
@@ -222,6 +222,7 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_image_checkbox' => 'stylebold,styleallcaps',
 			'sample_single_accordion' => '',
 			'sample_alpha_color' => 'rgba(209,0,55,0.7)',
+			'sample_wpcolorpicker_alpha_color' => 'rgba(55,55,55,0.5)',
 			'sample_simple_notice' => '',
 			'sample_dropdown_select2_control_single' => 'vic',
 			'sample_dropdown_select2_control_multi' => array (
