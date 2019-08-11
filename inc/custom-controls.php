@@ -839,6 +839,63 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
+	 * WPColorPicker Alpha Color Picker Custom Control
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 *
+	 * Props @kallookoo for WPColorPicker script with Alpha Channel support
+	 *
+	 * @author Sergio <https://github.com/kallookoo>
+ 	 * @license http://www.gnu.org/licenses/gpl-3.0.html
+ 	 * @link https://github.com/kallookoo/wp-color-picker-alpha
+	 */
+	class Skyrocket_Alpha_Color_Control extends Skyrocket_Custom_Control {
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'wpcolorpicker-alpha-color';
+		/**
+ 		 * ColorPicker Attributes
+ 		 */
+		public $attributes = "";
+		/**
+		 * Constructor
+		 */
+		public function __construct( $manager, $id, $args = array(), $options = array() ) {
+			parent::__construct( $manager, $id, $args );
+			$this->attributes .= 'data-default-color="' . esc_attr( $this->value() ) . '"';
+			$this->attributes .= 'data-alpha="true"';
+			$this->attributes .= 'data-reset-alpha="true"';
+			$this->attributes .= 'data-custom-width="0"';
+		}
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue() {
+			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_skyrocket_resource_url() . 'js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '1.0', true );
+			wp_enqueue_style( 'wp-color-picker' );
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content() {
+		?>
+	      <div class="wpcolorpicker_alpha_color_control">
+				<?php if( !empty( $this->label ) ) { ?>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php } ?>
+				<?php if( !empty( $this->description ) ) { ?>
+					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php } ?>
+				<input type="text" class="color-picker" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-colorpicker-alpha-color" <?php echo $this->attributes; ?> <?php $this->link(); ?> />
+			</div>
+		<?php
+		}
+	}
+
+	/**
 	 * URL sanitization
 	 *
 	 * @param  string	Input to be sanitized (either a string containing a single url or multiple, separated by commas)

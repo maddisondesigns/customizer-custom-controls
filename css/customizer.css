@@ -615,6 +615,14 @@ input[type="number"]:focus {
 }
 
 /* ==========================================================================
+   WPColorPicker Alpha Color Picker
+   ========================================================================== */
+.customize-control-wpcolorpicker-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker {
+	float: left;
+	width: 195px;
+}
+
+/* ==========================================================================
    Google Fonts Select
    ========================================================================== */
 .google_fonts_select_control .google-fonts,

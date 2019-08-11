@@ -640,6 +640,22 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Test of WPColorPicker Alpha Color Picker Control
+		$wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color',
+			array(
+				'default' => $this->defaults['sample_wpcolorpicker_alpha_color'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color',
+			array(
+				'label' => __( 'WP ColorPicker Alpha Color Picker', 'skyrocket' ),
+				'description' => esc_html__( 'Sample color control with Alpha channel', 'skyrocket' ),
+				'section' => 'sample_custom_controls_section',
+			)
+		) );
+
 		// Test of Simple Notice control
 		$wp_customize->add_setting( 'sample_simple_notice',
 			array(
