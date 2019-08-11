@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.7
+**Version:** 1.0.9
 
 ## Description ##
 
@@ -44,6 +44,7 @@ Dropdown Posts
 TinyMCE Editor  
 Google Font Select  
 Alpha Color  
+WPColorPicker Alpha Color  
 
 ### Toggle Switch ###
 
@@ -807,6 +808,48 @@ $wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_cus
 ) );
 ````
 
+### WPColorPicker Alpha Color ###
+
+The WPColorPicker Alpha Color is another Custom Color Control that supports Alpha Channel selection (e.g. rgba(0,158,39,0.8) ). This controls uses a modifed version of the WordPress Color Picker script that supports Alpha Channel selection. Although the Customizer Custom Control was created by myself, all props for this modified WPColorPicker script go to [Sergio](https://github.com/kallookoo).
+
+The Alpha Color Control is very similar to the Color Control built into core. The benefit of this control over the default control, is that it allows you to specify the opacity of the selected colour, which allows you to specify RGBa colours rather than just a solid hex colour.
+
+The setting that gets saved to the database will be an RGBa color value (e.g. rgba(0,158,39,0.8) ) or a plain solid hex color (e.g. #009e27).
+
+![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/05/WPColorPickerAlphaColor.jpg "WPColorPicker Alpha Color")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Required. The text to display  
+**section** - Required. The Section where there control should appear  
+
+**Example**
+
+````
+$wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color',
+	array(
+		'default' => 'rgba(209,0,55,0.7)',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color',
+	array(
+		'label' => __( 'Alpha Color Picker Control' ),
+		'description' => esc_html__( 'Sample custom control description' ),
+		'section' => 'sample_custom_controls_section',
+	)
+) );
+````
+
 ## Further Reading ##
 
 For more details, check out my Customizer Developers Guide:  
@@ -814,6 +857,12 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.9 =
+- Added new Skyrocket_Alpha_Color_Control Custom Control which uses modified WPColorPicker script
+
+= 1.0.8 =
+- Renamed fontawesome stylsheet
 
 = 1.0.7 =
 - Update skyrocket_get_social_media() to store output as array rather than string to make it easier for filtering
