@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.9
+**Version:** 1.0.10
 
 ## Description ##
 
@@ -727,7 +727,7 @@ add_control( $id, $args );
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
 **description** - Required. The text to display  
-**section** - Required. The Section where there control should appear
+**section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of custom choices.  
   **font_count** - Optional. The number of fonts to display from the json file. Either positive integer or 'all'. Default = 'all'  
   **orderby** - Optional. The font list sort order. Either 'alpha' or 'popular'. Default = 'alpha'  
@@ -814,6 +814,14 @@ The WPColorPicker Alpha Color is another Custom Color Control that supports Alph
 
 The Alpha Color Control is very similar to the Color Control built into core. The benefit of this control over the default control, is that it allows you to specify the opacity of the selected colour, which allows you to specify RGBa colours rather than just a solid hex colour.
 
+When defining your control, you can specify an array of 8 colour values to use for the palette colours, which are shown as small swatches the bottom of the control. You can specify colours using Hex values, RGB values, or RGBa values. I recommend not mixing Hex/RGB and RGBa colours as the WPColorPicker script has issues handling this. Either use all HEX/RGB values, or all RGBa values.
+
+When defining your control, you can specify whether the Alpha Channel is reset (back to 1) or whether it remains the same value (default is to reset i.e. true). Setting `'resetalpha' => false` will ensure the value in the alpha channel **isn't** reset back to 1 every time one of the palette colours is selected. Setting `'resetalpha' => true` (or just not using this option) will ensure that the alpha channel value **is** reset back to 1 every time one of the palette colours is selected.
+
+The WPColorPicker script has issues when mixing HEX colours and RGBa colours in the palette. If `'resetalpha' => false` and you select an RGBa colour from the palette which has an alpha value less than 1, the correct colour will be selected. However, if you then select an Hex value from the palette, the alpha channel value will remain the same as the previous selection, causing an incorrect colour to be selected.
+
+When specifying all Hex values in the Palette, it's best to set `'resetalpha' => true` (or just don't specify this option as the default value is true). When using all RGBa values in the Palette, it's best to set `'resetalpha' => false`.
+
 The setting that gets saved to the database will be an RGBa color value (e.g. rgba(0,158,39,0.8) ) or a plain solid hex color (e.g. #009e27).
 
 ![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/05/WPColorPickerAlphaColor.jpg "WPColorPicker Alpha Color")
@@ -830,8 +838,11 @@ add_control( $id, $args );
 **label** - Optional. The label that will be displayed Default: Blank  
 **description** - Required. The text to display  
 **section** - Required. The Section where there control should appear  
+**input_attrs** - Optional. List of custom choices.  
+  **resetalpha** - Optional. This will reset the Alpha channel back to 1 every time a new colour is selected from the Palette. Default = 'true'  
+  **palette** - Optional. Allows you to specify the 8 colours used in the colour palette. Default: WP color control palette  
 
-**Example**
+**Example 1**
 
 ````
 $wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color',
@@ -844,8 +855,52 @@ $wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color',
 $wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color',
 	array(
 		'label' => __( 'Alpha Color Picker Control' ),
-		'description' => esc_html__( 'Sample custom control description' ),
+		'description' => esc_html__( 'Sample color control with Alpha channel' ),
 		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'palette' => array(
+				'#000000',
+				'#ffffff',
+				'#dd3333',
+				'#dd9933',
+				'#eeee22',
+				'#81d742',
+				'#1e73be',
+				'#8224e3',
+			)
+		),
+	)
+) );
+````
+
+**Example 2**
+
+````
+$wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color2',
+	array(
+		'default' => 'rgba(209,0,55,0.7)',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color2',
+	array(
+		'label' => __( 'Alpha Color Picker Control' ),
+		'description' => esc_html__( 'Sample color control with Alpha channel' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'resetalpha' => false,
+			'palette' => array(
+				'rgba(99,78,150,1)',
+				'rgba(67,78,150,1)',
+				'rgba(34,78,150,.7)',
+				'rgba(3,78,150,1)',
+				'rgba(7,110,230,.9)',
+				'rgba(234,78,150,1)',
+				'rgba(99,78,150,.5)',
+				'rgba(190,120,120,.5)',
+			),
+		),
 	)
 ) );
 ````
@@ -857,6 +912,9 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.10 =
+- Added ability to specify Palette colours in the new Skyrocket_Alpha_Color_Control Custom Control
 
 = 1.0.9 =
 - Added new Skyrocket_Alpha_Color_Control Custom Control which uses modified WPColorPicker script

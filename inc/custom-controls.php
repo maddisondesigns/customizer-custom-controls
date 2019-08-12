@@ -861,13 +861,26 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
  		 */
 		public $attributes = "";
 		/**
+ 		 * Color palette defaults
+ 		 */
+		public $defaultPalette = array(
+			'#000000',
+			'#ffffff',
+			'#dd3333',
+			'#dd9933',
+			'#eeee22',
+			'#81d742',
+			'#1e73be',
+			'#8224e3',
+		);
+		/**
 		 * Constructor
 		 */
 		public function __construct( $manager, $id, $args = array(), $options = array() ) {
 			parent::__construct( $manager, $id, $args );
 			$this->attributes .= 'data-default-color="' . esc_attr( $this->value() ) . '"';
 			$this->attributes .= 'data-alpha="true"';
-			$this->attributes .= 'data-reset-alpha="true"';
+			$this->attributes .= 'data-reset-alpha="' . ( isset( $this->input_attrs['resetalpha'] ) ? $this->input_attrs['resetalpha'] : 'true' ) . '"';
 			$this->attributes .= 'data-custom-width="0"';
 		}
 		/**
@@ -876,6 +889,13 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		public function enqueue() {
 			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_skyrocket_resource_url() . 'js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '1.0', true );
 			wp_enqueue_style( 'wp-color-picker' );
+		}
+		/**
+		 * Pass our Palette colours to JavaScript
+		 */
+		public function to_json() {
+			parent::to_json();
+			$this->json['colorpickerpalette'] = isset( $this->input_attrs['palette'] ) ? $this->input_attrs['palette'] : $this->defaultPalette;
 		}
 		/**
 		 * Render the control in the customizer

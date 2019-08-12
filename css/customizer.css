@@ -617,9 +617,22 @@ input[type="number"]:focus {
 /* ==========================================================================
    WPColorPicker Alpha Color Picker
    ========================================================================== */
+.customize-control-wpcolorpicker-alpha-color .wp-color-result {
+	border: none;
+	box-shadow: none;
+}
+.customize-control-wpcolorpicker-alpha-color .wp-color-result {
+	border: none;
+}
+
 .customize-control-wpcolorpicker-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker {
 	float: left;
 	width: 195px;
+}
+
+.customize-control-wpcolorpicker-alpha-color .wp-color-result .wp-color-result-text {
+	line-height: 24px;
+	border-left: none;
 }
 
 /* ==========================================================================

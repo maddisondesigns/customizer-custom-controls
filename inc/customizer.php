@@ -653,6 +653,47 @@ class skyrocket_initialise_customizer_settings {
 				'label' => __( 'WP ColorPicker Alpha Color Picker', 'skyrocket' ),
 				'description' => esc_html__( 'Sample color control with Alpha channel', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'palette' => array(
+						'#000000',
+						'#ffffff',
+						'#dd3333',
+						'#dd9933',
+						'#eeee22',
+						'#81d742',
+						'#1e73be',
+						'#8224e3',
+					)
+				),
+			)
+		) );
+
+		// Another Test of WPColorPicker Alpha Color Picker Control
+		$wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color2',
+			array(
+				'default' => $this->defaults['sample_wpcolorpicker_alpha_color'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color2',
+			array(
+				'label' => __( 'WP ColorPicker Alpha Color Picker', 'skyrocket' ),
+				'description' => esc_html__( 'Sample color control with Alpha channel', 'skyrocket' ),
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'resetalpha' => false,
+					'palette' => array(
+						'rgba(99,78,150,1)',
+						'rgba(67,78,150,1)',
+						'rgba(34,78,150,.7)',
+						'rgba(3,78,150,1)',
+						'rgba(7,110,230,.9)',
+						'rgba(234,78,150,1)',
+						'rgba(99,78,150,.5)',
+						'rgba(190,120,120,.5)',
+					),
+				),
 			)
 		) );
 
