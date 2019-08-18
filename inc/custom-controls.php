@@ -887,6 +887,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
+			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_skyrocket_resource_url() . 'js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '1.0', true );
 			wp_enqueue_style( 'wp-color-picker' );
 		}
