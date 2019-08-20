@@ -605,3 +605,19 @@ jQuery( document ).ready(function($) {
 	}
 
 });
+
+/**
+ * Remove attached events from the Upsell Section to stop panel from being able to open/close
+ */
+( function( $, api ) {
+	api.sectionConstructor['skyrocket-upsell'] = api.Section.extend( {
+
+		// Remove events for this type of section.
+		attachEvents: function () {},
+
+		// Ensure this type of section is active. Normally, sections without contents aren't visible.
+		isContextuallyActive: function () {
+			return true;
+		}
+	} );
+} )( jQuery, wp.customize );

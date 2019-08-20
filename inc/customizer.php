@@ -106,6 +106,9 @@ class skyrocket_initialise_customizer_settings {
 			)
 		);
 
+		/**
+		 * Add our section that contains examples of our Custom Controls
+		 */
 		$wp_customize->add_section( 'sample_custom_controls_section',
 			array(
 				'title' => __( 'Sample Custom Controls', 'skyrocket' ),
@@ -113,6 +116,9 @@ class skyrocket_initialise_customizer_settings {
 			)
 		);
 
+		/**
+		 * Add our section that contains examples of the default Core Customizer Controls
+		 */
 		$wp_customize->add_section( 'default_controls_section',
 			array(
 				'title' => __( 'Default Controls', 'skyrocket' ),
@@ -120,6 +126,18 @@ class skyrocket_initialise_customizer_settings {
 			)
 		);
 
+		/**
+		 * Add our Upsell Section
+		 */
+		$wp_customize->add_section( new Skyrocket_Upsell_Section( $wp_customize, 'upsell_section',
+			array(
+				'title' => __( 'Premium Addons Available', 'skyrocket' ),
+				'url' => 'https://skyrocketthemes.com',
+				'backgroundcolor' => '#344860',
+				'textcolor' => '#fff',
+				'priority' => 0,
+			)
+		) );
 	}
 
 	/**

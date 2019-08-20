@@ -642,3 +642,44 @@ input[type="number"]:focus {
 .google_fonts_select_control .weight-style {
 	margin-bottom: 10px;
 }
+
+/* ==========================================================================
+   Upsell Section
+   ========================================================================== */
+#customize-theme-controls #accordion-section-upsell_section {
+	display: block !important;
+}
+#customize-theme-controls .upsell-section-title {
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+	border-left: 4px solid #fff;
+	transition: 0s color ease-in-out,0s background-color ease-in-out,0s border-color ease-in-out;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#customize-theme-controls .upsell-section-title::after {
+	position: absolute;
+	top: 12px;
+	right: 10px;
+	z-index: 1;
+	content: "\f345";
+	font: normal 20px/1 dashicons;
+	speak: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: none !important;
+}
+#customize-theme-controls .upsell-section-title a {
+	display: block;
+	padding: 12px 15px 15px;
+	line-height: 21px;
+	text-decoration: none;
+}

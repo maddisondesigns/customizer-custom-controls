@@ -24,6 +24,24 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
+	 * Custom Section Base Class
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 */
+	class Skyrocket_Custom_Section extends WP_Customize_Section {
+		protected function get_skyrocket_resource_url() {
+			if( strpos( wp_normalize_path( __DIR__ ), wp_normalize_path( WP_PLUGIN_DIR ) ) === 0 ) {
+				// We're in a plugin directory and need to determine the url accordingly.
+				return plugin_dir_url( __DIR__ );
+			}
+
+			return trailingslashit( get_template_directory_uri() );
+		}
+	}
+
+	/**
 	 * Image Check Box Custom Control
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
@@ -913,6 +931,54 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				<input type="text" class="color-picker" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-colorpicker-alpha-color" <?php echo $this->attributes; ?> <?php $this->link(); ?> />
 			</div>
 		<?php
+		}
+	}
+
+	/**
+	 * Upsell section
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 *
+	 */
+	class Skyrocket_Upsell_Section extends Skyrocket_Custom_Section {
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'skyrocket-upsell';
+		/**
+		 * The Upsell URL
+		 */
+		public $url = '';
+		/**
+		 * The background color for the control
+		 */
+		public $backgroundcolor = '';
+		/**
+		 * The text color for the control
+		 */
+		public $textcolor = '';
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue() {
+			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+		}
+		/**
+		 * Render the section, and the controls that have been added to it.
+		 */
+		protected function render() {
+			$bkgrndcolor = !empty( $this->backgroundcolor ) ? esc_attr( $this->backgroundcolor ) : '#fff';
+			$color = !empty( $this->textcolor ) ? esc_attr( $this->textcolor ) : '#555d66';
+			?>
+			<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="skyrocket_upsell_section accordion-section control-section control-section-<?php echo esc_attr( $this->id ); ?> cannot-expand">
+				<h3 class="upsell-section-title" <?php echo ' style="color:' . $color . ';border-left-color:' . $bkgrndcolor .';border-right-color:' . $bkgrndcolor .';"'; ?>>
+					<a href="<?php echo esc_url( $this->url); ?>" target="_blank"<?php echo ' style="background-color:' . $bkgrndcolor . ';color:' . $color .';"'; ?>><?php echo esc_html( $this->title ); ?></a>
+				</h3>
+			</li>
+			<?php
 		}
 	}
 

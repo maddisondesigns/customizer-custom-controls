@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.10
+**Version:** 1.0.11
 
 ## Description ##
 
@@ -45,6 +45,7 @@ TinyMCE Editor
 Google Font Select  
 Alpha Color  
 WPColorPicker Alpha Color  
+Upsell Section  
 
 ### Toggle Switch ###
 
@@ -905,6 +906,47 @@ $wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 's
 ) );
 ````
 
+### Upsell Section ###
+
+The Upsell Section is a Custom Section that allows you to provide a link to an external URL, such as a theme website. This section is useful if you're upselling premium themes or plugins.
+
+The Upsell Section is similar to standard core Customizer section except that instead of being able to navigate into the section, it simply provides a link to an external URL. Since this is a Section rather than a Custom Control, you probably want to add this to the same function that defines your other Sections.
+
+When defining your section, you can specify the URL, the text to use for the link as well as the background and text colours for the section. The ability to define the colours allows you to show this section in your own branding colours, as well as making this link more noticeable within the Customizer.
+
+Since this is a Custom Section, rather than a Custom Control, there's no values saved to the database.
+
+![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/05/Customizer-Customer-Section.jpg "Upsell Section")
+
+**Usage**  
+add_section( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) A unique slug-like string to use as an id. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the section. Default: None
+
+**Arguments for $args**  
+**title** - The visible name of the section  
+**priority** - Optional. This controls the order in which this section appears in the Theme Customizer sidebar  
+**url** - The external url to link to  
+**backgroundcolor** - Optional. The background colour of the section. Default: #fff  
+**textcolor** - Optional. The text colour for the title. Default: #555d66  
+
+**Example**
+
+````
+$wp_customize->add_section( new Skyrocket_Upsell_Section( $wp_customize, 'upsell_section',
+	array(
+		'title' => __( 'Premium Addons Available', 'skyrocket' ),
+		'url' => 'https://skyrocketthemes.com',
+		'backgroundcolor' => '#344860',
+		'textcolor' => '#fff',
+		'priority' => 0,
+	)
+) );
+````
+
 ## Further Reading ##
 
 For more details, check out my Customizer Developers Guide:  
@@ -912,6 +954,9 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.11 =
+- Added new Upsell section that allows you to provide a link in the Customizer to an external URL. Useful if you're selling premium themes/plugins.
 
 = 1.0.10 =
 - Added ability to specify Palette colours in the new Skyrocket_Alpha_Color_Control Custom Control
