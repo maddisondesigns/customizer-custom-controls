@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.11
+**Version:** 1.0.12
 
 ## Description ##
 
@@ -954,6 +954,10 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
 ## Changelog ##
+
+= 1.0.12 =
+- Fixed default value for Multi Select Select2. Default value should be comma delimited string not an array.
+- Changed Sanitize Callback function for default WP_Customize_Image_Control control. This control returns a URL string, not an image ID.
 
 = 1.0.11 =
 - Added new Upsell section that allows you to provide a link in the Customizer to an external URL. Useful if you're selling premium themes/plugins.
