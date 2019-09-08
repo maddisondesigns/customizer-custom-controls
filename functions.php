@@ -225,11 +225,7 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_wpcolorpicker_alpha_color' => 'rgba(55,55,55,0.5)',
 			'sample_simple_notice' => '',
 			'sample_dropdown_select2_control_single' => 'vic',
-			'sample_dropdown_select2_control_multi' => array (
-				'Antarctica/McMurdo',
-				'Australia/Melbourne',
-				'Australia/Broken_Hill',
-				),
+			'sample_dropdown_select2_control_multi' => 'Antarctica/McMurdo,Australia/Melbourne,Australia/Broken_Hill',
 			'sample_dropdown_posts_control' => '',
 			'sample_tinymce_editor' => '',
 			'sample_google_font_select' => json_encode(
