@@ -1147,7 +1147,7 @@ class skyrocket_initialise_customizer_settings {
 			array(
 				'default' => $this->defaults['sample_default_image'],
 				'transport' => 'refresh',
-				'sanitize_callback' => 'absint'
+				'sanitize_callback' => 'esc_url_raw'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'sample_default_image',
