@@ -188,7 +188,6 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		public function enqueue() {
 			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
-			wp_enqueue_style( 'fontawesome', $this->get_skyrocket_resource_url() . 'css/font-awesome.min.css', array(), '4.6.3', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
