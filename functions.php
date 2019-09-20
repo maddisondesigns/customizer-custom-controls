@@ -2,7 +2,8 @@
 
 /**
  * Enqueue scripts and styles.
- * Our sample Social Icons are using Font Awesome to display the icons so we need to include the FA CSS
+ * Our sample Social Icons are using Font Awesome icons so we need to include the FA CSS when viewing our site
+ * The Single Accordion Control is also displaying some FA icons in the Customizer itself, so we need to enqueue FA CSS in the Customizer too
  *
  * @return void
  */
@@ -15,6 +16,7 @@ if ( ! function_exists( 'skyrocket_scripts_styles' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'skyrocket_scripts_styles' );
+add_action( 'customize_controls_print_styles', 'skyrocket_scripts_styles' );
 
 /**
  * Enqueue scripts for our Customizer preview
