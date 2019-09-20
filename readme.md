@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.12
+**Version:** 1.0.13
 
 ## Description ##
 
@@ -953,7 +953,15 @@ For more details, check out my Customizer Developers Guide:
 [The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)  
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
+Download a sample theme showing how to implement these Controls:
+[https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
+
 ## Changelog ##
+
+= 1.0.13 =
+- Don't enqueue the Font Awesome stylesheet within the Skyrocket_Single_Accordion_Custom_Control Control as it's not actually needed.
+- Enqueue the Font Awesome stylesheet within functions.php when viewing the Customizer, for showing icons in our sample Single Accordion Control content.
+- Added Readme link to a sample theme that shows how to implement these controls.
 
 = 1.0.12 =
 - Fixed default value for Multi Select Select2. Default value should be comma delimited string not an array.
