@@ -94,7 +94,7 @@ if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
  * Return an unordered list of linked social media icons, based on the urls provided in the Customizer Sortable Repeater
  * This is a sample function to display some social icons on your site.
  * This sample function is also used to show how you can call a PHP function to refresh the customizer preview.
- * Add the following to header.php if you want to see the sample social icons displayed in the customizer preview and your theme.
+ * Add the following code to header.php if you want to see the sample social icons displayed in the customizer preview and your theme.
  * Before any social icons display, you'll also need to add the relevent URL's to the Header Navigation > Social Icons section in the Customizer.
  * <div class="social">
  *	 <?php echo skyrocket_get_social_media(); ?>
@@ -225,6 +225,10 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_single_accordion' => '',
 			'sample_alpha_color' => 'rgba(209,0,55,0.7)',
 			'sample_wpcolorpicker_alpha_color' => 'rgba(55,55,55,0.5)',
+			'sample_wpcolorpicker_alpha_color2' => 'rgba(33,33,33,0.8)',
+			'sample_pill_checkbox' => 'tiger,elephant,hippo',
+			'sample_pill_checkbox2' => 'captainmarvel,msmarvel,squirrelgirl',
+			'sample_pill_checkbox3' => 'author,categories,comments',
 			'sample_simple_notice' => '',
 			'sample_dropdown_select2_control_single' => 'vic',
 			'sample_dropdown_select2_control_multi' => 'Antarctica/McMurdo,Australia/Melbourne,Australia/Broken_Hill',

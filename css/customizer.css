@@ -105,17 +105,21 @@ input[type="number"]:focus {
 	display: block;
 	clear: both;
 }
+
 .text_radio_button_control .radio-buttons {
 	display: inline-block;
 	border: 1px solid #f9f9fe;
 }
+
 .text_radio_button_control .radio-button-label {
 	cursor: pointer;
 	float: left;
 }
+
 .text_radio_button_control .radio-button-label > input {
 	display: none;
 }
+
 .text_radio_button_control .radio-button-label span {
 	cursor: pointer;
 	font-weight: 500;
@@ -125,14 +129,17 @@ input[type="number"]:focus {
 	padding: 5px 15px;
 	display: inline-block;
 }
+
 .text_radio_button_control .radio-button-label span:hover {
 	background-color: rgba(255, 255, 255, .2);
 	color: #2885bb;
 }
+
 .text_radio_button_control .radio-button-label > input:checked + span {
 	background-color: #2084bd;
 	color: #fff;
 }
+
 .text_radio_button_control .radio-button-label > input:checked + span:hover {
 	color: #fff;
 }
@@ -143,10 +150,12 @@ input[type="number"]:focus {
 .image_radio_button_control .radio-button-label > input {
 	display: none;
 }
+
 .image_radio_button_control .radio-button-label > img {
 	cursor: pointer;
 	border: 3px solid #ddd;
 }
+
 .image_radio_button_control .radio-button-label > input:checked + img {
 	border: 3px solid #2885bb;
 }
@@ -157,12 +166,102 @@ input[type="number"]:focus {
 .image_checkbox_control .checkbox-label > input {
 	display: none;
 }
+
 .image_checkbox_control .checkbox-label > img {
 	cursor: pointer;
 	border: 3px solid #ddd;
 }
+
 .image_checkbox_control .checkbox-label > input:checked + img {
 	border: 3px solid #2885bb;
+}
+
+/* ==========================================================================
+   Pill Checkboxes
+   ========================================================================== */
+.pill_checkbox_control .checkbox-label > input {
+	display: none;
+}
+
+.pill_checkbox_control .checkbox-label > .sortable-pill-title {
+	box-sizing: border-box;
+	cursor: pointer;
+	background-color: #ddd;
+	padding: 5px 15px;
+	border-radius: 20px;
+	font-size: 1rem;
+	display: inline-block;
+	margin-bottom: 5px
+}
+
+.pill_checkbox_control .sortable .checkbox-label > .sortable-pill-title {
+	cursor: move;
+}
+
+.pill_checkbox_control .sortable.fullwidth_pills .checkbox-label > .sortable-pill-title {
+	cursor: pointer;
+}
+
+.pill_checkbox_control .checkbox-label > input:checked + .sortable-pill-title { 
+	background-color: #2084bd;
+	color: #fff;
+}
+
+.pill_checkbox_control .checkbox-label > input:checked + .sortable-pill-title:before { 
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "dashicons";
+	font-weight: normal;
+	font-size: 24px;
+	content: "\f147";
+	margin-left: -10px;
+	vertical-align: bottom;
+}
+
+.pill_checkbox_control .fullwidth_pills .checkbox-label > .sortable-pill-title {
+	width: 100%;
+	border-radius: 0;
+}
+
+.pill_checkbox_control .sortable.fullwidth_pills .checkbox-label > .sortable-pill-title {
+	width: 90%;
+}
+
+.pill-ui-state-highlight {
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 20px;
+	font-size: 1rem;
+	border: 1px dotted #2084bd;
+	margin-bottom: 5px;
+	height: 16px;
+}
+
+.pill_checkbox_control .sortable_pills .pill-ui-state-highlight {
+	width: 50px;
+	border-radius: 20px;
+}
+
+.pill_checkbox_control .sortable_pills.fullwidth_pills .pill-ui-state-highlight {
+	width: 90%;
+	border-radius: 0;
+}
+
+.pill_checkbox_control .dashicons-sort {
+	margin: 5px 0 0 1px;
+	color: #d4d4d4;
+	cursor: move;
+}
+
+.pill_checkbox_control .dashicons-sort:hover {
+	color: #a7a7a7;
+}
+
+.pill_checkbox_control .sortable_pills.fullwidth_pills .ui-sortable-helper {
+	width: calc(100% - 25px) !important;
 }
 
 /* ==========================================================================
@@ -171,79 +270,96 @@ input[type="number"]:focus {
 .slider-custom-control {
 	margin-bottom: 30px;
 }
+
 .slider-custom-control input[type=number]::-webkit-inner-spin-button,
 .slider-custom-control input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
+
 .slider-custom-control input[type=number] {
 	-moz-appearance: textfield;
 }
+
 .slider-custom-control  .customize-control-title {
 	display: inline-block;
 }
+
 .slider-custom-control input[type=number] {
 	text-align: right;
 	width: 50px;
 	float: right;
 }
+
 .slider-custom-control .slider {
 	width: 85%;
 	float: left;
 	margin: 20px 0 10px;
 }
+
 .slider-custom-control .slider-reset {
 	float: right;
 	cursor: pointer;
 }
+
 .slider-custom-control .slider-value {
 	border: none;
 	text-align: right;
 	width: 50px;
 	margin-right: 5px;
 }
+
 .slider-custom-control .slider-value,
 .slider-custom-control .slider-unit {
 	float: right;
 }
+
 .slider-custom-control .ui-widget.ui-widget-content {
 	border: 1px solid #f4f4f4;
 }
+
 .slider-custom-control .ui-corner-all,
 .slider-custom-control .ui-corner-bottom,
 .slider-custom-control .ui-corner-right,
 .slider-custom-control .ui-corner-br {
 	border-bottom-right-radius: 3px;
 }
+
 .slider-custom-control .ui-corner-all,
 .slider-custom-control .ui-corner-bottom,
 .slider-custom-control .ui-corner-left,
 .slider-custom-control .ui-corner-bl {
 	border-bottom-left-radius: 3px;
 }
+
 .slider-custom-control .ui-corner-all,
 .slider-custom-control .ui-corner-top,
 .slider-custom-control .ui-corner-right,
 .slider-custom-control .ui-corner-tr {
 	border-top-right-radius: 3px;
 }
+
 .slider-custom-control .ui-corner-all,
 .slider-custom-control .ui-corner-top,
 .slider-custom-control .ui-corner-left,
 .slider-custom-control .ui-corner-tl {
 	border-top-left-radius: 3px;
 }
+
 .slider-custom-control .ui-widget-content {
 	background: #f4f4f4 none repeat scroll 0 0;
 	color: #333;
 }
+
 .slider-custom-control .ui-slider-horizontal {
 	height: 3px;
 }
+
 .slider-custom-control .ui-slider {
 	position: relative;
 	text-align: left;
 }
+
 .slider-custom-control .ui-state-default,
 .slider-custom-control .ui-widget-content .ui-state-default,
 .slider-custom-control .ui-widget-header .ui-state-default,
@@ -255,11 +371,13 @@ input[type="number"]:focus {
 	color: #454545;
 	font-weight: normal;
 }
+
 .slider-custom-control .ui-slider-horizontal .ui-slider-handle {
 	margin-left: -7px;
 	top: -7px;
 	border-radius: 50%;
 }
+
 .slider-custom-control .ui-slider .ui-slider-handle {
 	cursor: pointer;
 	height: 14px;
@@ -267,11 +385,13 @@ input[type="number"]:focus {
 	width: 14px;
 	z-index: 2;
 }
+
 .slider-custom-control .dashicons-image-rotate {
 	margin-top: 10px;
 	color: #d4d4d4;
 	size: 16px;
 }
+
 .slider-custom-control .dashicons-image-rotate:hover {
 	color: #a7a7a7;
 }
@@ -373,34 +493,42 @@ input[type="number"]:focus {
 	margin: 0;
 	padding: 0;
 }
+
 .sortable input[type="text"] {
 	margin: 5px 5px 5px 0;
 	width: 80%;
 }
+
 .sortable div {
 	cursor: move;
 }
+
 .customize-control-sortable-repeater-delete {
 	color: #d4d4d4;
 }
+
 .customize-control-sortable-repeater-delete:hover {
 	color: #f00;
 }
+
 .customize-control-sortable-repeater-delete .dashicons-no-alt {
 	text-decoration: none;
 	margin: 8px 0 0 0;
 	font-weight: 600;
 }
+
 .customize-control-sortable-repeater-delete:active,
 .customize-control-sortable-repeater-delete:focus {
 	outline: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
+
 .repeater .dashicons-sort {
 	margin: 8px 5px 0 5px;
 	color: #d4d4d4;
 }
+
 .repeater .dashicons-sort:hover {
 	color: #a7a7a7;
 }
@@ -415,6 +543,7 @@ input[type="number"]:focus {
 	padding: 10px 5px 5px 0;
 	cursor: pointer;
 }
+
 .accordion-icon-toggle {
 	font-size: 18px;
 	margin-left: 5px;
@@ -424,6 +553,7 @@ input[type="number"]:focus {
 	-o-transition: -o-transform 0.3s ease-in-out;
 	transition: transform 0.3s ease-in-out;
 }
+
 .single-accordion-toggle-rotate .accordion-icon-toggle {
 	filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=-0.5);
 	-webkit-transform: rotate(-45deg);
@@ -433,13 +563,16 @@ input[type="number"]:focus {
 	transform: rotate(-45deg);
 	display: inline-block;
 }
+
 .single-accordion {
 	display: none;
 }
+
 .single-accordion ul {
 	margin: 0;
 	padding: 0;
 }
+
 .single-accordion li {
 	background-color: #e4e4e4;
 	color: #888;
@@ -449,6 +582,7 @@ input[type="number"]:focus {
 	margin: 5px;
 	text-align: center;
 }
+
 .single-accordion li i {
 	margin-left: 5px;
 }
@@ -536,7 +670,6 @@ input[type="number"]:focus {
 	line-height: 27px;
 	margin-left: -14px;
 }
-
 .alpha-color-picker-container .ui-slider-handle.show-opacity {
 	font-size: 12px;
 }
@@ -585,18 +718,11 @@ input[type="number"]:focus {
    ========================================================================== */
 .customize-control-color .wp-color-result,
 .customize-control-alpha-color .wp-color-result {
-	border: none;
 	box-shadow: none;
-}
-
-.customize-control-color .wp-color-result:after,
-.customize-control-alpha-color .wp-color-result:after {
-	border: none;
 }
 
 .customize-control-color .wp-color-result .wp-color-result-text,
 .customize-control-alpha-color .wp-color-result .wp-color-result-text {
-	line-height: 24px;
 	border-left: none;
 }
 
@@ -618,11 +744,7 @@ input[type="number"]:focus {
    WPColorPicker Alpha Color Picker
    ========================================================================== */
 .customize-control-wpcolorpicker-alpha-color .wp-color-result {
-	border: none;
 	box-shadow: none;
-}
-.customize-control-wpcolorpicker-alpha-color .wp-color-result {
-	border: none;
 }
 
 .customize-control-wpcolorpicker-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker {
@@ -631,7 +753,6 @@ input[type="number"]:focus {
 }
 
 .customize-control-wpcolorpicker-alpha-color .wp-color-result .wp-color-result-text {
-	line-height: 24px;
 	border-left: none;
 }
 
@@ -649,6 +770,7 @@ input[type="number"]:focus {
 #customize-theme-controls #accordion-section-upsell_section {
 	display: block !important;
 }
+
 #customize-theme-controls .upsell-section-title {
 	font-size: 14px;
 	border-bottom: 1px solid #ddd;
@@ -664,6 +786,7 @@ input[type="number"]:focus {
 	-ms-user-select: none;
 	user-select: none;
 }
+
 #customize-theme-controls .upsell-section-title::after {
 	position: absolute;
 	top: 12px;
@@ -677,6 +800,7 @@ input[type="number"]:focus {
 	-moz-osx-font-smoothing: grayscale;
 	text-decoration: none !important;
 }
+
 #customize-theme-controls .upsell-section-title a {
 	display: block;
 	padding: 12px 15px 15px;

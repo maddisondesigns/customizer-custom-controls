@@ -42,47 +42,47 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
-	 * Image Check Box Custom Control
+	 * Image Checkbox Custom Control
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
 	 class Skyrocket_Image_Checkbox_Custom_Control extends Skyrocket_Custom_Control {
- 		/**
- 		 * The type of control being rendered
- 		 */
-  		public $type = 'image_checkbox';
- 		/**
- 		 * Enqueue our scripts and styles
- 		 */
-  		public function enqueue() {
- 			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
-  		}
- 		/**
- 		 * Render the control in the customizer
- 		 */
-  		public function render_content() {
-  		?>
- 			<div class="image_checkbox_control">
- 				<?php if( !empty( $this->label ) ) { ?>
- 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
- 				<?php } ?>
- 				<?php if( !empty( $this->description ) ) { ?>
- 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
- 				<?php } ?>
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'image_checkbox';
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue() {
+			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content() {
+		?>
+			<div class="image_checkbox_control">
+				<?php if( !empty( $this->label ) ) { ?>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php } ?>
+				<?php if( !empty( $this->description ) ) { ?>
+					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php } ?>
 				<?php	$chkboxValues = explode( ',', esc_attr( $this->value() ) ); ?>
 				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-multi-image-checkbox" <?php $this->link(); ?> />
- 				<?php foreach ( $this->choices as $key => $value ) { ?>
- 					<label class="checkbox-label">
- 						<input type="checkbox" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( esc_attr( $key ), $chkboxValues ), 1 ); ?> class="multi-image-checkbox"/>
- 						<img src="<?php echo esc_attr( $value['image'] ); ?>" alt="<?php echo esc_attr( $value['name'] ); ?>" title="<?php echo esc_attr( $value['name'] ); ?>" />
- 					</label>
- 				<?php	} ?>
- 			</div>
-  		<?php
-  		}
-  	}
+				<?php foreach ( $this->choices as $key => $value ) { ?>
+					<label class="checkbox-label">
+						<input type="checkbox" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( esc_attr( $key ), $chkboxValues ), 1 ); ?> class="multi-image-checkbox"/>
+						<img src="<?php echo esc_attr( $value['image'] ); ?>" alt="<?php echo esc_attr( $value['name'] ); ?>" title="<?php echo esc_attr( $value['name'] ); ?>" />
+					</label>
+				<?php	} ?>
+			</div>
+		<?php
+		}
+	}
 
 	/**
 	 * Text Radio Button Custom Control
@@ -92,41 +92,41 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @link https://github.com/maddisondesigns
 	 */
 	 class Skyrocket_Text_Radio_Button_Custom_Control extends Skyrocket_Custom_Control {
- 		/**
- 		 * The type of control being rendered
- 		 */
-  		public $type = 'text_radio_button';
- 		/**
- 		 * Enqueue our scripts and styles
- 		 */
-  		public function enqueue() {
- 			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
-  		}
- 		/**
- 		 * Render the control in the customizer
- 		 */
-  		public function render_content() {
-  		?>
- 			<div class="text_radio_button_control">
- 				<?php if( !empty( $this->label ) ) { ?>
- 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
- 				<?php } ?>
- 				<?php if( !empty( $this->description ) ) { ?>
- 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
- 				<?php } ?>
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'text_radio_button';
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue() {
+			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content() {
+		?>
+			<div class="text_radio_button_control">
+				<?php if( !empty( $this->label ) ) { ?>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php } ?>
+				<?php if( !empty( $this->description ) ) { ?>
+					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php } ?>
 
 				<div class="radio-buttons">
 					<?php foreach ( $this->choices as $key => $value ) { ?>
-	 					<label class="radio-button-label">
-	 						<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
-	 						<span><?php echo esc_attr( $value ); ?></span>
-	 					</label>
-	 				<?php	} ?>
+						<label class="radio-button-label">
+							<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
+							<span><?php echo esc_attr( $value ); ?></span>
+						</label>
+					<?php	} ?>
 				</div>
- 			</div>
-  		<?php
-  		}
-  	}
+			</div>
+		<?php
+		}
+	}
 
 	/**
 	 * Image Radio Button Custom Control
@@ -139,18 +139,18 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		/**
 		 * The type of control being rendered
 		 */
- 		public $type = 'image_radio_button';
+		public $type = 'image_radio_button';
 		/**
 		 * Enqueue our scripts and styles
 		 */
- 		public function enqueue() {
+		public function enqueue() {
 			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
- 		}
+		}
 		/**
 		 * Render the control in the customizer
 		 */
- 		public function render_content() {
- 		?>
+		public function render_content() {
+		?>
 			<div class="image_radio_button_control">
 				<?php if( !empty( $this->label ) ) { ?>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -166,9 +166,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					</label>
 				<?php	} ?>
 			</div>
- 		<?php
- 		}
- 	}
+		<?php
+		}
+	}
 
 	/**
 	 * Single Accordion Custom Control
@@ -214,7 +214,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					<?php
 						if ( is_array( $this->description ) ) {
 							echo '<ul class="single-accordion-description">';
-					  		foreach ( $this->description as $key => $value ) {
+							foreach ( $this->description as $key => $value ) {
 								echo '<li>' . $key . wp_kses( $value, $allowed_html ) . '</li>';
 							}
 							echo '</ul>';
@@ -361,8 +361,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public $type = 'sortable_repeater';
 		/**
- 		 * Button labels
- 		 */
+		 * Button labels
+		 */
 		public $button_labels = array();
 		/**
 		 * Constructor
@@ -388,7 +388,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function render_content() {
 		?>
-	      <div class="sortable_repeater_control">
+		  <div class="sortable_repeater_control">
 				<?php if( !empty( $this->label ) ) { ?>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 				<?php } ?>
@@ -396,7 +396,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 				<?php } ?>
 				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-sortable-repeater" <?php $this->link(); ?> />
-				<div class="sortable">
+				<div class="sortable_repeater sortable">
 					<div class="repeater">
 						<input type="text" value="" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
 					</div>
@@ -486,8 +486,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							else {
 								echo '<option value="' . esc_attr( $key ) . '" ' . selected( esc_attr( $key ), $defaultValue, false )  . '>' . esc_attr( $value ) . '</option>';
 							}
-	 					}
-	 				?>
+						}
+					?>
 				</select>
 			</div>
 		<?php
@@ -796,12 +796,12 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
- 	 * Alpha Color Picker Custom Control
- 	 *
- 	 * @author Braad Martin <http://braadmartin.com>
- 	 * @license http://www.gnu.org/licenses/gpl-3.0.html
- 	 * @link https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker
- 	 */
+	 * Alpha Color Picker Custom Control
+	 *
+	 * @author Braad Martin <http://braadmartin.com>
+	 * @license http://www.gnu.org/licenses/gpl-3.0.html
+	 * @link https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker
+	 */
 	class Skyrocket_Customize_Alpha_Color_Control extends Skyrocket_Custom_Control {
 		/**
 		 * The type of control being rendered
@@ -865,8 +865,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * Props @kallookoo for WPColorPicker script with Alpha Channel support
 	 *
 	 * @author Sergio <https://github.com/kallookoo>
- 	 * @license http://www.gnu.org/licenses/gpl-3.0.html
- 	 * @link https://github.com/kallookoo/wp-color-picker-alpha
+	 * @license http://www.gnu.org/licenses/gpl-3.0.html
+	 * @link https://github.com/kallookoo/wp-color-picker-alpha
 	 */
 	class Skyrocket_Alpha_Color_Control extends Skyrocket_Custom_Control {
 		/**
@@ -874,12 +874,12 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public $type = 'wpcolorpicker-alpha-color';
 		/**
- 		 * ColorPicker Attributes
- 		 */
+		 * ColorPicker Attributes
+		 */
 		public $attributes = "";
 		/**
- 		 * Color palette defaults
- 		 */
+		 * Color palette defaults
+		 */
 		public $defaultPalette = array(
 			'#000000',
 			'#ffffff',
@@ -920,7 +920,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function render_content() {
 		?>
-	      <div class="wpcolorpicker_alpha_color_control">
+		  <div class="wpcolorpicker_alpha_color_control">
 				<?php if( !empty( $this->label ) ) { ?>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 				<?php } ?>
@@ -928,6 +928,75 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 				<?php } ?>
 				<input type="text" class="color-picker" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-colorpicker-alpha-color" <?php echo $this->attributes; ?> <?php $this->link(); ?> />
+			</div>
+		<?php
+		}
+	}
+
+	/**
+	 * Sortable Pill Checkbox Custom Control
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 */
+	 class Skyrocket_Pill_Checkbox_Custom_Control extends Skyrocket_Custom_Control {
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'pill_checkbox';
+		/**
+		 * Define whether the pills can be sorted using drag 'n drop. Either false or true. Default = false
+		 */
+		private $sortable = false;
+		/**
+		 * The width of the pills. Each pill can be auto width or full width. Default = false
+		 */
+		private $fullwidth = false;
+		/**
+		 * Constructor
+		 */
+		public function __construct( $manager, $id, $args = array(), $options = array() ) {
+			parent::__construct( $manager, $id, $args );
+			// Check if these pills are sortable
+			if ( isset( $this->input_attrs['sortable'] ) && $this->input_attrs['sortable'] ) {
+				$this->sortable = true;
+			}
+			// Check if the pills should be full width
+			if ( isset( $this->input_attrs['fullwidth'] ) && $this->input_attrs['fullwidth'] ) {
+				$this->fullwidth = true;
+			}
+		}		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue() {
+			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content() {
+		?>
+			<div class="pill_checkbox_control">
+				<?php if( !empty( $this->label ) ) { ?>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php } ?>
+				<?php if( !empty( $this->description ) ) { ?>
+					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php } ?>
+				<?php $chkboxValues = explode( ',', esc_attr( $this->value() ) ); ?>
+				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-sortable-pill-checkbox" <?php $this->link(); ?> />
+				<div class="sortable_pills<?php echo ( $this->sortable ? ' sortable' : '' ) . ( $this->fullwidth ? ' fullwidth_pills' : '' ); ?>">
+				<?php foreach ( $this->choices as $key => $value ) { ?>
+					<label class="checkbox-label">
+						<input type="checkbox" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( esc_attr( $key ), $chkboxValues ), 1 ); ?> class="sortable-pill-checkbox"/>
+						<span class="sortable-pill-title"><?php echo esc_attr( $value ); ?></span>
+						<?php if( $this->sortable && $this->fullwidth ) { ?>
+							<span class="dashicons dashicons-sort"></span>
+						<?php } ?>
+					</label>
+				<?php	} ?>
+				</div>
 			</div>
 		<?php
 		}
@@ -1030,7 +1099,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	if ( ! function_exists( 'skyrocket_radio_sanitization' ) ) {
 		function skyrocket_radio_sanitization( $input, $setting ) {
 			//get the list of possible radio box or select options
-         $choices = $setting->manager->get_control( $setting->id )->choices;
+		 $choices = $setting->manager->get_control( $setting->id )->choices;
 
 			if ( array_key_exists( $input, $choices ) ) {
 				return $input;
@@ -1135,7 +1204,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			if ( $input > $max ) {
 				$input = $max;
 			}
-		    return $input;
+			return $input;
 		}
 	}
 

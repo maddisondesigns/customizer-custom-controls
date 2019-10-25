@@ -29,14 +29,14 @@ jQuery( document ).ready(function($) {
 	});
 
 	// Make our Repeater fields sortable
-	$(this).find('.sortable').sortable({
+	$(this).find('.sortable_repeater.sortable').sortable({
 		update: function(event, ui) {
 			skyrocketGetAllInputs($(this).parent());
 		}
 	});
 
 	// Remove item starting from it's parent element
-	$('.sortable').on('click', '.customize-control-sortable-repeater-delete', function(event) {
+	$('.sortable_repeater.sortable').on('click', '.customize-control-sortable-repeater-delete', function(event) {
 		event.preventDefault();
 		var numItems = $(this).parent().parent().find('.repeater').length;
 
@@ -61,12 +61,12 @@ jQuery( document ).ready(function($) {
 	});
 
 	// Refresh our hidden field if any fields change
-	$('.sortable').change(function() {
+	$('.sortable_repeater.sortable').change(function() {
 		skyrocketGetAllInputs($(this).parent());
 	})
 
 	// Add https:// to the start of the URL if it doesn't have it
-	$('.sortable').on('blur', '.repeater-input', function() {
+	$('.sortable_repeater.sortable').on('blur', '.repeater-input', function() {
 		var url = $(this);
 		var val = url.val();
 		if(val && !val.match(/^.+:\/\/.*/)) {
@@ -171,7 +171,7 @@ jQuery( document ).ready(function($) {
 	});
 
 	/**
-	 * Image Check Box Custom Control
+	 * Image Checkbox Custom Control
 	 *
 	 * @author Anthony Hortin <http://maddisondesigns.com>
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
@@ -179,20 +179,47 @@ jQuery( document ).ready(function($) {
 	 */
 
 	$('.multi-image-checkbox').on('change', function () {
-	  getAllCheckboxes($(this).parent().parent());
+	  skyrocketGetAllImageCheckboxes($(this).parent().parent());
 	});
 
 	// Get the values from the checkboxes and add to our hidden field
-	function getAllCheckboxes($element) {
+	function skyrocketGetAllImageCheckboxes($element) {
 	  var inputValues = $element.find('.multi-image-checkbox').map(function() {
 	    if( $(this).is(':checked') ) {
 	      return $(this).val();
-	 //   } else {
-	 //     return '';
 	    }
 	  }).toArray();
 	  // Important! Make sure to trigger change event so Customizer knows it has to save the field
 	  $element.find('.customize-control-multi-image-checkbox').val(inputValues).trigger('change');
+	}
+
+	/**
+	 * Pill Checkbox Custom Control
+	 *
+	 * @author Anthony Hortin <http://maddisondesigns.com>
+	 * @license http://www.gnu.org/licenses/gpl-2.0.html
+	 * @link https://github.com/maddisondesigns
+	 */
+
+	$( ".pill_checkbox_control .sortable" ).sortable({
+		placeholder: "pill-ui-state-highlight",
+		update: function( event, ui ) {
+			skyrocketGetAllPillCheckboxes($(this).parent());
+		}
+	});
+
+	$('.pill_checkbox_control .sortable-pill-checkbox').on('change', function () {
+		skyrocketGetAllPillCheckboxes($(this).parent().parent().parent());
+	});
+
+	// Get the values from the checkboxes and add to our hidden field
+	function skyrocketGetAllPillCheckboxes($element) {
+		var inputValues = $element.find('.sortable-pill-checkbox').map(function() {
+			if( $(this).is(':checked') ) {
+				return $(this).val();
+			}
+		}).toArray();
+		$element.find('.customize-control-sortable-pill-checkbox').val(inputValues).trigger('change');
 	}
 
 	/**

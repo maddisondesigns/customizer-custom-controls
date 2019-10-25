@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.0.13
+**Version:** 1.1.0
 
 ## Description ##
 
@@ -45,6 +45,7 @@ TinyMCE Editor
 Google Font Select  
 Alpha Color  
 WPColorPicker Alpha Color  
+Sortable Pill Checkbox Custom Control  
 Upsell Section  
 
 ### Toggle Switch ###
@@ -906,6 +907,132 @@ $wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 's
 ) );
 ````
 
+### Sortable Pill Checkbox Custom Control ###
+
+The Sortable Pill Checkbox works similar to an ordinary checkbox control, in that you can select one or more items out of a number of items. Instead of checkboxes, this control will display each item as a small 'pill'. When each pill/checkbox is selected, as well as changing color, the selected item will also display a tick to improve accessibility and to make it more obvious as to whether an item is selected or not. These pill checkboxes also have the option to be sortable using drag 'n drop. This is useful where you want to provide your users with a set of options, as well as providing them the ability to control the order of those options. Lastly, rather than small variabled sized pills, you can also opt to display them fullwidth. This will show each pill the same size, rather than each having a variable width. A common use of this type of control is where you might allow a user to select what meta content to display for their blog posts, along with allowing them to change the order that each item is displayed in.
+
+When adding your control, you can specify whether you want the pills to be sortable by setting `'sortable' => true` (default is non-sortable i.e. false). You can also spcify if you want the pills displayed full width by setting `'fullwidth' => true` (default is variable width i.e. false).
+
+The setting that gets saved to the database is a comma-separated string of values for each of the items that are selected.
+
+![Image Checkbox](https://maddisondesigns.com/wp-content/uploads/2017/05/SortablePillCheckbox.jpg "Sortable Pill Checkbox")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
+
+**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+
+**Arguments for $args**  
+**label** - Optional. The label that will be displayed Default: Blank  
+**description** - Optional. The description to display under the label. Default: Blank.  
+**section** - Required. The Section where there control should appear  
+**input_attrs** - Optional. List of control options.  
+  **sortable** - Optional. Allow the pills to be sortable using drag 'n drop. Default = 'false'  
+  **fullwidth** - Optional. Display the pills fullwidth, instead of variable width. Default = 'false'  
+**choices** - Required. List of custom choices.  
+  **key** - Required. Data that will be stored for the setting  
+  **value** - Required. Text to display in the control  
+
+**Example 1**
+
+````
+// Test of Pill Checkbox Custom Control
+$wp_customize->add_setting( 'sample_pill_checkbox',
+	array(
+		'default' => 'tiger,elephant,hippo',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox',
+	array(
+		'label' => __( 'Pill Checkbox Control', 'skyrocket' ),
+		'description' => esc_html__( 'This is a sample Pill Checkbox Control', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'sortable' => false,
+			'fullwidth' => false,
+		),
+		'choices' => array(
+			'tiger' => __( 'Tiger', 'skyrocket' ),
+			'lion' => __( 'Lion', 'skyrocket' ),
+			'giraffe' => __( 'Giraffe', 'skyrocket'  ),
+			'elephant' => __( 'Elephant', 'skyrocket'  ),
+			'hippo' => __( 'Hippo', 'skyrocket'  ),
+			'rhino' => __( 'Rhino', 'skyrocket'  ),
+		)
+	)
+) );
+````
+
+**Example 2**
+
+````
+// Test of Pill Checkbox Custom Control with Sortable option
+$wp_customize->add_setting( 'sample_pill_checkbox2',
+	array(
+		'default' => 'captainmarvel,msmarvel,squirrelgirl',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox2',
+	array(
+		'label' => __( 'Pill Checkbox Control', 'skyrocket' ),
+		'description' => esc_html__( 'This is a sample Sortable Pill Checkbox Control', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'sortable' => true,
+			'fullwidth' => false,
+		),
+		'choices' => array(
+			'captainamerica' => __( 'Captain America', 'skyrocket' ),
+			'ironman' => __( 'Iron Man', 'skyrocket' ),
+			'captainmarvel' => __( 'Captain Marvel', 'skyrocket'  ),
+			'msmarvel' => __( 'Ms. Marvel', 'skyrocket'  ),
+			'Jessicajones' => __( 'Jessica Jones', 'skyrocket'  ),
+			'squirrelgirl' => __( 'Squirrel Girl', 'skyrocket'  ),
+			'blackwidow' => __( 'Black Widow', 'skyrocket'  ),
+			'hulk' => __( 'Hulk', 'skyrocket'  ),
+		)
+	)
+) );
+````
+
+**Example 3**
+
+````
+// Test of Pill Checkbox Custom Control with Sortable and Fullwidth options
+$wp_customize->add_setting( 'sample_pill_checkbox3',
+	array(
+		'default' => 'author,categories,comments',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_text_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox3',
+	array(
+		'label' => __( 'Pill Checkbox Control', 'skyrocket' ),
+		'description' => esc_html__( 'This is a sample Sortable Fullwidth Pill Checkbox Control', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'sortable' => true,
+			'fullwidth' => true,
+		),
+		'choices' => array(
+			'date' => __( 'Date', 'skyrocket' ),
+			'author' => __( 'Author', 'skyrocket' ),
+			'categories' => __( 'Categories', 'skyrocket'  ),
+			'tags' => __( 'Tags', 'skyrocket'  ),
+			'comments' => __( 'Comments', 'skyrocket'  ),
+		)
+	)
+) );
+````
+
 ### Upsell Section ###
 
 The Upsell Section is a Custom Section that allows you to provide a link to an external URL, such as a theme website. This section is useful if you're upselling premium themes or plugins.
@@ -957,6 +1084,10 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.1.0 =
+- Added new Sortable Pill Checkbox Custom Control
+- Tidied up code
 
 = 1.0.13 =
 - Don't enqueue the Font Awesome stylesheet within the Skyrocket_Single_Accordion_Custom_Control Control as it's not actually needed.
