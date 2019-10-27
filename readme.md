@@ -58,9 +58,8 @@ The Toggle Switch Custom Control is basically just a fancy type of checkbox. It 
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed. Default: Blank  
@@ -96,9 +95,8 @@ You can specify the minimum and maximum values for the slider as well as the ste
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -145,9 +143,8 @@ The setting for this control will be saved as a comma delimited string of URL's.
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -192,9 +189,8 @@ Like an ordinary radio button, the setting that gets saved to the database is th
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -252,9 +248,8 @@ Like an ordinary radio button, the setting that gets saved to the database is th
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -302,9 +297,8 @@ The setting that gets saved to the database is a comma-separated string of value
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -366,9 +360,8 @@ You can pass it an array of key/values pairs or plain text content (incl. basic 
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -433,9 +426,8 @@ The text content can include basic html tags such as `a`, `br`, `em`, `strong`, 
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -482,9 +474,8 @@ When only a single entry is selected, even when using the multiselect dropdown, 
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -605,9 +596,8 @@ The setting that gets saved to the database is a Post ID.
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -668,9 +658,8 @@ The setting that gets saved to the database will be a string with the allowed HT
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -722,9 +711,8 @@ The setting is saved to the database as a json string. The easiest way to use th
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -770,9 +758,8 @@ The setting that gets saved to the database will be an RGBa color value (e.g. rg
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -832,9 +819,8 @@ The setting that gets saved to the database will be an RGBa color value (e.g. rg
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -921,9 +907,8 @@ The setting that gets saved to the database is a comma-separated string of value
 add_control( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) The id of the Setting associated with this Control. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the setting. Default: None
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
@@ -1049,9 +1034,8 @@ Since this is a Custom Section, rather than a Custom Control, there's no values 
 add_section( $id, $args );
 
 **Parameters**  
-**$id** - (string) (required) A unique slug-like string to use as an id. Default: None
-
-**$args** - (array) (required) An associative array containing arguments for the section. Default: None
+**$id** - (string) (required) Customize Section object or Section ID. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
 **Arguments for $args**  
 **title** - The visible name of the section  
