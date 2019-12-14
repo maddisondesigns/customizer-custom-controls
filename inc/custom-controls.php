@@ -704,7 +704,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description">Select weight &amp; style for regular text</div>
+					<div class="customize-control-description"><?php esc_html_e( 'Select weight & style for regular text', 'skyrocket' ) ?></div>
 					<div class="weight-style">
 						<select class="google-fonts-regularweight-style">
 							<?php
@@ -714,7 +714,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description">Select weight for <italic>italic text</italic></div>
+					<div class="customize-control-description"><?php esc_html_e( 'Select weight for', 'skyrocket' ) ?> <italic><?php esc_html_e( 'italic text', 'skyrocket' ) ?></italic></div>
 					<div class="weight-style">
 						<select class="google-fonts-italicweight-style" <?php disabled( in_array( 'italic', $this->fontList[$this->fontListIndex]->variants ), false ); ?>>
 							<?php
@@ -732,7 +732,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description">Select weight for <strong>bold text</strong></div>
+					<div class="customize-control-description"><?php esc_html_e( 'Select weight for', 'skyrocket' ) ?> <strong><?php esc_html_e( 'bold text', 'skyrocket' ) ?></strong></div>
 					<div class="weight-style">
 						<select class="google-fonts-boldweight-style">
 							<?php
