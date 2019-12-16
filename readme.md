@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.1.1
+**Version:** 1.1.2
 
 ## Description ##
 
@@ -1068,6 +1068,9 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.1.2 =
+- Added missing escape functions around strings. Props @habibjh88
 
 = 1.1.1 =
 - Fixed issue with Sortable Pill Checkbox Control not displaying choices in correct saved order upon initial render
