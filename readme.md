@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.1.3
+**Version:** 1.1.4
 
 ## Description ##
 
@@ -1068,6 +1068,10 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.1.4 =
+- Fixed issue with Multiselect in Select2 Control where choices is a single array. Props @manchumahara
+- Added example Select2 Control where the Choices is a single array (instead of a multidimensional array)
 
 = 1.1.3 =
 - Fixed the height in the custom wpColorPicker script for the WPColorPicker Alpha Color Picker Control
