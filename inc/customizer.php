@@ -906,6 +906,60 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Test of Dropdown Select2 Control (Multi-Select) with single array choice
+		$wp_customize->add_setting( 'sample_dropdown_select2_control_multi2',
+			array(
+				'default' => $this->defaults['sample_dropdown_select2_control_multi2'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_text_sanitization'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_multi2',
+			array(
+				'label' => __( 'Dropdown Select2 Control', 'skyrocket' ),
+				'description' => esc_html__( 'Another Sample Dropdown Select2 custom control (Multi-Select)', 'skyrocket' ),
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'multiselect' => true,
+				),
+				'choices' => array(
+					'Antarctica/Casey' => __( 'Casey', 'skyrocket' ),
+					'Antarctica/Davis' => __( 'Davis', 'skyrocket' ),
+					'Antarctica/DumontDurville' => __( 'DumontDUrville', 'skyrocket' ),
+					'Antarctica/Macquarie' => __( 'Macquarie', 'skyrocket' ),
+					'Antarctica/Mawson' => __( 'Mawson', 'skyrocket' ),
+					'Antarctica/McMurdo' => __( 'McMurdo', 'skyrocket' ),
+					'Antarctica/Palmer' => __( 'Palmer', 'skyrocket' ),
+					'Antarctica/Rothera' => __( 'Rothera', 'skyrocket' ),
+					'Antarctica/Syowa' => __( 'Syowa', 'skyrocket' ),
+					'Antarctica/Troll' => __( 'Troll', 'skyrocket' ),
+					'Antarctica/Vostok' => __( 'Vostok', 'skyrocket' ),
+					'Atlantic/Azores' => __( 'Azores', 'skyrocket' ),
+					'Atlantic/Bermuda' => __( 'Bermuda', 'skyrocket' ),
+					'Atlantic/Canary' => __( 'Canary', 'skyrocket' ),
+					'Atlantic/Cape_Verde' => __( 'Cape Verde', 'skyrocket' ),
+					'Atlantic/Faroe' => __( 'Faroe', 'skyrocket' ),
+					'Atlantic/Madeira' => __( 'Madeira', 'skyrocket' ),
+					'Atlantic/Reykjavik' => __( 'Reykjavik', 'skyrocket' ),
+					'Atlantic/South_Georgia' => __( 'South Georgia', 'skyrocket' ),
+					'Atlantic/Stanley' => __( 'Stanley', 'skyrocket' ),
+					'Atlantic/St_Helena' => __( 'St Helena', 'skyrocket' ),
+					'Australia/Adelaide' => __( 'Adelaide', 'skyrocket' ),
+					'Australia/Brisbane' => __( 'Brisbane', 'skyrocket' ),
+					'Australia/Broken_Hill' => __( 'Broken Hill', 'skyrocket' ),
+					'Australia/Currie' => __( 'Currie', 'skyrocket' ),
+					'Australia/Darwin' => __( 'Darwin', 'skyrocket' ),
+					'Australia/Eucla' => __( 'Eucla', 'skyrocket' ),
+					'Australia/Hobart' => __( 'Hobart', 'skyrocket' ),
+					'Australia/Lindeman' => __( 'Lindeman', 'skyrocket' ),
+					'Australia/Lord_Howe' => __( 'Lord Howe', 'skyrocket' ),
+					'Australia/Melbourne' => __( 'Melbourne', 'skyrocket' ),
+					'Australia/Perth' => __( 'Perth', 'skyrocket' ),
+					'Australia/Sydney' => __( 'Sydney', 'skyrocket' ),
+				)
+			)
+		) );
+
 		// Test of Dropdown Posts Control
 		$wp_customize->add_setting( 'sample_dropdown_posts_control',
 			array(
