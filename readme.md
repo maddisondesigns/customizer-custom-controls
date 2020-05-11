@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.1.5
+**Version:** 1.1.6
 
 ## Description ##
 
@@ -1068,6 +1068,9 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.1.6 =
+- Update Pill Checkbox Custom Control to ensure that jQuery UI is listed as a dependency when enqueing scripts
 
 = 1.1.5 =
 - Update Select2 component to load from theme/plugin rather than CDN as per Theme Review Guidelines
