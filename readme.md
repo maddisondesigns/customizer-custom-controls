@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.1.6
+**Version:** 1.1.7
 
 ## Description ##
 
@@ -1068,6 +1068,10 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.1.7 =
+- Update the property for a couple of styles to only target the background color
+- Update some of the color values to make them lowercase instead of uppercase
 
 = 1.1.6 =
 - Update Pill Checkbox Custom Control to ensure that jQuery UI is listed as a dependency when enqueing scripts
