@@ -8,7 +8,7 @@
 .customize-control select,
 .select2-container--default .selection .select2-selection--single {
 	border: none;
-	background: #fcfcff;
+	background-color: #fcfcff;
 	position: relative;
 	border-radius: 0;
 	height: 27px;
@@ -20,7 +20,7 @@
 
 .wp-customizer .select2-container--default .selection .select2-selection--multiple {
 	border: none;
-	background: #fcfcff;
+	background-color: #fcfcff;
 	border-radius: 0;
 	height: auto;
 	outline: none;
@@ -56,7 +56,7 @@ input[type="number"],
 input[type="url"],
 input[type="email"],
 input[type="date"] {
-	background: #fcfcff;
+	background-color: #fcfcff;
 	position: relative;
 	border-radius: 0;
 	border: 1px solid #eee;
@@ -458,7 +458,7 @@ input[type="number"]:focus {
 .toggle-switch-inner:after {
 	content: "OFF";
 	padding-right: 8px;
-	background-color: #EEEEEE;
+	background-color: #eeeeee;
 	color: #999999;
 	text-align: right;
 }
@@ -467,7 +467,7 @@ input[type="number"]:focus {
 	display: block;
 	width: 16px;
 	margin: 3px;
-	background: #FFFFFF;
+	background-color: #ffffff;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -620,7 +620,7 @@ input[type="number"]:focus {
 	border: 1px solid #dfdfdf;
 	border-top: none;
 	display: none;
-	background: #FFF;
+	background-color: #fff;
 	padding: 0 11px 10px;
 	position: relative;
 }
@@ -650,8 +650,8 @@ input[type="number"]:focus {
 .alpha-color-picker-container .ui-slider-handle,
 .alpha-color-picker-container .ui-widget-content .ui-state-default {
 	color: #777;
-	background-color: #FFF;
-	text-shadow: 0 1px 0 #FFF;
+	background-color: #fff;
+	text-shadow: 0 1px 0 #fff;
 	text-decoration: none;
 	position: absolute;
 	z-index: 2;
@@ -690,7 +690,7 @@ input[type="number"]:focus {
 .alpha-color-picker-container .transparency {
 	height: 24px;
 	width: 100%;
-	background-color: #FFF;
+	background-color: #fff;
 	background-image: url(../images/color-picker-transparency-grid.png);
 	box-shadow: 0 0 5px rgba(0,0,0,0.4) inset;
 	-webkit-border-radius: 3px;
