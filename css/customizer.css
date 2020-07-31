@@ -452,14 +452,14 @@ input[type="number"]:focus {
 	content: "ON";
 	padding-left: 8px;
 	background-color: #2885bb;
-	color: #FFFFFF;
+	color: #fff;
 }
 
 .toggle-switch-inner:after {
 	content: "OFF";
 	padding-right: 8px;
-	background-color: #eeeeee;
-	color: #999999;
+	background-color: #eee;
+	color: #999;
 	text-align: right;
 }
 
@@ -467,7 +467,7 @@ input[type="number"]:focus {
 	display: block;
 	width: 16px;
 	margin: 3px;
-	background-color: #ffffff;
+	background-color: #fff;
 	position: absolute;
 	top: 0;
 	bottom: 0;
