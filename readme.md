@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.1.8
+**Version:** 1.1.9
 
 ## Description ##
 
@@ -1074,6 +1074,10 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.1.9 =
+- Fixed escaping by changing two instance of esc_attr() to esc_html() as per Theme Check plugin recommendations
+- Tidied up styles
 
 = 1.1.8 =
 - Update the Google Font JSON files
