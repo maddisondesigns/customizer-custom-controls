@@ -915,7 +915,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function enqueue() {
 			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
-			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_skyrocket_resource_url() . 'js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '1.0', true );
+			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_skyrocket_resource_url() . 'js/wp-color-picker-alpha-min.js', array( 'wp-color-picker' ), '1.0', true );
 			wp_enqueue_style( 'wp-color-picker' );
 		}
 		/**
@@ -937,7 +937,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				<?php if( !empty( $this->description ) ) { ?>
 					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 				<?php } ?>
-				<input type="text" class="color-picker" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-colorpicker-alpha-color" <?php echo $this->attributes; ?> <?php $this->link(); ?> />
+				<input type="text" class="wpcolorpicker-alpha-color-picker" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-colorpicker-alpha-color" <?php echo $this->attributes; ?> <?php $this->link(); ?> />
 			</div>
 		<?php
 		}
@@ -1191,7 +1191,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	}
 
 	/**
-	 * Alpha Color (Hex & RGBa) sanitization
+	 * Alpha Color (Hex, RGB & RGBa) sanitization
 	 *
 	 * @param  string	Input to be sanitized
 	 * @return string	Sanitized input
@@ -1202,14 +1202,22 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				return $setting->default;
 			}
 
-			if ( false === strpos( $input, 'rgba' ) ) {
-				// If string doesn't start with 'rgba' then santize as hex color
+			if ( false === strpos( $input, 'rgb' ) ) {
+				// If string doesn't start with 'rgb' then santize as hex color
 				$input = sanitize_hex_color( $input );
 			} else {
-				// Sanitize as RGBa color
-				$input = str_replace( ' ', '', $input );
-				sscanf( $input, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
-				$input = 'rgba(' . skyrocket_in_range( $red, 0, 255 ) . ',' . skyrocket_in_range( $green, 0, 255 ) . ',' . skyrocket_in_range( $blue, 0, 255 ) . ',' . skyrocket_in_range( $alpha, 0, 1 ) . ')';
+				if ( false === strpos( $input, 'rgba' ) ) {
+					// Sanitize as RGB color
+					$input = str_replace( ' ', '', $input );
+					sscanf( $input, 'rgb(%d,%d,%d)', $red, $green, $blue );
+					$input = 'rgb(' . skyrocket_in_range( $red, 0, 255 ) . ',' . skyrocket_in_range( $green, 0, 255 ) . ',' . skyrocket_in_range( $blue, 0, 255 ) . ')';
+				}
+				else {
+					// Sanitize as RGBa color
+					$input = str_replace( ' ', '', $input );
+					sscanf( $input, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+					$input = 'rgba(' . skyrocket_in_range( $red, 0, 255 ) . ',' . skyrocket_in_range( $green, 0, 255 ) . ',' . skyrocket_in_range( $blue, 0, 255 ) . ',' . skyrocket_in_range( $alpha, 0, 1 ) . ')';
+				}
 			}
 			return $input;
 		}
