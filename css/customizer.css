@@ -749,11 +749,17 @@ input[type="number"]:focus {
 
 .customize-control-wpcolorpicker-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker {
 	float: left;
-	width: 195px;
+	width: 195px !important;
 }
 
 .customize-control-wpcolorpicker-alpha-color .wp-color-result .wp-color-result-text {
 	border-left: none;
+}
+
+.customize-control-wpcolorpicker-alpha-color .iris-picker-inner .iris-slider,
+.customize-control-wpcolorpicker-alpha-color .iris-picker-inner .iris-alpha-slider,
+.customize-control-two-color-gradient .iris-picker-inner .iris-alpha-slider {
+	width: 17.6px !important;
 }
 
 /* ==========================================================================
