@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.1.9
+**Version:** 1.2.0
 
 ## Description ##
 
@@ -1074,6 +1074,11 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.2.0 =
+- Fixed wp-color-picker-alpha WordPress 5.5 incompatibility - See https://github.com/kallookoo/wp-color-picker-alpha/issues/35
+- Fixed wp-color-picker-alpha Iris Alpha Slider not aligning properly in Firefox - See https://github.com/kallookoo/wp-color-picker-alpha/issues/36
+- Update skyrocket_hex_rgba_sanitization() to sanitize RBG and RGBa colors
 
 = 1.1.9 =
 - Fixed escaping by changing two instance of esc_attr() to esc_html() as per Theme Check plugin recommendations
