@@ -674,13 +674,13 @@ class skyrocket_initialise_customizer_settings {
 				'input_attrs' => array(
 					'palette' => array(
 						'#000000',
+						'#222222',
+						'#444444',
+						'#777777',
+						'#999999',
+						'#aaaaaa',
+						'#dddddd',
 						'#ffffff',
-						'#dd3333',
-						'#dd9933',
-						'#eeee22',
-						'#81d742',
-						'#1e73be',
-						'#8224e3',
 					)
 				),
 			)
