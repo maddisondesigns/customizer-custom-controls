@@ -20,7 +20,6 @@ If you'd like to learn more about Customizer development, check out my Customize
 
 You can download a sample theme and plugin showing how to implement these Controls, with the following links. Please note though, since both the sample theme and sample plugin use the same Customizer Controls code, don't try to activate the sample plugin on the same site where the sample theme is activated. This will cause an error as you'll be trying to instatiate classes with the same name since they're both using the same code base:  
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)  
-ow to implement these Controls:  
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin)  
 
 
