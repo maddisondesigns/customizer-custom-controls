@@ -213,7 +213,7 @@ input[type="number"]:focus {
 	font-variant: normal;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
-	font-family: "dashicons";
+	font-family: dashicons;
 	font-weight: normal;
 	font-size: 24px;
 	content: "\f147";
@@ -347,7 +347,7 @@ input[type="number"]:focus {
 }
 
 .slider-custom-control .ui-widget-content {
-	background: #f4f4f4 none repeat scroll 0 0;
+	background: #fff none repeat scroll 0 0;
 	color: #333;
 }
 
@@ -441,22 +441,22 @@ input[type="number"]:focus {
 	height: 22px;
 	padding: 0;
 	line-height: 22px;
-	font-size: 14px;
+	font-size: 20px;
 	color: white;
-	font-family: Trebuchet, Arial, sans-serif;
+	font-family: dashicons;
 	font-weight: bold;
 	box-sizing: border-box;
 }
 
 .toggle-switch-inner:before {
-	content: "ON";
+	content: "\f147";
 	padding-left: 8px;
 	background-color: #2885bb;
 	color: #fff;
 }
 
 .toggle-switch-inner:after {
-	content: "OFF";
+	content: "\f158";
 	padding-right: 8px;
 	background-color: #eee;
 	color: #999;

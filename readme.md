@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.2.0
+**Version:** 1.2.1
 
 ## Description ##
 
@@ -18,8 +18,10 @@ If you'd like to learn more about Customizer development, check out my Customize
 [The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)  
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
-You can also download a sample theme showing how to implement these Controls:  
-[https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
+You can download a sample theme and plugin showing how to implement these Controls, with the following links. Please note though, since both the sample theme and sample plugin use the same Customizer Controls code, don't try to activate the sample plugin on the same site where the sample theme is activated. This will cause an error as you'll be trying to instatiate classes with the same name since they're both using the same code base:  
+[https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)  
+ow to implement these Controls:  
+[https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin)  
 
 
 ## Core Controls ##
@@ -1074,6 +1076,12 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.2.1 =
+- Implemented latest version of wp-color-picker-alpha
+- Changed Toggle switch to use Dashicons rather than English text
+- Tweaked slider bar colour to make it easier to see
+- Tweaked script and style version numbers when they're enqueued to ensure they're consistent
 
 = 1.2.0 =
 - Fixed wp-color-picker-alpha WordPress 5.5 incompatibility - See https://github.com/kallookoo/wp-color-picker-alpha/issues/35

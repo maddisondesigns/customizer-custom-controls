@@ -269,6 +269,9 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 }
 
 /**
-* Load all our Customizer options
-*/
-include_once trailingslashit( dirname(__FILE__) ) . 'inc/customizer.php';
+ * Load all our Customizer options
+ */
+function skyrocket_customizer_setup() {
+	include_once trailingslashit( dirname(__FILE__) ) . 'inc/customizer.php';
+}
+add_action( 'after_setup_theme', 'skyrocket_customizer_setup' );
