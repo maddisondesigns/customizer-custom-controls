@@ -160,6 +160,10 @@ input[type="number"]:focus {
 	border: 3px solid #2885bb;
 }
 
+#customize-controls .image_radio_button_control .radio-button-label > img {
+	max-width: 70px;
+}
+
 /* ==========================================================================
    Image Checkboxes
    ========================================================================== */
@@ -174,6 +178,10 @@ input[type="number"]:focus {
 
 .image_checkbox_control .checkbox-label > input:checked + img {
 	border: 3px solid #2885bb;
+}
+
+#customize-controls .image_checkbox_control .checkbox-label > img {
+	max-width: 70px;
 }
 
 /* ==========================================================================

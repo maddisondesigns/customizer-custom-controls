@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.2.1
+**Version:** 1.2.2
 
 ## Description ##
 
@@ -1075,6 +1075,10 @@ Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
+
+= 1.2.2 =
+- Updated Image Radio Button Control images, and Image Checkbox Control images to have better resolution
+- Tweaked css for above controls so image has a max-width so layout doesn't break with higher resolution images
 
 = 1.2.1 =
 - Implemented latest version of wp-color-picker-alpha
