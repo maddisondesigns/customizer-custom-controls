@@ -1044,10 +1044,10 @@ add_control( $id, $args );
 **Arguments for $args**  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of custom input attributes for control output.  
-  **width** - Optional. The width of the divider line. Accepts 'default', 'full', 'half'. Default: 'default'  
-  **type** - Optional. The style used for the divider. Accepts 'solid', 'dashed', 'dotted', 'double'. Default: 'solid'  
-  **margintop** - Optional. The margin above the divider (in px). Default: 20  
-  **marginbottom** - Optional. The margin below the divider (in px). Default: 20
+  **width** - Optional. The width of the divider line. Accepts 'default', 'full', 'half'. Default: 'default'  
+  **type** - Optional. The style used for the divider. Accepts 'solid', 'dashed', 'dotted', 'double'. Default: 'solid'  
+  **margintop** - Optional. The margin above the divider (in px). Default: 20  
+  **marginbottom** - Optional. The margin below the divider (in px). Default: 20
 
 **Example**
 
