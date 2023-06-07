@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.2.2
+**Version:** 1.3.0
 
 ## Description ##
 
@@ -53,6 +53,7 @@ Google Font Select
 Alpha Color  
 WPColorPicker Alpha Color  
 Sortable Pill Checkbox Custom Control  
+Divider  
 Upsell Section  
 
 ### Toggle Switch ###
@@ -1025,6 +1026,52 @@ $wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_cust
 ) );
 ````
 
+### Divider ###
+
+The Divider Control allows you to display a thin horizontal divider between your controls. There's no settings saved for this control, it's purely for helping you to visually separate your different controls.
+
+When adding your control, you can specify the width of the divider line, the type of line to display, and the margin above and below the divider (in px).
+
+![Divider](https://maddisondesigns.com/wp-content/uploads/2023/06/Customizer-Divider-Custom-Control.jpg "Divider")
+
+**Usage**  
+add_control( $id, $args );
+
+**Parameters**  
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+
+**Arguments for $args**  
+**section** - Required. The Section where there control should appear  
+**input_attrs** - Optional. List of custom input attributes for control output.  
+  **width** - Optional. The width of the divider line. Accepts 'default', 'full', 'half'. Default: 'default'  
+  **type** - Optional. The style used for the divider. Accepts 'solid', 'dashed', 'dotted', 'double'. Default: 'solid'  
+  **margintop** - Optional. The margin above the divider (in px). Default: 20  
+  **marginbottom** - Optional. The margin below the divider (in px). Default: 20
+
+**Example**
+
+````
+$wp_customize->add_setting( 'sample_divider_control',
+	array(
+		'default' => $this->defaults['sample_divider_control'],
+		'transport' => 'postMessage',
+		'sanitize_callback' => ''
+	)
+);
+$wp_customize->add_control( new Skyrocket_Divider_Custom_Control( $wp_customize, 'sample_divider_control',
+	array(
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'width' => 'full',
+			'type' => 'solid',
+			'margintop' => 15,
+			'marginbottom' => 30,
+		),
+	)
+) );
+````
+
 ### Upsell Section ###
 
 The Upsell Section is a Custom Section that allows you to provide a link to an external URL, such as a theme website. This section is useful if you're upselling premium themes or plugins.
@@ -1076,6 +1123,10 @@ You can download a sample theme and plugin showing how to implement these Contro
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin)  
 
 ## Changelog ##
+
+= 1.3.0 =
+- Added new Divider Custom Control
+- Added protected variables to control and section base classes to use for the customizer JS and CSS versions
 
 = 1.2.2 =
 - Updated Image Radio Button Control images, and Image Checkbox Control images to have better resolution
