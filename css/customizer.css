@@ -779,6 +779,49 @@ input[type="number"]:focus {
 }
 
 /* ==========================================================================
+   Divider
+   ========================================================================== */
+#customize-theme-controls .simple-divider-custom-control {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+#customize-theme-controls .simple-divider-custom-control::before {
+	content: ' ';
+}
+
+#customize-theme-controls .simple-divider-custom-control::after {
+	content: ' ';
+	border-top: 1px solid #ddd;
+	left: -20%;
+	position: absolute;
+	width: 140%;
+}
+
+#customize-theme-controls .simple-divider-custom-control.simple-divider-type-dashed::after {
+	border-top: 1px dashed #ddd;
+}
+
+#customize-theme-controls .simple-divider-custom-control.simple-divider-type-dotted::after {
+	border-top: 1px dotted #ddd;
+}
+
+#customize-theme-controls .simple-divider-custom-control.simple-divider-type-double::after {
+	border-top: 3px double #ddd;
+}
+
+#customize-theme-controls .simple-divider-custom-control.simple-divider-width-default::after {
+	width: calc(100% - 24px);
+	left: 12px;
+}
+
+#customize-theme-controls .simple-divider-custom-control.simple-divider-width-half::after {
+	width: 50%;
+	left: calc(25% - 12px);
+}
+
+/* ==========================================================================
    Upsell Section
    ========================================================================== */
 #customize-theme-controls #accordion-section-upsell_section {

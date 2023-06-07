@@ -631,6 +631,26 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Test of Divider control
+		$wp_customize->add_setting( 'sample_divider_control2',
+			array(
+				'default' => $this->defaults['sample_divider_control2'],
+				'transport' => 'postMessage',
+				'sanitize_callback' => ''
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Divider_Custom_Control( $wp_customize, 'sample_divider_control2',
+			array(
+				'label' => '',
+				'description' => '',
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'width' => 'default',
+					'type' => 'dashed',
+				),
+			)
+		) );
+
 		// Test of Alpha Color Picker Control
 		$wp_customize->add_setting( 'sample_alpha_color',
 			array(
@@ -711,6 +731,28 @@ class skyrocket_initialise_customizer_settings {
 						'rgba(99,78,150,.5)',
 						'rgba(190,120,120,.5)',
 					),
+				),
+			)
+		) );
+
+		// Test of Divider control
+		$wp_customize->add_setting( 'sample_divider_control3',
+			array(
+				'default' => $this->defaults['sample_divider_control3'],
+				'transport' => 'postMessage',
+				'sanitize_callback' => ''
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Divider_Custom_Control( $wp_customize, 'sample_divider_control3',
+			array(
+				'label' => '',
+				'description' => '',
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'width' => 'half',
+					'type' => 'double',
+					'margintop' => 30,
+					'marginbottom' => 50,
 				),
 			)
 		) );
@@ -813,6 +855,28 @@ class skyrocket_initialise_customizer_settings {
 				'label' => __( 'Simple Notice Control', 'skyrocket' ),
 				'description' => __( 'This Custom Control allows you to display a simple title and description to your users. You can even include <a href="http://google.com" target="_blank">basic html</a>.', 'skyrocket' ),
 				'section' => 'sample_custom_controls_section'
+			)
+		) );
+
+		// Test of Divider control
+		$wp_customize->add_setting( 'sample_divider_control',
+			array(
+				'default' => $this->defaults['sample_divider_control'],
+				'transport' => 'postMessage',
+				'sanitize_callback' => ''
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Divider_Custom_Control( $wp_customize, 'sample_divider_control',
+			array(
+				'label' => '',
+				'description' => '',
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'width' => 'full',
+					'type' => 'solid',
+					'margintop' => 20,
+					'marginbottom' => 30,
+				),
 			)
 		) );
 
