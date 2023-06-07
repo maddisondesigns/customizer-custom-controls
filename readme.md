@@ -110,9 +110,9 @@ add_control( $id, $args );
 **label** - Optional. The label that will be displayed Default: Blank  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Required. List of custom input attributes for control output.  
-  **min** - Required. Minimum value for the slider  
-  **max** - Required. Maximum value for the slider  
-  **step** - Required. The size of each interval or step the slider takes between the min and max values
+ **min** - Required. Minimum value for the slider  
+ **max** - Required. Maximum value for the slider  
+ **step** - Required. The size of each interval or step the slider takes between the min and max values
 
 **Example**
 
@@ -159,7 +159,7 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **button_labels** - Optional. Array containing a list of labels for the control  
-  **add** - Optional. Button label for add button. Default: Add
+ **add** - Optional. Button label for add button. Default: Add
 
 **Example**
 
@@ -205,9 +205,9 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting
-  **image** - Required. URL for the image to display  
-  **name** - Required. Title text to display
+ **key** - Required. Data that will be stored for the setting
+ **image** - Required. URL for the image to display  
+ **name** - Required. Title text to display
 
 **Example**
 
@@ -264,8 +264,8 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **value** - Required. Data that is displayed for the radio button choice
+ **key** - Required. Data that will be stored for the setting  
+ **value** - Required. Data that is displayed for the radio button choice
 
 **Example**
 
@@ -313,9 +313,9 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **image** - Required. URL for the image to display  
-  **name** - Required. Title text to display
+ **key** - Required. Data that will be stored for the setting  
+ **image** - Required. URL for the image to display  
+ **name** - Required. Title text to display
 
 **Example**
 
@@ -490,11 +490,11 @@ add_control( $id, $args );
 **description** - Required. The text to display  
 **section** - Required. The Section where there control should appear
 **input_attrs** - Optional. List of custom choices.  
-  **placeholder** - Optional. The Placeholder value to display. Select2 requires a Placeholder value to be set when using the clearall option. Default = 'Please select...'  
-  **multiselect** - Optional. Select a single entry from the dropdown or select multiple. Either true or false. Default = false  
+ **placeholder** - Optional. The Placeholder value to display. Select2 requires a Placeholder value to be set when using the clearall option. Default = 'Please select...'  
+ **multiselect** - Optional. Select a single entry from the dropdown or select multiple. Either true or false. Default = false  
 **choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **value** - Required. Text to display in the control  
+ **key** - Required. Data that will be stored for the setting  
+ **value** - Required. Text to display in the control  
 
 **Example**
 
@@ -612,13 +612,13 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of post options. The options listed below are the most common. See [WP_Query::parse_query()](https://developer.wordpress.org/reference/classes/wp_query/parse_query/) in the WordPress Codex for the complete list.  
-  **posts_per_page** - Optional. The number of posts to retrieve. Use -1 to retrieve all posts. Default: 5  
-  **orderby** - Optional. Order to sort retrieved posts by. Accepts 'none', 'name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand' and a number of others. Default: 'date'  
-  **order** - Optional.  Designates ascending or descending order of posts. Accepts 'ASC' or 'DESC'. Default: 'DESC'  
-  **cat** - Optional. Category ID or comma-separated list of IDs. Default: 0  
-  **post__in** - Optional. An array of post IDs to retrieve (sticky posts will be included)  
-  **post__not_in** - Optional. An array of post IDs not to retrieve. *Note:* a string of comma- separated IDs will NOT work  
-  **post_type** - Optional. A post type slug (string) or array of post type slugs. Default: 'post'  
+ **posts_per_page** - Optional. The number of posts to retrieve. Use -1 to retrieve all posts. Default: 5  
+ **orderby** - Optional. Order to sort retrieved posts by. Accepts 'none', 'name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand' and a number of others. Default: 'date'  
+ **order** - Optional.  Designates ascending or descending order of posts. Accepts 'ASC' or 'DESC'. Default: 'DESC'  
+ **cat** - Optional. Category ID or comma-separated list of IDs. Default: 0  
+ **post__in** - Optional. An array of post IDs to retrieve (sticky posts will be included)  
+ **post__not_in** - Optional. An array of post IDs not to retrieve. *Note:* a string of comma- separated IDs will NOT work  
+ **post_type** - Optional. A post type slug (string) or array of post type slugs. Default: 'post'  
 
 **Example**
 
@@ -674,9 +674,9 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of custom choices.  
-  **toolbar1** - Optional. String containing a list of toolbar buttons to display on the first toolbar row. Default: 'bold italic bullist numlist alignleft aligncenter alignright link'  
-  **toolbar2** - Optional. String containing a list of toolbar buttons to display on the second toolbar row. Default: blank  
-  **mediaButtons** - Optional. Display or hide the Add Media button. Either true or false. Default: false  
+ **toolbar1** - Optional. String containing a list of toolbar buttons to display on the first toolbar row. Default: 'bold italic bullist numlist alignleft aligncenter alignright link'  
+ **toolbar2** - Optional. String containing a list of toolbar buttons to display on the second toolbar row. Default: blank  
+ **mediaButtons** - Optional. Display or hide the Add Media button. Either true or false. Default: false  
 
 **Example**
 
@@ -727,8 +727,8 @@ add_control( $id, $args );
 **description** - Required. The text to display  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of custom choices.  
-  **font_count** - Optional. The number of fonts to display from the json file. Either positive integer or 'all'. Default = 'all'  
-  **orderby** - Optional. The font list sort order. Either 'alpha' or 'popular'. Default = 'alpha'  
+ **font_count** - Optional. The number of fonts to display from the json file. Either positive integer or 'all'. Default = 'all'  
+ **orderby** - Optional. The font list sort order. Either 'alpha' or 'popular'. Default = 'alpha'  
 
 **Example**
 
@@ -835,8 +835,8 @@ add_control( $id, $args );
 **description** - Required. The text to display  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of custom choices.  
-  **resetalpha** - Optional. This will reset the Alpha channel back to 1 every time a new colour is selected from the Palette. Default = 'true'  
-  **palette** - Optional. Allows you to specify the 8 colours used in the colour palette. Default: WP color control palette  
+ **resetalpha** - Optional. This will reset the Alpha channel back to 1 every time a new colour is selected from the Palette. Default = 'true'  
+ **palette** - Optional. Allows you to specify the 8 colours used in the colour palette. Default: WP color control palette  
 
 **Example 1**
 
@@ -923,11 +923,11 @@ add_control( $id, $args );
 **description** - Optional. The description to display under the label. Default: Blank.  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of control options.  
-  **sortable** - Optional. Allow the pills to be sortable using drag 'n drop. Default = 'false'  
-  **fullwidth** - Optional. Display the pills fullwidth, instead of variable width. Default = 'false'  
+ **sortable** - Optional. Allow the pills to be sortable using drag 'n drop. Default = 'false'  
+ **fullwidth** - Optional. Display the pills fullwidth, instead of variable width. Default = 'false'  
 **choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **value** - Required. Text to display in the control  
+ **key** - Required. Data that will be stored for the setting  
+ **value** - Required. Text to display in the control  
 
 **Example 1**
 
@@ -1044,10 +1044,10 @@ add_control( $id, $args );
 **Arguments for $args**  
 **section** - Required. The Section where there control should appear  
 **input_attrs** - Optional. List of custom input attributes for control output.  
-  **width** - Optional. The width of the divider line. Accepts 'default', 'full', 'half'. Default: 'default'  
-  **type** - Optional. The style used for the divider. Accepts 'solid', 'dashed', 'dotted', 'double'. Default: 'solid'  
-  **margintop** - Optional. The margin above the divider (in px). Default: 20  
-  **marginbottom** - Optional. The margin below the divider (in px). Default: 20
+ **width** - Optional. The width of the divider line. Accepts 'default', 'full', 'half'. Default: 'default'  
+ **type** - Optional. The style used for the divider. Accepts 'solid', 'dashed', 'dotted', 'double'. Default: 'solid'  
+ **margintop** - Optional. The margin above the divider (in px). Default: 20  
+ **marginbottom** - Optional. The margin below the divider (in px). Default: 20
 
 **Example**
 
