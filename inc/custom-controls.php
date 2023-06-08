@@ -836,7 +836,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function enqueue() {
 			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery', 'wp-color-picker' ), $this->skyrocketCustomControlsJsVersion, true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array( 'wp-color-picker' ), '1.2', 'all' );
+			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array( 'wp-color-picker' ), $this->skyrocketCustomControlsCssVersion, 'all' );
 		}
 		/**
 		 * Render the control in the customizer
