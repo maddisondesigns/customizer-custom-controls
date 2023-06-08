@@ -1125,8 +1125,11 @@ You can download a sample theme and plugin showing how to implement these Contro
 ## Changelog ##
 
 = 1.3.0 =
+- Updated Font Awesome to v6.4.0
 - Added new Divider Custom Control
 - Added protected variables to control and section base classes to use for the customizer JS and CSS versions
+- Added 500px, Artstation, Figma, Mastodon (works with mastodon.social & mastodon.art), Quora, Steam, Telegram, TikTok, Unity, Unsplash & WhatsApp social icons
+- Added skyrocket_social_icons_plurality filter to change the plurality of the social icons (e.g. Use it to change 'Follow me on...', to 'Follow CompanyName on...')
 
 = 1.2.2 =
 - Updated Image Radio Button Control images, and Image Checkbox Control images to have better resolution
@@ -1134,31 +1137,31 @@ You can download a sample theme and plugin showing how to implement these Contro
 
 = 1.2.1 =
 - Implemented latest version of wp-color-picker-alpha
-- Changed Toggle switch to use Dashicons rather than English text
+- Updated Toggle switch to use Dashicons rather than English text
 - Tweaked slider bar colour to make it easier to see
 - Tweaked script and style version numbers when they're enqueued to ensure they're consistent
 
 = 1.2.0 =
 - Fixed wp-color-picker-alpha WordPress 5.5 incompatibility - See https://github.com/kallookoo/wp-color-picker-alpha/issues/35
 - Fixed wp-color-picker-alpha Iris Alpha Slider not aligning properly in Firefox - See https://github.com/kallookoo/wp-color-picker-alpha/issues/36
-- Update skyrocket_hex_rgba_sanitization() to sanitize RBG and RGBa colors
+- Updated skyrocket_hex_rgba_sanitization() to sanitize RBG and RGBa colors
 
 = 1.1.9 =
 - Fixed escaping by changing two instance of esc_attr() to esc_html() as per Theme Check plugin recommendations
 - Tidied up styles
 
 = 1.1.8 =
-- Update the Google Font JSON files
+- Updated the Google Font JSON files
 
 = 1.1.7 =
-- Update the property for a couple of styles to only target the background color
-- Update some of the color values to make them lowercase instead of uppercase
+- Updated the property for a couple of styles to only target the background color
+- Updated some of the color values to make them lowercase instead of uppercase
 
 = 1.1.6 =
-- Update Pill Checkbox Custom Control to ensure that jQuery UI is listed as a dependency when enqueing scripts
+- Updated Pill Checkbox Custom Control to ensure that jQuery UI is listed as a dependency when enqueing scripts
 
 = 1.1.5 =
-- Update Select2 component to load from theme/plugin rather than CDN as per Theme Review Guidelines
+- Updated Select2 component to load from theme/plugin rather than CDN as per Theme Review Guidelines
 
 = 1.1.4 =
 - Fixed issue with Multiselect in Select2 Control where choices is a single array. Props @manchumahara
@@ -1199,27 +1202,27 @@ You can download a sample theme and plugin showing how to implement these Contro
 - Renamed fontawesome stylsheet
 
 = 1.0.7 =
-- Update skyrocket_get_social_media() to store output as array rather than string to make it easier for filtering
+- Updated skyrocket_get_social_media() to store output as array rather than string to make it easier for filtering
 - Added new filter (skyrocket_social_icons_list) for filtering social media icons list array
 - Added new social icons to Customizer Control (Discord, Kickstarter, Patreon, Weibo)
 - Updated FontAwesome to v5.8.2
 
 = 1.0.6 =
-- Add the ability to show the Add Media button on the TinyMCE Control
+- Added the ability to show the Add Media button on the TinyMCE Control
 
 = 1.0.5 =
 - Added support for including this library in a plugin (as well as a theme). Props @mmcev106
 
 = 1.0.4 =
-- Fix typos. Props @lushkant
+- Fixed typos. Props @lushkant
 
 = 1.0.3 =
-- Fix issue with specifying slider step less than one (e.g. 0.5)
-- Add new sanitisation function for sanitising slider ranges
+- Fixed issue with specifying slider step less than one (e.g. 0.5)
+- Added new sanitisation function for sanitising slider ranges
 
 = 1.0.2 =
-- Update handles when enqueing scripts/styles to use dashes instead of underscores
-- Add prefixes to a couple of function names that didn't have a prefix
+- Updated handles when enqueing scripts/styles to use dashes instead of underscores
+- Added prefixes to a couple of function names that didn't have a prefix
 
 = 1.0.1 =
 - Check if there are any Google Font Controls being used before trying to call Select2
@@ -1228,22 +1231,22 @@ You can download a sample theme and plugin showing how to implement these Contro
 - Let's add a changelog and a version number to make it easier to see what's changed. We'll call this v1.0 shall we
 
 = 25 Jun 2018 =
-- Update example code and readme documentation
+- Updated example code and readme documentation
 - Setting for multiselect control should be santized the same way as the single select
-- Fix issue with Select2 Dropdown not allowing control to be saved when entries are cleared
-- Add new clear all option Select2 Dropdown
-- Add ability to specify placeholder on Select2 Dropdown
+- Fixed issue with Select2 Dropdown not allowing control to be saved when entries are cleared
+- Added new clear all option Select2 Dropdown
+- Added ability to specify placeholder on Select2 Dropdown
 
 = 17 Jun 2018 =
 - Updated text to explain example in more detail
-- Add some more readme text to explain which section in the Customizer this example code is relevant to
-- Add some more inline comments to explain what the example code includes
+- Added some more readme text to explain which section in the Customizer this example code is relevant to
+- Added some more inline comments to explain what the example code includes
 
 = 16 Jun 2018 =
-- Fix the textdomain on the sample code
+- Fixed the textdomain on the sample code
 - Increase z-index for select2 controls so dropdown appears correctly
-- Fix height on select2 multi-select control
-- Fix incorrect textdomains & comments in code
+- Fixed height on select2 multi-select control
+- Fixed incorrect textdomains & comments in code
 
 = 5 Apr 2018 =
 - Tweaked Readme. Stupid Github requiring two spaces at the end of a line just to get a carriage return. Uugh!
@@ -1255,22 +1258,22 @@ You can download a sample theme and plugin showing how to implement these Contro
 - Changed colour of Text Radio Button Control field when selected to better match other controls and to improve visibility
 
 = 31 Mar 2018 =
-- Update Google Font Control to allow ordering by popularity or alphabetically
-- Update Google Control to allow showing all fonts or specify just a certain number of fonts
+- Updated Google Font Control to allow ordering by popularity or alphabetically
+- Updated Google Control to allow showing all fonts or specify just a certain number of fonts
 
 = 16 Mar 2018 =
-- Add new Dropdown Posts Custom Control
+- Added new Dropdown Posts Custom Control
 
 = 27 Nov 2017 =
-- Update readme to include new core Date Time control
-- Add new example code for core Date Time control
-- Add a new sanitizer for the new Date Time Customizer control
+- Updated readme to include new core Date Time control
+- Added new example code for core Date Time control
+- Added a new sanitizer for the new Date Time Customizer control
 - Let's make input fields the same height as select fields
-- Fix position of label and alpha colour customizer control input field
+- Fixed position of label and alpha colour customizer control input field
 
 = 21 Nov 2017 =
-- Fix weird borders on color controls
-- Fix alignment of color input on default control
+- Fixed weird borders on color controls
+- Fixed alignment of color input on default control
 
 = 4 Oct 2017 =
 - Updated readme
@@ -1278,7 +1281,7 @@ You can download a sample theme and plugin showing how to implement these Contro
 = 29 Sep 2017 =
 - Tweak the border style on Customizer input fields to make them more noticeable
 - Tweak styles for Simple Notice Control so text isn't as cramped when code tag is used
-- Update the Simple Notice Control to allow span and code tags
+- Updated the Simple Notice Control to allow span and code tags
 
 = 13 Sep 2017 =
 - Lets check if the woocommerce class exists instead of checking active_plugins for the plugin folder & file as it will still work if the plugin folder was renamed for some reason
@@ -1289,20 +1292,20 @@ You can download a sample theme and plugin showing how to implement these Contro
 - Automatically add https instead of http since all social networks use ssl
 
 = 21 Aug 2017 =
-- Update the example code for the TinyMCE Editor control
+- Updated the example code for the TinyMCE Editor control
 
 = 20 Aug 2017 =
 - Added TinyMCE Editor Custom Control
 
 = 18 Jun 2017 =
 - Ensure manual slider input values don’t exceed minimum & maximum values
-- Fix readme formatting
+- Fixed readme formatting
 - Ensure strings are translatable
-- Add missing sanitisation callback functions
+- Added missing sanitisation callback functions
 - Ensure correct sanitisation functions are called
-- Add new functions for sanitising integers, RGBa values and the Google Font JSON string
-- Add sample code to add search icon to menu
-- Update customizer defaults
+- Added new functions for sanitising integers, RGBa values and the Google Font JSON string
+- Added sample code to add search icon to menu
+- Updated customizer defaults
 
 = 17 May 2017 =
 - Updated readme description
@@ -1311,29 +1314,29 @@ You can download a sample theme and plugin showing how to implement these Contro
 - Added a default for the Simple Notice Control, for consistency
 - Updated readme
 - Remove margin from bottom of Radio Button and Single Accordion Controls
-- Update Alpha Color Control
+- Updated Alpha Color Control
 
 = 16 May 2017 =
 - Fixed broken markdown for image in readme
 - Updated readme documentation
-- Update Simple Notice control example to include HTML tags
+- Updated Simple Notice control example to include HTML tags
 - Tweak Simple Notice and Single Accordion to only display limited HTML tags
-- Update accordion to allow displaying of basic html.
+- Updated accordion to allow displaying of basic html.
 - Don’t force accordion array content to be icons.
 - Allow the icon tag to be passed to the control
 - Change FA version when enqueing
-- Update Font Awesome to v4.7
+- Updated Font Awesome to v4.7
 - Updated readme
 
 = 14 May 2017 =
-- Add more content to readme
-- Add the ability to override the button labels on the Sortable repeater
+- Added more content to readme
+- Added the ability to override the button labels on the Sortable repeater
 - Tweak translation functions on labels & descriptions
 - Override button label on Sortable Repeaters
 - Change name of default value
 
 = 11 May 2017 =
-- Fix readme. Github markdown eh! Talk about crap! Github Markdown really sucks
+- Fixed readme. Github markdown eh! Talk about crap! Github Markdown really sucks
 
 = 8 May 2017 =
 - Added missing sanitisation on strings
