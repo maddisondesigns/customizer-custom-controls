@@ -11,7 +11,7 @@ if ( ! function_exists( 'skyrocket_scripts_styles' ) ) {
 	function skyrocket_scripts_styles() {
 		// Register and enqueue our icon font
 		// We're using the awesome Font Awesome icon font. https://fontawesome.com
-		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/fontawesome-all.min.css' , array(), '6.4.0', 'all' );
+		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/fontawesome-all.min.css' , array(), '6.4.2', 'all' );
 		wp_enqueue_style( 'fontawesome' );
 	}
 }
@@ -90,7 +90,7 @@ if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
 			array( 'url' => 'tiktok.com', 'icon' => 'fab fa-tiktok', 'title' => esc_html( sprintf( __( 'Follow %s on TikTok', 'skyrocket' ), $plurality ) ), 'class' => 'tiktok' ),
 			array( 'url' => 'tumblr.com', 'icon' => 'fab fa-tumblr', 'title' => esc_html( sprintf( __( 'Follow %s on Tumblr', 'skyrocket' ), $plurality ) ), 'class' => 'tumblr' ),
 			array( 'url' => 'twitch.tv', 'icon' => 'fab fa-twitch', 'title' => esc_html( sprintf( __( 'Follow %s on Twitch', 'skyrocket' ), $plurality ) ), 'class' => 'twitch' ),
-			array( 'url' => 'twitter.com', 'icon' => 'fab fa-twitter', 'title' => esc_html( sprintf( __( 'Follow %s on Twitter', 'skyrocket' ), $plurality ) ), 'class' => 'twitter' ),
+			array( 'url' => 'twitter.com', 'icon' => 'fab fa-x-twitter', 'title' => esc_html( sprintf( __( 'Follow %s on Twitter', 'skyrocket' ), $plurality ) ), 'class' => 'twitter' ),
 			array( 'url' => 'assetstore.unity.com', 'icon' => 'fab fa-unity', 'title' => esc_html( sprintf( __( 'Follow %s on Unity Asset Store', 'skyrocket' ), $plurality ) ), 'class' => 'unity' ),
 			array( 'url' => 'unsplash.com', 'icon' => 'fab fa-unsplash', 'title' => esc_html( sprintf( __( 'Follow %s on Unsplash', 'skyrocket' ), $plurality ) ), 'class' => 'unsplash' ),
 			array( 'url' => 'vimeo.com', 'icon' => 'fab fa-vimeo-v', 'title' => esc_html( sprintf( __( 'Follow %s on Vimeo', 'skyrocket' ), $plurality ) ), 'class' => 'vimeo' ),

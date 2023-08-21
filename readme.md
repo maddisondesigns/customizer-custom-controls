@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.3.0
+**Version:** 1.3.1
 
 ## Description ##
 
@@ -52,7 +52,7 @@ TinyMCE Editor
 Google Font Select  
 Alpha Color  
 WPColorPicker Alpha Color  
-Sortable Pill Checkbox Custom Control  
+Sortable Pill Checkbox  
 Divider  
 Upsell Section  
 
@@ -60,7 +60,7 @@ Upsell Section
 
 The Toggle Switch Custom Control is basically just a fancy type of checkbox. It allows for two states, either off or on.
 
-![Toggle Switch](https://maddisondesigns.com/wp-content/uploads/2017/04/ToggleSwitch.jpg "Toggle Switch")
+![Toggle Switch](https://maddisondesigns.com/wp-content/uploads/2017/05/ToggleSwitch.jpg "Toggle Switch")
 
 **Usage**  
 add_control( $id, $args );
@@ -97,7 +97,7 @@ The Slider Custom Control allows you to drag a handle across a horizontal bar to
 
 You can specify the minimum and maximum values for the slider as well as the step size, which is the size of each interval between the minimum and maximum values.
 
-![Slider](https://maddisondesigns.com/wp-content/uploads/2017/04/SliderControl.jpg "Slider")
+![Slider](https://maddisondesigns.com/wp-content/uploads/2017/05/SliderControl.jpg "Slider")
 
 **Usage**  
 add_control( $id, $args );
@@ -145,7 +145,7 @@ This particular Control has been designed for collecting one or more URL's and w
 
 The setting for this control will be saved as a comma delimited string of URL's. To use this setting in your theme, I recommend using the PHP `explode()` function to convert the comma delimited string to an array of strings.
 
-![Sortable Repeater](https://maddisondesigns.com/wp-content/uploads/2017/04/SortableRepeater.jpg "Sortable Repeater")
+![Sortable Repeater](https://maddisondesigns.com/wp-content/uploads/2017/05/SortableRepeater.jpg "Sortable Repeater")
 
 **Usage**  
 add_control( $id, $args );
@@ -1123,6 +1123,12 @@ You can download a sample theme and plugin showing how to implement these Contro
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin)  
 
 ## Changelog ##
+
+= 1.3.1 =
+- Fixed escaping by changing instance of esc_attr() to esc_html() within Pill Checkbox Control
+- Updated screenshots for Toggle Switch, Slider and Sortable Repeater controls
+- Updated Font Awesome to v6.4.2
+- Updated Twitter social icon to new X icon
 
 = 1.3.0 =
 - Updated Font Awesome to v6.4.0

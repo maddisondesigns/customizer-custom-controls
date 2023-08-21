@@ -1021,12 +1021,12 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				<?php foreach ( $reordered_choices as $key => $value ) { ?>
 					<label class="checkbox-label">
 						<input type="checkbox" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( esc_attr( $key ), $saved_choices, true ), true ); ?> class="sortable-pill-checkbox"/>
-						<span class="sortable-pill-title"><?php echo esc_attr( $value ); ?></span>
+						<span class="sortable-pill-title"><?php echo esc_html( $value ); ?></span>
 						<?php if( $this->sortable && $this->fullwidth ) { ?>
 							<span class="dashicons dashicons-sort"></span>
 						<?php } ?>
 					</label>
-				<?php	} ?>
+				<?php } ?>
 				</div>
 			</div>
 		<?php
