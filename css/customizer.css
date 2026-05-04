@@ -323,7 +323,7 @@ input[type="number"]:focus {
 }
 
 .slider-custom-control .ui-widget.ui-widget-content {
-	border: 1px solid #f4f4f4;
+	border: 1px solid #d4d4d4;
 }
 
 .slider-custom-control .ui-corner-all,
@@ -355,7 +355,7 @@ input[type="number"]:focus {
 }
 
 .slider-custom-control .ui-widget-content {
-	background: #fff none repeat scroll 0 0;
+	background: #d4d4d4 none repeat scroll 0 0;
 	color: #333;
 }
 
