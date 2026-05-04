@@ -202,7 +202,7 @@ add_filter( 'wp_nav_menu_items', 'skyrocket_add_search_menu_item', 10, 2 );
  * Add the following three lines of code to your footer.php file to display the content of your sample TinyMCE Control
  * <div class="footer-credits">
  *		<?php echo skyrocket_get_credits(); ?>
- *	</div>
+ * </div>
  */
 if ( ! function_exists( 'skyrocket_get_credits' ) ) {
 	function skyrocket_get_credits() {
