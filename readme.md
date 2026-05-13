@@ -115,10 +115,10 @@ add_control( $id, $args );
  **min** - Required. Minimum value for the slider  
  **max** - Required. Maximum value for the slider  
  **step** - Required. The size of each interval or step the slider takes between the min and max values  
- **default_unit** - Optional. Default unit to use when displaying units  
- **units** - Optional. Array containing list of options to display for the units  
-  **key** - Required. Data that will be stored for the setting  
-  **value** - Required. Data that is displayed in the dropdown list
+ **default_unit** - Optional. Default unit to use when displaying units  
+ **units** - Optional. Array containing list of options to display for the units  
+  **key** - Required. Data that will be stored for the setting  
+  **value** - Required. Data that is displayed in the dropdown list
 
 **Example**
 
