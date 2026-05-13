@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.3.1
+**Version:** 1.3.2
 
 ## Description ##
 
@@ -97,6 +97,8 @@ The Slider Custom Control allows you to drag a handle across a horizontal bar to
 
 You can specify the minimum and maximum values for the slider as well as the step size, which is the size of each interval between the minimum and maximum values.
 
+The Slider Custom Control also allows you to specify a list of units, which is useful for controls where you need to specify units like px, em or rem (e.g. when slecting font sizes)
+
 ![Slider](https://maddisondesigns.com/wp-content/uploads/2017/05/SliderControl.jpg "Slider")
 
 **Usage**  
@@ -112,7 +114,11 @@ add_control( $id, $args );
 **input_attrs** - Required. List of custom input attributes for control output.  
  **min** - Required. Minimum value for the slider  
  **max** - Required. Maximum value for the slider  
- **step** - Required. The size of each interval or step the slider takes between the min and max values
+ **step** - Required. The size of each interval or step the slider takes between the min and max values  
+ **default_unit** - Optional. Default unit to use when displaying units
+ **units** - Optional. Array containing list of options to display for the units  
+  **key** - Required. Data that will be stored for the setting  
+  **value** - Required. Data that is displayed in the dropdown list
 
 **Example**
 
@@ -132,6 +138,32 @@ $wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 
 			'min' => 10, // Required. Minimum value for the slider
 			'max' => 90, // Required. Maximum value for the slider
 			'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'sample_slider_control_with_units',
+	array(
+		'default' => "24px",
+		'transport' => 'refresh',
+		'sanitize_callback' => 'skyrocket_range_sanitization'
+	)
+);
+$wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control_with_units',
+	array(
+		'label' => __( 'Font Size', 'skyrocket' ),
+		'section' => 'sample_custom_controls_section',
+		'input_attrs' => array(
+			'min' => 10,
+			'max' => 60,
+			'step' => 1,
+			'default_unit' => 'px', // Optional. Default unit to use
+			'units' => array( // Optional. List of units available for selection
+				'px' => ( 'px' ),
+				'em' => ( 'em' ),
+				'rem' => ( 'rem' ),
+				'vw' => ( 'vw' ),
+			),
 		),
 	)
 ) );
@@ -202,10 +234,10 @@ add_control( $id, $args );
 
 **Arguments for $args**  
 **label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
+**description** - Optional. The description to display under the label. Default: Blank  
 **section** - Required. The Section where there control should appear  
-**choices** - Required. List of custom choices.  
- **key** - Required. Data that will be stored for the setting
+**choices** - Required. List of custom choices  
+ **key** - Required. Data that will be stored for the setting  
  **image** - Required. URL for the image to display  
  **name** - Required. Title text to display
 
@@ -1123,6 +1155,9 @@ You can download a sample theme and plugin showing how to implement these Contro
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin)  
 
 ## Changelog ##
+
+= 1.3.2 =
+- Updated Slider Custom Control to allow passing a list (array) of units (e.g. px, em, rem, %, vw).
 
 = 1.3.1 =
 - Fixed escaping by changing instance of esc_attr() to esc_html() within Pill Checkbox Control

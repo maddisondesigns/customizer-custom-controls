@@ -119,40 +119,92 @@ jQuery( document ).ready(function($) {
 			step: sliderStepValue,
 			change: function(e,ui){
 				// Important! When slider stops moving make sure to trigger change event so Customizer knows it has to save the field
-				$(this).parent().find('.customize-control-slider-value').trigger('change');
+				$(this).parent().find('.customize-control-slider').trigger('change');
 	      }
 		});
 	});
 
 	// Change the value of the input field as the slider is moved
 	$('.slider').on('slide', function(event, ui) {
+		var sliderUnit = $(this).parent().find('.slider-units-list').val();
+		var unitsExist = false;
+
+		if (typeof sliderUnit !== 'undefined') {
+			unitsExist = true;
+		}
 		$(this).parent().find('.customize-control-slider-value').val(ui.value);
+		if (unitsExist) {
+			$(this).parent().find('.customize-control-slider').val(ui.value + sliderUnit);
+		} else {
+			$(this).parent().find('.customize-control-slider').val(Number(ui.value));
+		}
+
 	});
 
 	// Reset slider and input field back to the default value
 	$('.slider-reset').on('click', function() {
 		var resetValue = $(this).attr('slider-reset-value');
+		var resetUnit = $(this).attr('slider-reset-unit');
+		var unitsExist = false;
+
+		if (resetUnit !== "") {
+			unitsExist = true;
+		}
 		$(this).parent().find('.customize-control-slider-value').val(resetValue);
 		$(this).parent().find('.slider').slider('value', resetValue);
+		if (unitsExist) {
+			$(this).parent().find('.customize-control-slider').val(resetValue + resetUnit);
+		} else {
+			$(this).parent().find('.customize-control-slider').val(Number(resetValue));
+		}
+
 	});
 
 	// Update slider if the input field loses focus as it's most likely changed
 	$('.customize-control-slider-value').blur(function() {
-		var resetValue = $(this).val();
+		var inputValue = $(this).val();
 		var slider = $(this).parent().find('.slider');
-		var sliderMinValue = parseInt(slider.attr('slider-min-value'));
-		var sliderMaxValue = parseInt(slider.attr('slider-max-value'));
+		var sliderMinValue = Number(slider.attr('slider-min-value'));
+		var sliderMaxValue = Number(slider.attr('slider-max-value'));
+		var sliderStepValue = Number(slider.attr('slider-step-value'));
+		var sliderUnit = $(this).parent().find('.slider-units-list').val();
+		var unitsExist = false;
 
+		if (typeof sliderUnit !== 'undefined') {
+			unitsExist = true;
+		}
+		//Make sure the number is a multiple of the step value
+		inputValue = Math.floor( inputValue / sliderStepValue ) * sliderStepValue;
 		// Make sure our manual input value doesn't exceed the minimum & maxmium values
-		if(resetValue < sliderMinValue) {
-			resetValue = sliderMinValue;
-			$(this).val(resetValue);
+		if(inputValue < sliderMinValue) {
+			inputValue = sliderMinValue;
+			$(this).val(inputValue);
 		}
-		if(resetValue > sliderMaxValue) {
-			resetValue = sliderMaxValue;
-			$(this).val(resetValue);
+		if(inputValue > sliderMaxValue) {
+			inputValue = sliderMaxValue;
+			$(this).val(inputValue);
 		}
-		$(this).parent().find('.slider').slider('value', resetValue);
+		$(this).parent().find('.slider').slider('value', inputValue);
+		$(this).parent().find('.customize-control-slider-value').val(Number(inputValue));
+		// Update value in customizer field
+		if (unitsExist) {
+			$(this).parent().find('.customize-control-slider').val(inputValue + sliderUnit);
+		} else {
+			$(this).parent().find('.customize-control-slider').val(Number(inputValue));
+		}
+		// Important! When input field is updated trigger change event so Customizer knows it has to save the field
+		$(this).parent().find('.customize-control-slider').trigger('change');
+
+	});
+
+	// Update customizer field if the units change
+	$('.slider-units-list').change(function() {
+		var sliderUnit = $(this).val();
+		var SliderVal = $(this).parent().find('.customize-control-slider-value').val();
+
+		$(this).parent().find('.customize-control-slider').val(SliderVal + sliderUnit);
+		// Important! When units are updated trigger change event so Customizer knows it has to save the field
+		$(this).parent().find('.customize-control-slider').trigger('change');
 	});
 
 	/**

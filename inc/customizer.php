@@ -487,6 +487,33 @@ class skyrocket_initialise_customizer_settings {
 			)
 		) );
 
+		// Yet another Test of Slider Custom Control
+		$wp_customize->add_setting( 'sample_slider_control_with_units',
+			array(
+				'default' => $this->defaults['sample_slider_control_with_units'],
+				'transport' => 'refresh',
+				'sanitize_callback' => 'skyrocket_range_sanitization'
+			)
+		);
+		$wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control_with_units',
+			array(
+				'label' => __( 'Slider Control With Units', 'skyrocket' ),
+				'section' => 'sample_custom_controls_section',
+				'input_attrs' => array(
+					'min' => 10,
+					'max' => 80,
+					'step' => 1,
+					'default_unit' => 'rem', // Optional. Default unit to use
+					'units' => array( // Optional. List of units available for selection
+						'px' => ( 'px' ),
+						'em' => ( 'em' ),
+						'rem' => ( 'rem' ),
+						'vw' => ( 'vw' ),
+					),
+				),
+			)
+		) );
+
 		// Add our Sortable Repeater setting and Custom Control for Social media URLs
 		$wp_customize->add_setting( 'sample_sortable_repeater_control',
 			array(

@@ -293,6 +293,41 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public $type = 'slider_control';
 		/**
+		 * Define whether the slider will display the units field. Either false or true. Default = false
+		 */
+		private $displayUnits = false;
+		/**
+		 * Define whether a list of default units in case none are specified
+		 */
+		private $units = array( // Optional. List of units available for selection
+			'px' => ( 'px' ),
+			'em' => ( 'em' ),
+			'rem' => ( 'rem' ),
+			'vw' => ( 'vw' ),
+		);
+		/**
+		 * Define the default unit
+		 */
+		private $defaultUnit = "px";
+		/**
+		 * Constructor
+		 */
+		public function __construct( $manager, $id, $args = array(), $options = array() ) {
+			parent::__construct( $manager, $id, $args );
+			// Check if we should display the units and what those units are
+			if ( isset( $this->input_attrs['units'] ) && $this->input_attrs['units'] ) {
+				$this->displayUnits = true;
+				$this->units = $this->input_attrs['units'];
+				$this->dataType = "text";
+			}
+			// Get the default unit if specified
+			if ( isset( $this->input_attrs['default_unit'] ) && $this->input_attrs['default_unit'] ) {
+				$this->displayUnits = true;
+				$this->defaultUnit = $this->input_attrs['default_unit'];
+				$this->dataType = "text";
+			}
+		}
+		/**
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
@@ -303,10 +338,21 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Render the control in the customizer
 		 */
 		public function render_content() {
+			$sliderValueParts = sscanf( esc_attr( $this->value() ), "%f%s" );
+			$unitDropdownOptions = "";
+
+			if ( $this->displayUnits ) {
+				$unitDropdownOptions .= '<select class="slider-units-list">';
+				foreach( $this->units as $key => $value ) {
+					$unitDropdownOptions .= '<option value="' . $value . '" ' . selected( $sliderValueParts[1], $value, false ) . '>' . $key . '</option>';
+				}
+				$unitDropdownOptions .= '</select>';
+			}
 		?>
 			<div class="slider-custom-control">
-				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span><input type="number" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-slider-value" <?php $this->link(); ?> />
-				<div class="slider" slider-min-value="<?php echo esc_attr( $this->input_attrs['min'] ); ?>" slider-max-value="<?php echo esc_attr( $this->input_attrs['max'] ); ?>" slider-step-value="<?php echo esc_attr( $this->input_attrs['step'] ); ?>"></div><span class="slider-reset dashicons dashicons-image-rotate" slider-reset-value="<?php echo esc_attr( $this->value() ); ?>"></span>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span><?php echo ( $this->displayUnits ) ? $unitDropdownOptions : ""; ?> <input type="number" value="<?php echo esc_attr( $sliderValueParts[0] ); ?>" min="<?php echo esc_attr( $this->input_attrs['min'] ); ?>"  max="<?php echo esc_attr( $this->input_attrs['max'] ); ?>"  step="<?php echo esc_attr( $this->input_attrs['step'] ); ?>" class="customize-control-slider-value" />
+				<div class="slider" slider-min-value="<?php echo esc_attr( $this->input_attrs['min'] ); ?>" slider-max-value="<?php echo esc_attr( $this->input_attrs['max'] ); ?>" slider-step-value="<?php echo esc_attr( $this->input_attrs['step'] ); ?>"></div><span class="slider-reset dashicons dashicons-image-rotate" slider-reset-value="<?php echo esc_attr( $sliderValueParts[0] ); ?>" slider-reset-unit="<?php echo esc_attr( $sliderValueParts[1] ); ?>"></span>
+				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-slider" <?php $this->link(); ?> />
 			</div>
 		<?php
 		}
@@ -1376,14 +1422,28 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	if ( ! function_exists( 'skyrocket_range_sanitization' ) ) {
 		function skyrocket_range_sanitization( $input, $setting ) {
 			$attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+			$val = $input;
+			$sliderValueParts = "";
+			$returnVal = $input;
 
-			$min = ( isset( $attrs['min'] ) ? $attrs['min'] : $input );
-			$max = ( isset( $attrs['max'] ) ? $attrs['max'] : $input );
+			// If we're displaying units then seperate the number and units
+			if ( ( isset( $attrs['units'] ) && $attrs['units'] ) || ( isset( $attrs['default_unit'] ) && $attrs['default_unit'] ) ) {
+				$sliderValueParts = sscanf( esc_attr( $val ), "%f%s" );
+				$val = $sliderValueParts[0];
+			}
+			$min = ( isset( $attrs['min'] ) ? $attrs['min'] : $val );
+			$max = ( isset( $attrs['max'] ) ? $attrs['max'] : $val );
 			$step = ( isset( $attrs['step'] ) ? $attrs['step'] : 1 );
 
-			$number = floor( $input / $attrs['step'] ) * $attrs['step'];
+			$returnVal = floor( $val / $step ) * $step;
 
-			return skyrocket_in_range( $number, $min, $max );
+			$returnVal = skyrocket_in_range( $returnVal, $min, $max );
+			if ( ( isset( $attrs['units'] ) && $attrs['units'] ) || ( isset( $attrs['default_unit'] ) && $attrs['default_unit'] ) ) {
+				// Append the units
+				$returnVal .= $sliderValueParts[1];
+			}
+
+			return $returnVal;
 		}
 	}
 
