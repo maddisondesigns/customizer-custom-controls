@@ -4,7 +4,7 @@
 **Author URI:** https://maddisondesigns.com  
 **License:** GNU General Public License v2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-**Version:** 1.3.2
+**Version:** 1.3.3
 
 ## Description ##
 
@@ -1155,9 +1155,12 @@ You can download a sample theme and plugin showing how to implement these Contro
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Plugin)  
 
 ## Changelog ##
+= 1.3.3 =
+- Tweaked Text Radio Button Control to display full width
+- Updated Font Awesome to v7.2.0
 
 = 1.3.2 =
-- Updated Slider Custom Control to allow passing a list (array) of units (e.g. px, em, rem, %, vw).
+- Updated Slider Custom Control to allow passing a list (array) of units (e.g. px, em, rem, %, vw)
 
 = 1.3.1 =
 - Fixed escaping by changing instance of esc_attr() to esc_html() within Pill Checkbox Control
