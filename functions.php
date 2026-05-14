@@ -11,7 +11,7 @@ if ( ! function_exists( 'skyrocket_scripts_styles' ) ) {
 	function skyrocket_scripts_styles() {
 		// Register and enqueue our icon font
 		// We're using the awesome Font Awesome icon font. https://fontawesome.com
-		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/fontawesome-all.min.css' , array(), '6.4.2', 'all' );
+		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/fontawesome-all.min.css' , array(), '7.2.0', 'all' );
 		wp_enqueue_style( 'fontawesome' );
 	}
 }

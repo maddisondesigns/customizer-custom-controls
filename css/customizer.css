@@ -107,13 +107,13 @@ input[type="number"]:focus {
 }
 
 .text_radio_button_control .radio-buttons {
-	display: inline-block;
+	display: flex;
 	border: 1px solid #f9f9fe;
 }
 
 .text_radio_button_control .radio-button-label {
 	cursor: pointer;
-	float: left;
+	flex-grow: 1;
 }
 
 .text_radio_button_control .radio-button-label > input {
@@ -127,7 +127,8 @@ input[type="number"]:focus {
 	margin: 0;
 	background-color: #eee;
 	padding: 5px 15px;
-	display: inline-block;
+	display: flex;
+	justify-content: center;
 }
 
 .text_radio_button_control .radio-button-label span:hover {
